@@ -2,6 +2,6 @@
   "name": "fchemexpo-a03-backwall-review",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node build.mjs" },
+  "scripts": { "build": "node build.mjs", "build:finechem": "node build.mjs --finechem" },
   "dependencies": { "sharp": "0.35.5" }
 }
