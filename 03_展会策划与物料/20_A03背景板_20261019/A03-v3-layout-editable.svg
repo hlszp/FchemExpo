@@ -29,7 +29,7 @@
     <text x="150" y="453" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="29" font-weight="400" fill="#B8CBE0" letter-spacing="0" text-anchor="start">从批次管理入手 · 一条基于现有 DCS 数据的四级爬坡路径</text>
   </g>
   <g id="product-architecture">
-    <text x="150" y="555" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="35" font-weight="500" fill="#F3F7FC" letter-spacing="0" text-anchor="start">从数据基础，到生产执行</text>
+    <text x="150" y="555" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="35" font-weight="500" fill="#F3F7FC" letter-spacing="0" text-anchor="start">从数据基础，到智能协同</text>
     <text x="150" y="599" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="400" fill="#B8CBE0" letter-spacing="0" text-anchor="start">让过程可分析，让改进有依据</text>
     <path d="M150 660H535V595H960V530H1360" stroke="#48D8FF" stroke-width="2" stroke-opacity=".35" fill="none"/>
     <path d="M1347 520l13 10-13 10" stroke="#48D8FF" stroke-width="2" stroke-opacity=".5" fill="none"/>
@@ -44,7 +44,6 @@
     <text x="230" y="768" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">装置体检</text>
     <path d="M173 790h339" stroke="#48D8FF" stroke-opacity=".28"/>
     <text x="173" y="846" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="38" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">iAAS + iCLPM</text>
-
     <text x="173" y="889" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="28" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">报警治理 · 回路诊断</text>
     <text x="173" y="944" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把异常确诊</text>
     <path d="M481 933h24m-8-8 8 8-8 8" fill="none" stroke="#48D8FF" stroke-width="2"/>
@@ -57,7 +56,6 @@
     <text x="655" y="703" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">批次语义</text>
     <path d="M598 725h339" stroke="#48D8FF" stroke-opacity=".28"/>
     <text x="598" y="781" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="45" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">iPAE</text>
-
     <text x="598" y="824" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="28" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">轨迹对比 · 批次分析</text>
     <text x="598" y="879" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把时序变语义</text>
     <path d="M906 868h24m-8-8 8 8-8 8" fill="none" stroke="#48D8FF" stroke-width="2"/>
@@ -67,13 +65,11 @@
     <rect x="1000" y="590" width="385" height="252" fill="#12517D"/>
     <path d="M1000 590h385l28 -18" fill="none" stroke="#48D8FF" stroke-width="3"/>
     <text x="1023" y="637" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">L3</text>
-    <text x="1080" y="638" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">任务协同</text>
+    <text x="1080" y="638" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">生产执行</text>
     <path d="M1023 660h339" stroke="#48D8FF" stroke-opacity=".28"/>
-    <text x="1023" y="716" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="45" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">inWork</text>
-    <rect x="1217" y="687" width="120" height="32" fill="#0D3A5B" stroke="#79ACC8" stroke-opacity=".6"/>
-      <text x="1277" y="710" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="400" fill="#D4E5F3" letter-spacing="0" text-anchor="middle">规划中</text>
-    <text x="1023" y="759" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="28" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">工业智能工作台</text>
-    <text x="1023" y="814" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把洞察变任务</text>
+    <text x="1023" y="716" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="45" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">iMCS</text>
+    <text x="1023" y="759" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="24" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">配方 · 物料 · 质量 · 追溯</text>
+    <text x="1023" y="814" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把结论变执行</text>
     <path d="M1331 803h24m-8-8 8 8-8 8" fill="none" stroke="#48D8FF" stroke-width="2"/>
   </g><g id="stage-L4">
     <path d="M1425 525l28 -18h385l-28 18Z" fill="#0F88BB"/>
@@ -81,12 +77,11 @@
     <rect x="1425" y="525" width="385" height="252" fill="#086998"/>
     <path d="M1425 525h385l28 -18" fill="none" stroke="#48D8FF" stroke-width="3"/>
     <text x="1448" y="572" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">L4</text>
-    <text x="1505" y="573" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">生产执行</text>
+    <text x="1505" y="573" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="36" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">智能协同</text>
     <path d="M1448 595h339" stroke="#48D8FF" stroke-opacity=".28"/>
-    <text x="1448" y="651" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="45" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">iMCS</text>
-
-    <text x="1448" y="694" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="24" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">配方 · 物料 · 质量 · 追溯</text>
-    <text x="1448" y="749" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把结论变执行</text>
+    <text x="1448" y="651" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="45" font-weight="600" fill="#F3F7FC" letter-spacing="0" text-anchor="start">inWork</text>
+    <text x="1448" y="694" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="28" font-weight="400" fill="#E2EDF6" letter-spacing="0" text-anchor="start">工业智能工作台</text>
+    <text x="1448" y="749" font-family="'PingFang SC','Heiti SC','Noto Sans CJK SC',sans-serif" font-size="25" font-weight="500" fill="#48D8FF" letter-spacing="0" text-anchor="start">把洞察变任务</text>
     <path d="M1756 738h24m-8-8 8 8-8 8" fill="none" stroke="#48D8FF" stroke-width="2"/>
   </g>
     <g id="data-foundation">

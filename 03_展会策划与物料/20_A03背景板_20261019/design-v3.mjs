@@ -6,8 +6,8 @@ export function architectureDesign({ text, logo, qr }) {
   const stages = [
     {x:150,y:720,level:'L1',title:'装置体检',product:'iAAS + iCLPM',role:'报警治理 · 回路诊断',method:'把异常确诊',front:'#13304D',top:'#1B4367'},
     {x:575,y:655,level:'L2',title:'批次语义',product:'iPAE',role:'轨迹对比 · 批次分析',method:'把时序变语义',front:'#123B60',top:'#1B5984'},
-    {x:1000,y:590,level:'L3',title:'任务协同',product:'inWork',role:'工业智能工作台',method:'把洞察变任务',front:'#12517D',top:'#176A9D',planned:true},
-    {x:1425,y:525,level:'L4',title:'生产执行',product:'iMCS',role:'配方 · 物料 · 质量 · 追溯',method:'把结论变执行',front:'#086998',top:'#0F88BB'},
+    {x:1000,y:590,level:'L3',title:'生产执行',product:'iMCS',role:'配方 · 物料 · 质量 · 追溯',method:'把结论变执行',front:'#12517D',top:'#176A9D'},
+    {x:1425,y:525,level:'L4',title:'智能协同',product:'inWork',role:'工业智能工作台',method:'把洞察变任务',front:'#086998',top:'#0F88BB'},
   ];
   const width=385, height=252, dx=28, dy=-18;
   const stage = s => `<g id="stage-${s.level}">
@@ -19,9 +19,7 @@ export function architectureDesign({ text, logo, qr }) {
     ${t(s.x+80,s.y+48,36,s.title,{weight:600})}
     <path d="M${s.x+23} ${s.y+70}h339" stroke="${cyan}" stroke-opacity=".28"/>
     ${t(s.x+23,s.y+126,s.level==='L1'?38:45,s.product,{weight:600})}
-    ${s.planned ? `<rect x="${s.x+217}" y="${s.y+97}" width="120" height="32" fill="#0D3A5B" stroke="#79ACC8" stroke-opacity=".6"/>
-      ${t(s.x+277,s.y+120,21,'规划中',{anchor:'middle',fill:'#D4E5F3'})}` : ''}
-    ${t(s.x+23,s.y+169,s.level==='L4'?24:28,s.role,{fill:'#E2EDF6'})}
+    ${t(s.x+23,s.y+169,s.product==='iMCS'?24:28,s.role,{fill:'#E2EDF6'})}
     ${t(s.x+23,s.y+224,25,s.method,{fill:cyan,weight:500})}
     <path d="M${s.x+331} ${s.y+213}h24m-8-8 8 8-8 8" fill="none" stroke="${cyan}" stroke-width="2"/>
   </g>`;
@@ -54,7 +52,7 @@ export function architectureDesign({ text, logo, qr }) {
     ${t(150,453,29,'从批次管理入手 · 一条基于现有 DCS 数据的四级爬坡路径',{fill:gray})}
   </g>
   <g id="product-architecture">
-    ${t(150,555,35,'从数据基础，到生产执行',{weight:500})}
+    ${t(150,555,35,'从数据基础，到智能协同',{weight:500})}
     ${t(150,599,25,'让过程可分析，让改进有依据',{fill:gray})}
     <path d="M150 660H535V595H960V530H1360" stroke="${cyan}" stroke-width="2" stroke-opacity=".35" fill="none"/>
     <path d="M1347 520l13 10-13 10" stroke="${cyan}" stroke-width="2" stroke-opacity=".5" fill="none"/>
@@ -88,8 +86,8 @@ export function architectureDesign({ text, logo, qr }) {
   const required=['让装置数据，','变成企业的生产力','精细化工数智化','杭州致联信息工程有限公司',
     'HANGZHOU ZHILIAN INFORMATION ENGINEERING CO., LTD.',
     '从批次管理入手 · 一条基于现有 DCS 数据的四级爬坡路径',
-    'iIoTS','iAAS + iCLPM','iPAE','inWork','iMCS','规划中','www.zlinfot.com','13516812241','service@zlinfot.com',
-    'L0','L1','L2','L3','L4','装置体检','批次语义','任务协同','生产执行',
+    'iIoTS','iAAS + iCLPM','iPAE','inWork','iMCS','www.zlinfot.com','13516812241','service@zlinfot.com',
+    'L0','L1','L2','L3','L4','装置体检','批次语义','智能协同','生产执行',
     '轨迹对比 · 批次分析','把数据接上来','把异常确诊','把时序变语义','把洞察变任务','把结论变执行',
     '以数据支撑质量、效率与成本改进'];
   return {content,required};

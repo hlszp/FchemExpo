@@ -105,7 +105,7 @@ const forbidden = ['智联','Zillion','iSCADA','RMAS','iPES','iSPSM','iBATCH','�
 for (const term of mustHave) if (!content.includes(term)) throw new Error(`Missing copy: ${term}`);
 for (const term of forbidden) if (content.includes(term)) throw new Error(`Forbidden copy: ${term}`);
 if (upperLayout && content.includes('A03')) throw new Error('Booth number must not appear on revised artwork');
-if (architecture && /黄金批次|苯环|含氟|molecularRing|chemical-identity/.test(content)) throw new Error('Retired theme or molecular motif in architecture artwork');
+if (architecture && /黄金批次|苯环|含氟|molecularRing|chemical-identity|任务协同|规划中/.test(content)) throw new Error('Retired theme, label or molecular motif in architecture artwork');
 if (upperLayout) {
   const lowText = [...content.matchAll(/<text[^>]*y="([\d.]+)"/g)].filter(m=>Number(m[1])>1190);
   if (lowText.length) throw new Error('Text enters the 900 mm table-clearance zone');
