@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow">
 <title>系统演示 · 致联信息</title>
-<meta name="description" content="致联信息五套工业软件真实系统演示入口：iPAE 过程分析、iAAS 报警管理、iMCS 生产管控、iCLPM 回路性能、inWork 智能体工作台，以及工艺报警工作台。">
+<meta name="description" content="致联信息工业软件演示入口：iACMS 异常工况管理、iPAE 过程分析、iAAS 报警管理、iMCS 生产管控、iCLPM 回路性能、inWork 智能体工作台，以及工艺报警工作台。">
 <meta name="theme-color" content="#0069AE">
 <link rel="icon" href="../assets/brand/logo.svg">
 <link rel="stylesheet" href="demo.css">
@@ -34,7 +34,7 @@
       <div>
         <div class="kicker">SYSTEM DEMO / 系统演示</div>
         <h1>先看任务，<br><em>再看系统</em></h1>
-        <p class="lead">围绕一次异常工况，把 iPAE 发现、iAAS 报警、iCLPM 回路、iMCS 电子批记录和 inWork 处置串成一条任务链；先看数据怎么走，再看每套系统。</p>
+        <p class="lead">围绕一次异常工况，由 iACMS 组织 AI/Agent 任务链，把 iPAE 发现、iAAS 报警、iCLPM 回路、iMCS 电子批记录和 inWork 处置串起来；先看任务怎么闭环，再看每套系统。</p>
         <div class="hero__acts">
           <a class="btn primary" href="#task">从任务开始 ↓</a>
           <a class="btn" href="#systems">选择系统 ↓</a>
@@ -42,7 +42,7 @@
         </div>
         <div class="hero__meta">
           <span><b>3 个</b>全链路任务</span>
-          <span><b>4 套</b>高仿真系统</span>
+          <span><b>5 套</b>高仿真系统</span>
           <span><b>1 套</b>真实 inWork</span>
           <span><b>1 条</b>同批号数据链</span>
         </div>
@@ -69,8 +69,9 @@
           <h2>一次异常工况，<br>如何穿过全链路</h2>
           <p>不是把五个系统各点一遍，而是围绕同一个批号，把“发现异常 → 报警 → 回路诊断 → 批记录审核 → 处置闭环”串成一条可追溯的数据链。</p>
           <div class="task-entry__acts">
-            <a class="btn primary" href="/demo/app/inwork/">在 inWork 中打开 iLINK →</a>
-            <a class="btn" href="/demo/app/chain/#abnormal">直接看任务</a>
+            <a class="btn primary" href="/demo/app/iacms/">进入 iACMS 异常工况管理 →</a>
+            <a class="btn" href="/demo/app/inwork/">在 inWork 中看 iLINK</a>
+            <a class="btn" href="/demo/app/chain/#abnormal">直接看任务链</a>
             <a class="btn" href="/demo/app/chain/#catalyst">催化剂活性</a>
             <a class="btn" href="/demo/app/chain/#hx">换热器性能</a>
           </div>
@@ -96,7 +97,7 @@
           <div class="kicker">SYSTEMS / 真实系统 + 高仿真</div>
           <h2>按产品线进入</h2>
         </div>
-        <p>4 套高仿真已上线，inWork 为真实系统；真实系统入口保留为次入口，点击后新窗口打开。</p>
+        <p>5 套高仿真已上线，iACMS 融合 iLINK；inWork 为真实系统；真实系统入口保留为次入口，点击后新窗口打开。</p>
       </div>
 
       <div class="grid">
@@ -132,6 +133,14 @@
           <div class="card__foot"><span class="card__login">高仿真 v1.1 · <a href="http://221.226.3.251:83/" target="_blank" rel="noopener">真实系统</a></span><a class="card__go" href="/demo/app/iclpm/" target="_blank" rel="noopener">进入高仿真 ↗</a></div>
         </article>
 
+        <article class="card" style="--c:#111C2E">
+          <div class="card__top"><div class="card__code">iACMS</div><span class="card__tag">AI 原生 · 高仿真</span></div>
+          <h3>异常工况智能管理系统</h3>
+          <p>把准则、AQ 3062、HAZOP、LOPA、SOP 与分系统数据变成可执行的处置任务链；AI 发现、Agent 协同、人做决策。</p>
+          <ul><li>文档生成工况库</li><li>多系统异常识别</li><li>Agent 任务链</li><li>推演与复盘</li></ul>
+          <div class="card__foot"><span class="card__login">iLINK 已融合 · 高仿真</span><a class="card__go" href="/demo/app/iacms/">进入系统 ↗</a></div>
+        </article>
+
         <article class="card" style="--c:#7C3AED">
           <div class="card__top"><div class="card__code">inWork</div><span class="card__tag">真实系统 + iLINK</span></div>
           <h3>智能体工作台</h3>
@@ -153,7 +162,7 @@
         <b>演示账号：</b>由致联工作人员现场提供，页面不公开账号与口令。进入真实系统后请只看演示数据，不要修改、删除或发布任何生产数据。
       </div>
       <div class="note warn">
-        <b>高仿真版本：</b>iMCS 已补生产监视、化验、仓储与 eBR v2；iLINK 以 mini app 接入 inWork；四套系统支持“同批号贯穿”和 DeepSeek 自然语言对话。真实系统保留为次入口。
+        <b>高仿真版本：</b>iACMS 已上线，融合 iLINK 任务链；iMCS 已补生产监视、化验、仓储与 eBR v2；五套系统支持“同批号贯穿”和 DeepSeek 自然语言对话。真实系统保留为次入口。
       </div>
     </div>
   </section>

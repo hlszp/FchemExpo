@@ -456,6 +456,14 @@
     aiDrawer.classList.add('show'); overlay.classList.add('show');
     setAITab(mode || 'analysis');
   };
+  S.askAI = function (text) {
+    S.openAI('chat');
+    setTimeout(function () {
+      var input = qs('#aiChatInput');
+      if (input) { input.value = text || ''; }
+      if (text) { sendChat(text); }
+    }, 260);
+  };
 
   function regenerateAI() {
     var c = readAIConfig();
