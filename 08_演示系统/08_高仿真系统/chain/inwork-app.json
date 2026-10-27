@@ -1,0 +1,18 @@
+{
+  "id": "ilink",
+  "name": "iLINK 全链路任务",
+  "type": "iframe",
+  "version": "1.0.0",
+  "entry": "/demo/app/chain/?embed=inwork",
+  "preview": "/demo/app/inwork/",
+  "description": "围绕异常工况、催化剂活性、换热器性能组织跨系统任务；数据来自 iPAE/iAAS/iCLPM/iMCS/inWork。",
+  "icon": "L",
+  "tasks": 3,
+  "scopes": ["task:read", "task:write", "system:link"],
+  "context": {
+    "batch": "LX-BIT-2610136A1",
+    "product": "BIT",
+    "area": "A01",
+    "loop": "A01-TIC-1203"
+  }
+}

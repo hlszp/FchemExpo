@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>DeepSeek 模型配置 · 高仿真演示</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231466E8'/%3E%3Ctext x='16' y='22' font-size='13' text-anchor='middle' fill='white' font-family='Arial'%3EAI%3C/text%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F4F7FB;color:#0F172A;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 60px}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:18px}.logo{width:36px;height:36px;border-radius:9px;background:#1466E8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px}.top b{font-size:15px}.top span{color:#94A3B8;font-size:11px}
+.card{background:#fff;border:1px solid #E3EBF5;border-radius:14px;padding:20px 22px;box-shadow:0 8px 30px rgba(15,23,42,.05)}
+h1{font-size:23px;margin:0 0 6px}p.lead{margin:0 0 16px;color:#64748B;font-size:12.5px}
+.note{background:#F0F7FF;border:1px solid #D6E8FB;border-radius:9px;padding:9px 11px;color:#475569;font-size:11px;line-height:1.75;margin-bottom:14px}
+label{display:grid;gap:5px;font-size:11px;color:#64748B;margin-bottom:11px}
+input{width:100%;border:1px solid #DCE6F2;border-radius:8px;padding:9px 10px;font:inherit;font-size:12px;color:#0F172A;background:#fff}
+input:focus{outline:2px solid #BFD7F8;border-color:#8CB8F0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+button{border:1px solid #BFD2EA;background:#fff;color:#0B4EA2;border-radius:8px;padding:8px 13px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+button.primary{background:#1466E8;border-color:#1466E8;color:#fff}button.danger{color:#B91C1C;border-color:#FECACA;background:#FFF5F5}
+.status{font-size:11px;color:#0B9A78;margin-top:9px;min-height:18px}
+.foot{margin-top:14px;font-size:10.5px;color:#94A3B8;line-height:1.7}
+.back{display:inline-flex;margin-top:16px;color:#1466E8;text-decoration:none;font-size:11px}
+@media(max-width:520px){.wrap{padding:22px 14px 40px}.card{padding:16px}h1{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="logo">AI</div><div><b>DeepSeek 模型配置</b><br><span>高仿真演示 · 浏览器级配置</span></div></div>
+  <div class="card">
+    <h1>模型与 API Key</h1>
+    <p class="lead">配置后，各高仿真系统 AI 抽屉里的“用 DeepSeek 生成”会调用这里设置的真实模型。</p>
+    <div class="note">Key 只保存在当前浏览器的 localStorage（同一域名共享），不写入源码或仓库。DeepSeek API 对 www.zlinfot.com 的 CORS 预检已确认返回 200；若换域名或代理，需要重新确认。</div>
+    <label>API Key<input id="key" type="password" autocomplete="off" placeholder="sk-..."></label>
+    <label>模型<input id="model" placeholder="deepseek-chat"></label>
+    <label>Base URL / 接口地址<input id="endpoint" placeholder="https://api.deepseek.com 或 .../chat/completions"></label>
+    <div class="row"><button class="primary" id="save">保存配置</button><button class="danger" id="clear">清空 Key</button><a href="/demo/" style="display:inline-flex;align-items:center;color:#1466E8;text-decoration:none;font-size:12px">返回系统演示 →</a></div>
+    <div class="status" id="status"></div>
+    <div class="foot">配置只对当前浏览器生效，换电脑/换浏览器需要重新填。API Key 不会出现在页面源码中；但浏览器直连时 Key 会进入本机网络请求，请仅在展位受控环境使用。</div>
+  </div>
+  <a class="back" href="/demo/">← 返回系统演示</a>
+</div>
+<script>
+(function(){
+  var K='ZL_DEMO_AI_CONFIG';
+  function read(){var c={key:'',model:'deepseek-chat',endpoint:'https://api.deepseek.com/chat/completions'};try{var o=JSON.parse(localStorage.getItem(K)||'{}');if(o.key)c.key=o.key;if(o.model)c.model=o.model;if(o.endpoint)c.endpoint=o.endpoint;}catch(e){}return c;}
+  function fill(){var c=read();document.getElementById('key').value=c.key;document.getElementById('model').value=c.model;document.getElementById('endpoint').value=c.endpoint;}
+  function msg(t,ok){var s=document.getElementById('status');s.textContent=t;s.style.color=ok?'#0B9A78':'#B91C1C';}
+  document.getElementById('save').onclick=function(){var c={key:document.getElementById('key').value.trim(),model:document.getElementById('model').value.trim()||'deepseek-chat',endpoint:document.getElementById('endpoint').value.trim()||'https://api.deepseek.com/chat/completions'};localStorage.setItem(K,JSON.stringify(c));msg(c.key?'已保存：' + c.model + ' · 可在 AI 抽屉中使用':'已保存：未填 Key，仍使用演示规则',true);};
+  document.getElementById('clear').onclick=function(){localStorage.removeItem(K);fill();msg('已清空本机配置，回到演示规则',true);};
+  fill();
+})();
+</script>
+</body>
+</html>

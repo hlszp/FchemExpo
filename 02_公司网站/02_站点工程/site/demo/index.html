@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="index,follow">
+<title>系统演示 · 致联信息</title>
+<meta name="description" content="致联信息五套工业软件真实系统演示入口：iPAE 过程分析、iAAS 报警管理、iMCS 生产管控、iCLPM 回路性能、inWork 智能体工作台，以及工艺报警工作台。">
+<meta name="theme-color" content="#0069AE">
+<link rel="icon" href="../assets/brand/logo.svg">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<header class="hd">
+  <div class="wrap hd__in">
+    <a class="logo" href="/" aria-label="致联信息首页"><img src="../assets/brand/logo.svg" alt="致联信息" width="323" height="76"></a>
+    <nav class="hd__nav" aria-label="页面导航">
+      <a href="/">返回首页</a>
+      <a href="/#products">产品体系</a>
+      <a href="/manual/">产品手册</a>
+      <a href="/download/">下载中心</a>
+    </nav>
+    <div class="hd__r">
+      <span class="hd__tel">13516812241</span>
+      <a class="btn primary" href="/expo/">预约演示</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <div class="kicker">SYSTEM DEMO / 系统演示</div>
+        <h1>先看任务，<br><em>再看系统</em></h1>
+        <p class="lead">围绕一次异常工况，把 iPAE 发现、iAAS 报警、iCLPM 回路、iMCS 电子批记录和 inWork 处置串成一条任务链；先看数据怎么走，再看每套系统。</p>
+        <div class="hero__acts">
+          <a class="btn primary" href="#task">从任务开始 ↓</a>
+          <a class="btn" href="#systems">选择系统 ↓</a>
+          <a class="btn" href="/manual/">先看产品手册</a>
+        </div>
+        <div class="hero__meta">
+          <span><b>3 个</b>全链路任务</span>
+          <span><b>4 套</b>高仿真系统</span>
+          <span><b>1 套</b>真实 inWork</span>
+          <span><b>1 条</b>同批号数据链</span>
+        </div>
+      </div>
+      <aside class="hero__panel" aria-label="演示说明">
+        <h2>进入前请确认</h2>
+        <p>真实演示环境，非沙箱。账号由致联工作人员提供。</p>
+        <ul>
+          <li><span>演示数据</span><b>真实系统 / 已脱敏口径</b></li>
+          <li><span>操作边界</span><b>只看不改，别点删除/发布</b></li>
+          <li><span>登录方式</span><b>表单 / Basic / 账号登录</b></li>
+          <li><span>推荐顺序</span><b>任务链 → 分系统 → 产品</b></li>
+        </ul>
+        <a href="/demo/app/ai-config/" style="display:inline-flex;margin-top:12px;color:#1466E8;font-size:11.5px;text-decoration:none;font-weight:700">配置 DeepSeek 模型 / API Key →</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec" id="task">
+    <div class="wrap">
+      <div class="task-entry">
+        <div class="task-entry__l">
+          <div class="kicker">TASK FIRST / 先看任务</div>
+          <h2>一次异常工况，<br>如何穿过全链路</h2>
+          <p>不是把五个系统各点一遍，而是围绕同一个批号，把“发现异常 → 报警 → 回路诊断 → 批记录审核 → 处置闭环”串成一条可追溯的数据链。</p>
+          <div class="task-entry__acts">
+            <a class="btn primary" href="/demo/app/inwork/">在 inWork 中打开 iLINK →</a>
+            <a class="btn" href="/demo/app/chain/#abnormal">直接看任务</a>
+            <a class="btn" href="/demo/app/chain/#catalyst">催化剂活性</a>
+            <a class="btn" href="/demo/app/chain/#hx">换热器性能</a>
+          </div>
+          <div class="task-entry__note">同批号 LX-BIT-2610136A1 · 装置 A01 · 回路 A01-TIC-1203 · 演示数据</div>
+        </div>
+        <div class="task-entry__r">
+          <ol class="task-steps">
+            <li><span class="n">01</span><div><b>iPAE 发现批次异常</b><span>OP30 升温 +14 min · 越界率 12.6%</span></div><em>已发现</em></li>
+            <li><span class="n">02</span><div><b>iAAS 报警确认</b><span>A01-TIC-1203 连续 3 次 · 紧急</span></div><em>已确认</em></li>
+            <li><span class="n">03</span><div><b>iCLPM 回路诊断</b><span>评分 18.4 · 振荡/黏滞</span></div><em>进行中</em></li>
+            <li><span class="n">04</span><div><b>iMCS 批记录核对</b><span>11 单元/72 OP · 收率 127.34%</span></div><em>待处理</em></li>
+            <li><span class="n">05</span><div><b>inWork 处置闭环</b><span>任务/SLA/结果回填</span></div><em>待处理</em></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="systems">
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <div class="kicker">SYSTEMS / 真实系统 + 高仿真</div>
+          <h2>按产品线进入</h2>
+        </div>
+        <p>4 套高仿真已上线，inWork 为真实系统；真实系统入口保留为次入口，点击后新窗口打开。</p>
+      </div>
+
+      <div class="grid">
+        <article class="card" style="--c:#0069AE">
+          <div class="card__top"><div class="card__code">iPAE</div><span class="card__tag">高仿真 v1.1</span></div>
+          <h3>过程分析与探索系统</h3>
+          <p>把 DCS / SCADA / LIMS 里沉睡的历史数据，变成可对齐的批次、可比较的基线、可追溯的根因。</p>
+          <ul><li>批次对齐</li><li>设备维度/越界清单</li><li>黄金批次包络</li><li>5 步标注向导</li></ul>
+          <div class="card__foot"><span class="card__login">高仿真 v1.1 · <a href="http://123.207.211.175:8080/" target="_blank" rel="noopener">真实系统</a></span><a class="card__go" href="/demo/app/ipae/" target="_blank" rel="noopener">进入高仿真 ↗</a></div>
+        </article>
+
+        <article class="card" style="--c:#0B9A78">
+          <div class="card__top"><div class="card__code">iAAS</div><span class="card__tag">高仿真 v1.1</span></div>
+          <h3>高级过程报警管理系统</h3>
+          <p>让报警从被动响应走向主动治理：采集解析、搁置停用、订阅推送、泛滥分析、参数优化与审计留痕。</p>
+          <ul><li>实时/超时/历史报警</li><li>ISA 18.2 绩效</li><li>联锁/自控</li><li>处置与审计</li></ul>
+          <div class="card__foot"><span class="card__login">高仿真 v1.1 · <a href="http://221.226.3.250:82/" target="_blank" rel="noopener">真实系统</a></span><a class="card__go" href="/demo/app/iaas/" target="_blank" rel="noopener">进入高仿真 ↗</a></div>
+        </article>
+
+        <article class="card" style="--c:#D97706">
+          <div class="card__top"><div class="card__code">iMCS</div><span class="card__tag">高仿真 v1.3</span></div>
+          <h3>生产管控系统</h3>
+          <p>面向间歇批次生产：排产调度 → 物料罐区 → 配方防错 → 电子批记录 → 质量内置 → 统计绩效，一条链走完。</p>
+          <ul><li>生产监视 7 标签</li><li>化验分析 6 视图</li><li>仓储管理</li><li>电子批记录 v2</li></ul>
+          <div class="card__foot"><span class="card__login">高仿真 v1.3 · <a href="http://60.175.199.206:83/analytics" target="_blank" rel="noopener">真实系统</a></span><a class="card__go" href="/demo/app/imcs/" target="_blank" rel="noopener">进入高仿真 ↗</a></div>
+        </article>
+
+        <article class="card" style="--c:#0069AE">
+          <div class="card__top"><div class="card__code">iCLPM</div><span class="card__tag">高仿真 v1.1</span></div>
+          <h3>控制回路性能优化管理系统</h3>
+          <p>把「感觉这个回路不好」变成带评分、带证据链的客观结论；平台只读 DCS、只输出建议。</p>
+          <ul><li>961 回路/六维绩效</li><li>诊断/Pareto</li><li>振荡检测</li><li>整定与处置</li></ul>
+          <div class="card__foot"><span class="card__login">高仿真 v1.1 · <a href="http://221.226.3.251:83/" target="_blank" rel="noopener">真实系统</a></span><a class="card__go" href="/demo/app/iclpm/" target="_blank" rel="noopener">进入高仿真 ↗</a></div>
+        </article>
+
+        <article class="card" style="--c:#7C3AED">
+          <div class="card__top"><div class="card__code">inWork</div><span class="card__tag">真实系统 + iLINK</span></div>
+          <h3>智能体工作台</h3>
+          <p>把「发现问题 → 派活 → 跟踪 → 留痕」交给智能体承接；五个业务应用已上线，iLINK 全链路任务以 mini app 接入。</p>
+          <ul><li>iLINK 任务编排</li><li>智能体对话</li><li>知识库</li><li>引用链留痕</li></ul>
+          <div class="card__foot"><span class="card__login">真实系统 · <a href="/demo/app/inwork/">iLINK 应用预览</a></span><a class="card__go" href="https://agent.zlinsoft.cn:18799/workspace/" target="_blank" rel="noopener">进入系统 ↗</a></div>
+        </article>
+
+        <article class="card" style="--c:#008D9A">
+          <div class="card__top"><div class="card__code">ALARM</div><span class="card__tag">专业工作台</span></div>
+          <h3>工艺报警工作台</h3>
+          <p>只讲报警、讲透报警：法规标准、解读指南、自评工具、离线分析与在线演示，一个窄域内的专业工作台。</p>
+          <ul><li>法规标准</li><li>自评工具</li><li>离线分析</li><li>在线演示</li></ul>
+          <div class="card__foot"><span class="card__login">账号登录</span><a class="card__go" href="http://101.200.186.149:8085/" target="_blank" rel="noopener">进入工作台 ↗</a></div>
+        </article>
+      </div>
+
+      <div class="note">
+        <b>演示账号：</b>由致联工作人员现场提供，页面不公开账号与口令。进入真实系统后请只看演示数据，不要修改、删除或发布任何生产数据。
+      </div>
+      <div class="note warn">
+        <b>高仿真版本：</b>iMCS 已补生产监视、化验、仓储与 eBR v2；iLINK 以 mini app 接入 inWork；四套系统支持“同批号贯穿”和 DeepSeek 自然语言对话。真实系统保留为次入口。
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <div class="kicker">DOCUMENTS / 资料</div>
+          <h2>先看手册，再进系统</h2>
+        </div>
+        <p>七本产品手册 + 20 页合订本；需要账号或现场讲解，直接联系致联。</p>
+      </div>
+      <div class="grid">
+        <article class="card" style="--c:#008D9A">
+          <div class="card__top"><div class="card__code">MANUAL</div><span class="card__tag">公开资料</span></div>
+          <h3>产品手册与下载中心</h3>
+          <p>按产品分册，含能力边界、接口方式、典型指标与交付说明；支持在线翻阅或 PDF 下载。</p>
+          <div class="card__foot"><span class="card__login">无需登录</span><a class="card__go" href="/manual/">在线翻阅 ↗</a></div>
+        </article>
+        <article class="card" style="--c:#075DF3">
+          <div class="card__top"><div class="card__code">CONTACT</div><span class="card__tag">预约演示</span></div>
+          <h3>需要账号 / 现场演示</h3>
+          <p>留下手机号，或直接联系张平 13516812241；我们会按产品线安排真实系统或高仿真演示。</p>
+          <div class="card__foot"><span class="card__login">工作日 9:00–18:00</span><a class="card__go" href="/expo/">预约演示 ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft__in">
+    <div>© 2026 杭州致联信息工程有限公司 · 系统演示页</div>
+    <div class="ft__links">
+      <a href="/">返回首页</a>
+      <a href="/manual/">产品手册</a>
+      <a href="/download/">下载中心</a>
+      <a href="/expo/">预约演示</a>
+      <a href="tel:13516812241">13516812241</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

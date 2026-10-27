@@ -1,0 +1,20 @@
+/* iPAE latent / slow variables */
+.lat-tabs{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 10px}
+.lat-tabs button{border:1px solid #DCE6F2;background:#fff;border-radius:7px;padding:6px 11px;font-size:11px;color:#64748B;cursor:pointer}
+.lat-tabs button.on{background:#EAF2FF;border-color:#BFD7F8;color:#0B4EA2;font-weight:800}
+.lat-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;margin-bottom:12px}
+.lat-card{background:#fff;border:1px solid #E6EDF5;border-radius:12px;padding:12px 13px}
+.lat-card h3{margin:0 0 2px;font-size:12.5px;color:#0F172A;display:flex;justify-content:space-between;gap:8px}
+.lat-card .hint{font-size:9.5px;color:#94A3B8}
+.lat-model{background:linear-gradient(135deg,#F8FBFF,#EEF5FF);border:1px solid #DCE9FA;border-radius:10px;padding:10px 11px;margin-top:9px}
+.lat-model h4{margin:0;font-size:11px;color:#0B4EA2}.lat-model p{margin:4px 0 0;font-size:10px;color:#64748B;line-height:1.65}
+.lat-model .code{font-family:ui-monospace,Menlo,monospace;font-size:9px;color:#475569;background:#fff;border:1px solid #E2E8F0;border-radius:6px;padding:7px 8px;margin-top:7px;line-height:1.7}
+.lat-factor{display:grid;gap:3px;margin:7px 0}
+.lat-factor .row{display:flex;justify-content:space-between;font-size:10.5px;color:#64748B;margin-top:4px}
+.lat-factor .row b{color:#0F172A}
+.lat-factor .progress{height:5px}
+.lat-status{display:grid;gap:7px}
+.lat-status .item{border:1px solid #EEF2F7;border-radius:8px;padding:8px 9px;background:#FBFDFF}
+.lat-status .item span{display:block;font-size:9.5px;color:#94A3B8}.lat-status .item b{font-size:16px;display:block;margin-top:2px}.lat-status .item em{font-style:normal;font-size:9px;color:#64748B;display:block;margin-top:2px}
+.lat-note{font-size:10px;color:#94A3B8;line-height:1.65;margin-top:8px}
+@media(max-width:900px){.lat-grid{grid-template-columns:1fr}}
