@@ -1,0 +1,1526 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>致联信息｜用数据读懂工艺，用智能辅助生产 — 流程工业软件与智能应用</title>
+<meta name="description" content="杭州致联信息工程有限公司，面向流程工业的工业软件与智能应用。用数据读懂工艺、用智能辅助生产：iIoTS 物联监控、iAAS 高级过程报警、iCLPM 控制回路性能评估与诊断、iSafe 危险化学品安全风险智能化管控平台、iMCS 生产管控、iPAE 过程分析与探索、inWork 智能体工作台。">
+<meta name="keywords" content="流程工业,工业软件,智能应用,黄金批次,过程分析,控制回路性能,高级过程报警,生产管控,危险化学品安全风险智能化管控,物联监控,智能体工作台,杭州致联信息">
+<meta name="author" content="杭州致联信息工程有限公司">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="canonical" href="https://www.zlinfot.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2286%20197%20107%2088%22%3E%0A%3ClinearGradient%20id%3D%22a%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%2291.4117%22%20y1%3D%22222.5219%22%20x2%3D%22166.1805%22%20y2%3D%22222.5219%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23295DAA%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326BAEE%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22b%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22167.3647%22%20y1%3D%22287.2093%22%20x2%3D%22123.9116%22%20y2%3D%22256.9183%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23295DAA%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326BAEE%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22c%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22143.598%22%20y1%3D%22241.4988%22%20x2%3D%22188.2759%22%20y2%3D%22241.4988%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23295DAA%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2326BAEE%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%3Cpath%20d%3D%22M113.8%20203.8l-8.3%2014.2-5.7%208.9-8.3%2014.2h52.2l14-23.1h.1l8.5-14.2h-52.5zm16.2%2032.7l-18.6-.1%2010.2-17.6h18.3l-9.9%2017.7z%22%20fill%3D%22url(%23a)%22%2F%3E%3Cpath%20d%3D%22M143.6%20241.2H91.4l22.2%2038h52.6l-22.6-38zm-28.5%2023.4l12.2-7.1H112l-5-8.5h30.9l4.8%208.5-11.6%207.1H146l4.8%208.5h-30.7l-5-8.5z%22%20fill%3D%22url(%23b)%22%2F%3E%3Cpath%20d%3D%22M166.2%20203.8l-22.6%2037.4%2022.5%2038%2022.2-38-22.1-37.4zM155%20239.1l5.3-8.7%208.1%2013.7%206.3-11.6%205%208.1-11.7%2021.7-13-23.2z%22%20fill%3D%22url(%23c)%22%2F%3E%3Cpolygon%20points%3D%22127.9%2C207.5%20146.6%2C207.5%20141.5%2C216.1%20123%2C216.1%20%22%20fill%3D%22%23F00%22%2F%3E%0A%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="致联信息">
+<meta property="og:title" content="用数据读懂工艺，用智能辅助生产｜致联信息">
+<meta property="og:description" content="面向流程工业的工业软件与智能应用。从数据到生产力。">
+<meta property="og:url" content="https://www.zlinfot.com/">
+<meta property="og:image" content="https://www.zlinfot.com/assets/hero/factory.jpg">
+<meta property="og:locale" content="zh_CN">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"杭州致联信息工程有限公司","alternateName":"致联信息","url":"https://www.zlinfot.com/","email":"service@zlinfot.com","telephone":"+86-13516812241","slogan":"致力于工业数据的联接、分析与应用","address":{"@type":"PostalAddress","streetAddress":"钱塘区科技园路 21 号鸿汇中心 808 室","addressLocality":"杭州市","addressRegion":"浙江省","addressCountry":"CN"},"description":"面向流程工业的工业软件与智能应用提供商。","knowsAbout":["过程报警管理","控制回路性能评估","批次分析与黄金批次","生产管控与电子批记录","危险化学品安全风险管控","工业物联监控","智能体工作台"]}
+</script>
+<style>
+
+@font-face{font-family:'ZL Display';src:url(data:font/ttf;base64,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) format('truetype');font-weight:900;font-display:swap}
+:root{
+  --ink:#07152B;--ink2:#2A3F57;--ink3:#485F7C;--ink4:#6B8297;--ink5:#8FA3B8;
+  --line:#DBEBF0;--line2:#E2EDF2;--line3:#BFDDE9;
+  --soft:#F2FAFC;--soft2:#F7FCFE;--softg:#F2FAF7;--softb:#EEF5FF;
+  --blue:#0069AE;--blueb:#075DF3;--blued:#073EAC;--cyan:#179CE2;
+  --teal:#008D9A;--green:#079D60;--greend:#136A57;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --mono:"Inter","SF Mono",ui-monospace,"Helvetica Neue",Arial,sans-serif;
+  --display:"ZL Display","Noto Sans SC","PingFang SC",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink2);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:#CFE9FA;color:var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.24em;color:var(--blue);text-transform:uppercase}
+.eyebrow--g{color:var(--greenD)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);
+  font-size:15px;font-weight:600;letter-spacing:.03em;border-radius:8px;border:1px solid transparent;
+  padding:14px 26px;cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .16s,box-shadow .2s;text-align:center}
+.btn--blue{background:var(--blueb);color:#fff;border-color:var(--blueb);box-shadow:0 6px 18px -8px rgba(7,93,243,.55)}
+.btn--blue:hover{background:#0350DA;border-color:#0350DA;transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(7,93,243,.6)}
+.btn--ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{border-color:#9CCBE6;color:var(--blue);transform:translateY(-1px)}
+.btn--sm{padding:10px 18px;font-size:14px;border-radius:7px}
+.grad-b{background:linear-gradient(180deg,#064B98 0%,#179CE2 35%,#1685CC 49%,#063677 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.grad-g{background:linear-gradient(180deg,#006955 0%,#18B68F 35%,#0B9A78 49%,#005441 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+
+/* ── 留资表单 ── */
+.lf{position:relative}
+.lf__f{margin-bottom:16px}
+.lf__lb{display:block;font-size:11px;font-weight:600;color:var(--ink4);letter-spacing:.11em;margin-bottom:8px}
+.lf__lb em{font-style:normal;font-weight:400;color:var(--ink5);letter-spacing:.02em}
+.lf__tel{width:100%;height:54px;padding:0 16px;border-radius:10px;background:var(--soft2);
+  border:1px solid #D6E7F0;color:var(--ink);font-size:18px;font-family:var(--mono);
+  letter-spacing:.1em;outline:none;transition:border-color .16s,background .16s,box-shadow .16s}
+.lf__tel::placeholder{color:var(--ink5);font-family:var(--sans);font-size:14px;letter-spacing:.02em}
+.lf__tel:focus{border-color:var(--blueb);background:#fff;box-shadow:0 0 0 3px rgba(7,93,243,.1)}
+.lf__2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lf__2.lf__2--stack{grid-template-columns:1fr}
+.lf__in{width:100%;height:46px;padding:0 14px;border-radius:9px;background:var(--soft2);
+  border:1px solid #D6E7F0;color:var(--ink);font-size:14px;font-family:var(--sans);outline:none;
+  transition:border-color .16s,background .16s,box-shadow .16s}
+.lf__in::placeholder{color:var(--ink5)}
+.lf__in:focus{border-color:#9CCBE6;background:#fff;box-shadow:0 0 0 3px rgba(7,93,243,.07)}
+.lf__chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lf__chip{position:relative;display:block}
+.lf__chip input{position:absolute;opacity:0;width:0;height:0}
+.lf__chip span{display:block;text-align:center;padding:7px 4px;border-radius:16px;background:var(--soft2);
+  border:1px solid #DCEAF2;color:var(--ink3);font-size:12px;cursor:pointer;transition:.15s;letter-spacing:.02em}
+.lf__chip span:hover{border-color:#BFDDE9;color:var(--ink2)}
+.lf__chip input:checked+span{background:var(--softb);border-color:#9CCBE6;color:var(--blue);font-weight:600}
+.lf__chip input:focus-visible+span{outline:2px solid rgba(7,93,243,.35);outline-offset:2px}
+.lf__sub{width:100%;height:52px;border-radius:10px;font-size:15.5px;margin-top:4px}
+.lf__note{margin-top:12px;font-size:11px;line-height:1.7;color:var(--ink5);letter-spacing:.01em;text-align:center}
+.lf__ok{display:none;text-align:center;padding:22px 0 6px}
+.lf.is-ok form{display:none}
+.lf.is-ok .lf__ok{display:block}
+.lf__okm{display:flex;align-items:center;justify-content:center;width:50px;height:50px;margin:0 auto 16px;
+  border-radius:50%;background:var(--softg);border:1px solid #B7E4D5}
+.lf__okt{font-size:16px;font-weight:700;color:var(--greend);letter-spacing:.04em}
+.lf__okd{margin-top:9px;font-size:12.5px;line-height:1.85;color:var(--ink3)}
+.lf__okb{margin-top:20px;height:44px;font-size:13.5px}
+
+/* ── 悬浮入口 ── */
+.ldbtn{position:fixed;right:26px;bottom:26px;z-index:86;display:inline-flex;align-items:center;gap:9px;
+  height:50px;padding:0 21px 0 17px;border:0;border-radius:999px;cursor:pointer;font-family:var(--sans);
+  font-size:14.5px;font-weight:600;letter-spacing:.05em;color:#fff;
+  background:linear-gradient(135deg,#0B64F2 0%,#075DF3 52%,#0A4BD4 100%);
+  box-shadow:0 18px 36px -16px rgba(7,93,243,.66),0 2px 10px rgba(6,42,90,.1);
+  opacity:0;transform:translateY(16px) scale(.94);pointer-events:none;
+  transition:opacity .3s,transform .34s cubic-bezier(.22,.7,.3,1),box-shadow .2s}
+.ldbtn.is-in{opacity:1;transform:none;pointer-events:auto}
+.ldbtn:hover{box-shadow:0 22px 42px -16px rgba(7,93,243,.72);transform:translateY(-2px)}
+.ldbtn:focus-visible{outline:2px solid #7FB2F8;outline-offset:3px}
+.ldbtn svg{flex:none}
+
+/* ── 抽屉 ── */
+.ldw{position:fixed;inset:0;z-index:95;display:flex;justify-content:flex-end;visibility:hidden;pointer-events:none}
+.ldw__msk{position:absolute;inset:0;background:rgba(6,22,44,.5);opacity:0;transition:opacity .28s;
+  backdrop-filter:blur(2px)}
+.ldw__p{position:relative;width:min(432px,100%);height:100%;background:#fff;overflow-y:auto;
+  padding:38px 34px 34px;opacity:0;transform:translateX(40px);
+  box-shadow:-30px 0 70px -34px rgba(6,63,110,.55);
+  transition:opacity .26s,transform .32s cubic-bezier(.22,.7,.3,1)}
+.ldw__p::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+  background:linear-gradient(90deg,#075DF3,#179CE2 46%,#079D60)}
+.ldw.is-open{visibility:visible;pointer-events:auto}
+.ldw.is-open .ldw__msk{opacity:1}
+.ldw.is-open .ldw__p{opacity:1;transform:none}
+.ldw__x{position:absolute;right:20px;top:22px;width:34px;height:34px;border:1px solid var(--line);
+  border-radius:50%;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:var(--ink4);transition:.15s;padding:0}
+.ldw__x:hover{border-color:#9CCBE6;color:var(--blue)}
+.ldw__eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.22em;
+  color:var(--blue);text-transform:uppercase}
+.ldw__t{font-size:23px;font-weight:700;color:var(--ink);letter-spacing:.03em;margin-top:12px;line-height:1.35}
+.ldw__d{margin-top:11px;font-size:13.5px;line-height:1.85;color:var(--ink3)}
+.ldw__f{margin-top:26px}
+.ldw__f .lf__2{grid-template-columns:1fr}
+.ldw__alt{margin-top:24px;padding-top:20px;border-top:1px solid var(--line2);font-size:12px;
+  color:var(--ink4);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ldw__alt a{color:var(--blue);font-family:var(--mono);font-weight:600;letter-spacing:.02em}
+@media(max-width:640px){
+  .ldw__p{width:100%;padding:32px 22px 28px}
+  .ldbtn{right:16px;bottom:16px;width:54px;height:54px;padding:0;justify-content:center;border-radius:50%}
+  .ldbtn span{display:none}
+  .ldbtn svg{width:23px;height:23px}
+}
+/* 提交成功后收起与表单重复的引导语 */
+.ct__box:has(.lf.is-ok) .ct__bd,
+.ldw__p:has(.lf.is-ok) .ldw__d,
+.ldw__p:has(.lf.is-ok) .ldw__alt{display:none}
+@media(prefers-reduced-motion:reduce){.ldbtn,.ldw__p,.ldw__msk{transition:none}}
+
+img,svg{vertical-align:middle}
+section[id],main [id]{scroll-margin-top:80px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+section[id],div[id]{scroll-margin-top:88px}
+
+/* ── 顶栏 ── */
+.hd{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid #EAF2F6}
+.hd__in{max-width:1280px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.hd__logo{display:block;flex-shrink:0}
+.hd__logo img{height:38px;width:auto}
+.nav{display:flex;align-items:center;gap:24px;margin-left:auto}
+.nav a{font-size:14.5px;color:var(--ink2);letter-spacing:.02em;position:relative;padding:4px 0;transition:color .16s;white-space:nowrap;flex-shrink:0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--blueb);transition:right .2s}
+.nav a:hover{color:var(--blue)}
+.nav a:hover::after{right:0}
+.nav a.nav__ext{display:inline-flex;align-items:center;gap:4px}
+.nav a.nav__ext svg{opacity:.45;margin-top:-1px;transition:opacity .16s,transform .16s}
+.nav a.nav__ext:hover svg{opacity:.9;transform:translate(1px,-1px)}
+.hd__r{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.hd__tel{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:14px;color:var(--ink2);letter-spacing:.01em}
+.hd__tel svg{opacity:.55}
+.navtg{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;flex-shrink:0}
+.burger span{display:block;height:2px;width:20px;background:var(--ink);border-radius:2px;transition:transform .22s,opacity .18s}
+.hd__mob{display:none;flex-direction:column;background:#fff;border-top:1px solid #EAF2F6;padding:6px 22px 16px}
+.hd__mob a{padding:14px 0;font-size:15px;color:var(--ink2);border-bottom:1px solid #EEF5F8}
+.hd__mob a:last-child{border-bottom:0;color:var(--blue);font-weight:600}
+.hd__mob a.nav__ext{display:flex;align-items:center;gap:6px}
+.hd__mob a.nav__ext svg{opacity:.5}
+@media(max-width:1220px){
+  .nav,.hd__tel{display:none}
+  .burger{display:flex}
+  .navtg:checked~.hd__mob{display:flex}
+  .navtg:checked~.hd__in .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navtg:checked~.hd__in .burger span:nth-child(2){opacity:0}
+  .navtg:checked~.hd__in .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media(max-width:720px){
+  .hd__in{padding:0 20px;height:66px}
+  .hd__logo img{height:32px}
+  .wrap{padding:0 20px}
+}
+
+/* ── 首屏 ── */
+.hero{position:relative;overflow:hidden;background:#fff;border-bottom:1px solid #F0F6F9}
+.hero__media{position:absolute;top:0;right:0;bottom:0;width:54%;z-index:0}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:64% 50%}
+.hero__media::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.97) 14%,rgba(255,255,255,.72) 30%,rgba(255,255,255,.22) 52%,rgba(255,255,255,0) 74%)}
+.hero__media::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,0) 15%,rgba(255,255,255,0) 56%,rgba(255,255,255,.82) 86%,#fff 100%)}
+.hero__in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:96px 40px 104px}
+.hero__copy{max-width:600px}
+.pill{display:inline-flex;align-items:center;gap:9px;height:34px;padding:0 16px;border-radius:100px;
+  background:#F2FAF7;border:1px solid #B7E4D5;font-size:13px;color:#136A57;font-weight:600;letter-spacing:.04em}
+.pill i{width:6px;height:6px;border-radius:50%;background:#079D60;box-shadow:0 0 0 3px rgba(7,157,96,.14)}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(38px,4.7vw,68px);line-height:1.2;
+  letter-spacing:.01em;color:var(--ink);margin-top:26px}
+.hero h1>span{display:block}
+.hero h1 .kw{position:relative;display:inline}
+.hero__sub{margin-top:24px;font-size:20px;color:var(--ink2);letter-spacing:.01em;line-height:1.75;font-weight:500}
+.hero__flow{margin-top:14px;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:14.5px;
+  font-weight:600;color:var(--blue);letter-spacing:.06em}
+.hero__flow i{display:block;width:46px;height:1.5px;background:linear-gradient(90deg,var(--blue),#7FC8EA);position:relative}
+.hero__flow i::after{content:"";position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1.5px solid #7FC8EA;border-right:1.5px solid #7FC8EA;transform:rotate(45deg)}
+.hero__cta{display:flex;gap:13px;margin-top:38px;flex-wrap:wrap}
+.trust{display:flex;align-items:center;gap:0 18px;flex-wrap:wrap;margin-top:34px;font-size:13px;color:var(--ink4);letter-spacing:.02em}
+.trust span{display:inline-flex;align-items:center;gap:18px}
+.trust span::after{content:"";width:1px;height:11px;background:#BFDDE9}
+.trust span:last-child::after{display:none}
+@media(max-width:1080px){
+  .hero__media{width:66%}
+  .hero__copy{max-width:560px}
+}
+@media(max-width:900px){
+  .hero__media{position:relative;width:100%;height:210px}
+  .hero__media img{object-position:56% 52%}
+  .hero__media::before{background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.5) 62%,#fff 100%)}
+  .hero__media::after{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 100%)}
+  .hero__in{padding:30px 20px 64px;margin-top:-26px}
+  .hero h1{font-size:clamp(34px,9.4vw,46px);margin-top:20px}
+  .hero__sub{font-size:17px;margin-top:20px}
+  .hero__cta{margin-top:30px}
+  .trust{margin-top:28px;gap:0 14px;font-size:12.5px}
+  .trust span{gap:14px}
+}
+
+/* ── 区块头 ── */
+.sec{padding:92px 0}
+.sec--soft{background:linear-gradient(180deg,#fff 0%,#F7FCFE 22%,#F7FCFE 100%)}
+.sec--tight{padding:74px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:46px}
+.sh h2{font-size:36px;font-weight:700;color:var(--ink);letter-spacing:.01em;line-height:1.34;margin-top:14px}
+.sh h2 em{font-style:normal;color:var(--blue);background:linear-gradient(180deg,#064B98,#1685CC);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sh p.lead{font-size:14.5px;color:var(--ink3);max-width:424px;line-height:1.85;letter-spacing:.01em;text-align:right;flex-shrink:0}
+.sh p.lead b{color:var(--ink2);font-weight:600}
+@media(max-width:900px){
+  .sec{padding:58px 0}
+  .sec--tight{padding:50px 0}
+  .sh{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:30px}
+  .sh h2{font-size:23px}
+  .sh p.lead{text-align:left;max-width:none;font-size:14px}
+}
+
+/* ── 三层能力结构 ── */
+.layers{border-top:1px solid var(--line)}
+.layer{display:grid;grid-template-columns:76px 1fr;gap:36px;padding:36px 0;border-bottom:1px solid var(--line);
+  transition:background .2s}
+.layer:hover{background:#F7FCFE}
+.layer__no{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink5);letter-spacing:.1em;padding-top:6px}
+.layer--hi .layer__no{color:var(--green)}
+.layer__t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.layer__t b{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.layer--hi .layer__t b{color:#136A57}
+.layer__t span{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--ink4);text-transform:uppercase}
+.layer__d{margin-top:10px;font-size:14.5px;color:var(--ink3);line-height:1.8;max-width:760px}
+.layer__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.layer__tags li{font-size:12.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+  border-radius:100px;padding:6px 14px;letter-spacing:.02em;transition:border-color .18s,color .18s}
+.layer:hover .layer__tags li{border-color:#B7DCEF}
+.layer--hi .layer__tags li{border-color:#B7E4D5;background:#F2FAF7;color:#136A57}
+@media(max-width:720px){
+  .layer{grid-template-columns:1fr;gap:8px;padding:26px 0}
+  .layer__no{padding-top:0}
+  .layer__t b{font-size:18px}
+  .layer__d{font-size:13.5px}
+}
+
+/* ── 双核 ── */
+.cores{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.core{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 34px 26px;
+  display:flex;flex-direction:column;transition:box-shadow .25s,border-color .25s,transform .25s}
+.core:hover{box-shadow:0 24px 50px -30px rgba(6,63,110,.35);border-color:#BEDFF0;transform:translateY(-2px)}
+.core__layer{font-size:12px;font-weight:600;color:var(--ink4);letter-spacing:.14em}
+.core__code{font-family:var(--mono);font-size:44px;font-weight:700;color:#008D9A;letter-spacing:-.01em;line-height:1.1;margin-top:12px}
+.core__name{font-size:17px;font-weight:700;color:var(--ink);margin-top:8px;letter-spacing:.03em}
+.core__claim{font-size:19px;font-weight:700;color:var(--ink);margin-top:18px;letter-spacing:.01em}
+.core__desc{margin-top:10px;display:flex;flex-direction:column}
+.core__desc span{font-size:13.5px;color:var(--ink3);line-height:1.85}
+.lap{margin-top:24px;border-radius:12px;background:linear-gradient(180deg,#F2FAFC 0%,#fff 100%);
+  border:1px solid #EDF6FA;padding:16px 12px 6px;overflow:hidden}
+.lap__svg{width:100%;height:auto;display:block}
+.core__note{margin-top:16px;padding-top:14px;border-top:1px solid #E2EDF2;font-size:12px;color:var(--ink4);letter-spacing:.03em}
+@media(max-width:960px){
+  .cores{grid-template-columns:1fr}
+  .core{padding:26px 22px 20px}
+  .core__code{font-size:36px}
+  .core__claim{font-size:17px}
+}
+@media(max-width:560px){
+  .lap{padding:10px 6px 2px}
+  .core__note{font-size:11.5px}
+}
+
+/* ── 黄金批次解读 ── */
+.gold{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+.goldcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px;
+  box-shadow:0 20px 44px -34px rgba(6,63,110,.4)}
+.goldcard__hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px}
+.goldcard__t{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.goldcard__d{font-size:12px;color:var(--ink4);margin-top:5px}
+.goldcard__tag{font-family:var(--mono);font-size:10.5px;color:#0069AE;letter-spacing:.12em;
+  background:#EEF5FF;border-radius:4px;padding:4px 8px;white-space:nowrap}
+.goldcard svg{width:100%;height:auto;display:block;margin-top:4px}
+.lg{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;padding-top:14px;border-top:1px solid #E2EDF2;
+  font-size:11.5px;color:var(--ink4);letter-spacing:.02em}
+.lg span{display:inline-flex;align-items:center;gap:7px}
+.lg i{display:block;flex-shrink:0}
+.lg__band{width:16px;height:9px;border-radius:2px;background:#F6D976;opacity:.75}
+.lg__ln{width:16px;height:2.5px;border-radius:2px}
+.reader li{display:grid;grid-template-columns:24px 1fr;gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.reader li:first-child{border-top:0;padding-top:0}
+.reader i{font-family:var(--mono);font-style:normal;font-size:11.5px;font-weight:600;color:var(--blue);padding-top:3px;letter-spacing:.06em}
+.reader b{display:block;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.03em}
+.reader p{font-size:13.5px;color:var(--ink3);margin-top:7px;line-height:1.8}
+@media(max-width:960px){
+  .gold{grid-template-columns:1fr;gap:32px}
+  .goldcard{padding:20px 16px 16px}
+  .goldcard__t{font-size:13.5px}
+}
+
+/* ── 价值链路 ── */
+.chain{background:#F2FAF7;border:1px solid #D8ECE3;border-radius:18px;
+  padding:38px 40px;display:grid;grid-template-columns:268px 1fr;gap:40px;align-items:center}
+.chain__lb{font-family:var(--mono);font-size:10.5px;font-weight:600;color:#5E8E7E;letter-spacing:.2em}
+.chain__lt{font-size:21px;font-weight:700;color:#136A57;line-height:1.55;margin-top:12px;letter-spacing:.02em}
+.chain__row{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.chain__it{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:96px}
+.chain__ico{width:64px;height:64px;border-radius:50%;background:#fff;border:1px solid #CFEBE0;
+  display:flex;align-items:center;justify-content:center}
+.chain__ico--ai{border-radius:14px;border-color:#B7E4D5}
+.chain__ai{font-family:var(--mono);font-size:19px;font-weight:700;color:#079D60;letter-spacing:.02em}
+.chain__t{font-size:14.5px;font-weight:700;color:#136A57;letter-spacing:.06em;white-space:nowrap}
+.chain__ar{opacity:.34;display:flex;align-items:center;padding-bottom:28px;flex-shrink:0}
+.chain__note{margin-top:20px;padding-top:18px;border-top:1px solid #D8ECE3;
+  font-size:12.5px;color:#4A7A6B;letter-spacing:.03em}
+@media(max-width:900px){
+  .chain{grid-template-columns:1fr;gap:26px;padding:30px 24px}
+  .chain__lt{font-size:18px}
+}
+@media(max-width:560px){
+  .chain{padding:26px 18px 22px;border-radius:14px}
+  .chain__row{gap:6px;justify-content:space-between}
+  .chain__it{min-width:0;gap:9px}
+  .chain__ico{width:46px;height:46px}
+  .chain__ico--ai{border-radius:11px}
+  .chain__ai{font-size:15px}
+  .chain__t{font-size:12px;letter-spacing:.02em}
+  .chain__ar{padding-bottom:24px}
+  .chain__ar svg{width:18px;height:12px}
+  .chain__note{font-size:11.5px;line-height:1.7}
+}
+
+/* ── 五产品 ── */
+.prods{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.prod{padding:0 22px;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.prod:first-child{border-left:0;padding-left:0}
+.prod:last-child{padding-right:0}
+.prod__ico{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.prod__ico--blue{background:linear-gradient(150deg,#E9F6FF,#D3EDFB)}
+.prod__ico--green{background:linear-gradient(150deg,#EBFBF3,#D5F3E7)}
+.prod__code{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--blueB);letter-spacing:.01em;line-height:1.15}
+.prod:nth-child(even) .prod__code{color:#008D9A}
+.prod__name{font-size:12.5px;font-weight:700;color:var(--ink2);margin-top:8px;line-height:1.55;letter-spacing:.02em;min-height:2.6em}
+.prod__claim{margin-top:16px;display:flex;flex-direction:column}
+.prod__claim span{font-size:15px;font-weight:700;color:var(--ink);line-height:1.6;letter-spacing:.01em}
+.prod__desc{margin-top:12px;flex:1;font-size:12.5px;color:var(--ink3);line-height:1.85}
+.prod__desc span{font-size:12.5px;color:var(--ink3);line-height:1.85}
+.prod__meta{margin-top:18px;padding-top:14px;border-top:1px solid #E2EDF2;font-size:11.5px;color:var(--ink4);line-height:1.7}
+@media(max-width:1080px){
+  .prods{grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+  .prod{border-left:0;padding:30px 0;border-bottom:1px solid var(--line)}
+  .prod:nth-child(2n){padding-left:26px;border-left:1px solid var(--line);padding-right:0}
+  .prod:last-child{grid-column:1/-1;border-bottom:0}
+  .prod__name{min-height:0}
+}
+@media(max-width:560px){
+  .prods{grid-template-columns:1fr;border-top:0}
+  .prod{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:14px;row-gap:0;
+    padding:22px 0;border-left:0;border-bottom:1px solid var(--line);align-items:start}
+  .prod:nth-child(2n){padding-left:0;border-left:0}
+  .prod:last-child{padding-bottom:0;border-bottom:0}
+  .prod__ico{width:46px;height:46px;margin-bottom:0;grid-column:1;grid-row:1/3;align-self:start}
+  .prod__code{grid-column:2;grid-row:1;font-size:19px;align-self:end}
+  .prod__name{grid-column:2;grid-row:2;margin-top:2px;min-height:0;font-size:12px}
+  .prod__claim{grid-column:1/-1;grid-row:3;margin-top:15px}
+  .prod__claim span{font-size:14.5px}
+  .prod__desc{grid-column:1/-1;grid-row:4;margin-top:8px}
+  .prod__meta{grid-column:1/-1;grid-row:5;margin-top:13px;padding-top:11px}
+}
+
+/* ── 行业实证 ── */
+.ev{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.scene{padding:24px 0;border-top:1px solid var(--line)}
+.scene:first-child{border-top:0;padding-top:0}
+.scene h3{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:.04em;
+  display:flex;align-items:center;gap:10px}
+.scene h3::before{content:"";width:3px;height:15px;border-radius:2px;background:linear-gradient(180deg,#179CE2,#064B98)}
+.scene p{font-size:13.5px;color:var(--ink3);margin-top:10px;line-height:1.85}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.metric{background:#F7FCFE;border:1px solid #E8F3F8;border-radius:14px;padding:24px 22px}
+.metric--hi{background:linear-gradient(160deg,#F0F9FF,#EAF3FF);border-color:#CFE5F7}
+.metric__v{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:.01em;line-height:1.2}
+.metric--hi .metric__v{color:#0069AE}
+.metric__l{font-size:13px;font-weight:600;color:var(--ink2);margin-top:10px}
+.metric__s{font-size:11.5px;color:var(--ink4);margin-top:7px;line-height:1.6}
+@media(max-width:960px){.ev{grid-template-columns:1fr;gap:34px}}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}.metric__v{font-size:23px}}
+
+/* ── 落地方式 ── */
+.delivs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.deliv{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;
+  transition:border-color .2s,box-shadow .25s}
+.deliv:hover{border-color:#BEDFF0;box-shadow:0 18px 40px -32px rgba(6,63,110,.4)}
+.deliv__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.deliv__no{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink5);letter-spacing:.14em}
+.deliv h3{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.05em}
+.deliv p{font-size:13px;color:var(--ink3);margin-top:11px;line-height:1.8}
+
+/* ── 公开工作台（外链区块） ── */
+.wbsec{padding:4px 0 96px}
+.wb{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 442px;gap:54px;
+  padding:46px 48px 44px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:linear-gradient(126deg,#F8FCFE 0%,#F2FAFC 44%,#F1FAF7 100%);
+  box-shadow:0 30px 60px -54px rgba(6,63,110,.5)}
+.wb::before{content:"";position:absolute;inset:0 0 auto;height:3px;
+  background:linear-gradient(90deg,#075DF3,#179CE2 40%,#079D60 100%)}
+.wb h2{font-size:30px;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1.4;margin-top:14px}
+.wb__d{margin-top:18px;font-size:13.8px;color:var(--ink3);line-height:1.94;max-width:540px}
+.wb__l{align-self:center}
+.wb__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.wb__tags span{font-size:11.5px;color:var(--ink3);background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;letter-spacing:.03em}
+.wb__act{display:flex;align-items:center;gap:22px;margin-top:28px;flex-wrap:wrap}
+.wb__demo{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--blue);
+  padding-bottom:2px;border-bottom:1px solid rgba(0,105,174,.28);transition:border-color .16s,color .16s}
+.wb__demo:hover{color:#075DF3;border-color:#075DF3}
+.wb__r{display:flex;flex-direction:column;justify-content:center}
+.wbi{display:grid;grid-template-columns:38px 1fr;gap:15px;padding:17px 0;border-top:1px solid rgba(191,221,233,.75)}
+.wbi:first-child{border-top:0;padding-top:0}
+.wbi:last-child{padding-bottom:0}
+.wbi__ico{width:38px;height:38px;border-radius:11px;background:#fff;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 6px 14px -12px rgba(6,63,110,.5)}
+.wbi h3{display:flex;align-items:baseline;gap:9px;font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.wbi h3 i{font-family:var(--mono);font-style:normal;font-size:10px;font-weight:500;color:var(--ink5);letter-spacing:.14em}
+.wbi p{font-size:12.6px;color:var(--ink3);line-height:1.8;margin-top:7px}
+.wbi p.wbi__m{font-size:11.5px;color:#136A57;letter-spacing:.04em;margin-top:8px}
+@media(max-width:1080px){
+  .wb{grid-template-columns:1fr;gap:30px;padding:38px 34px 36px}
+  .wb__d{max-width:640px}
+}
+@media(max-width:720px){
+  .wbsec{padding:0 0 66px}
+  .wb{padding:28px 22px 30px;border-radius:16px}
+  .wb h2{font-size:23px}
+  .wb__d{font-size:13px}
+  .wb__act{gap:0}
+  .wb__act .btn{width:100%}
+  .wb__demo{margin:18px auto 0}
+  .wbi{grid-template-columns:32px 1fr;gap:12px;padding:15px 0}
+  .wbi__ico{width:32px;height:32px;border-radius:9px}
+  .wbi h3{font-size:14px}
+}
+@media(max-width:860px){.delivs{grid-template-columns:1fr}}
+
+/* ── 关于我们 ── */
+.ab{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.ab h2{font-size:29px;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1.4;margin-top:14px}
+.ab p{font-size:14.5px;color:var(--ink3);margin-top:18px;line-height:1.95}
+.qual{background:#F7FCFE;border:1px solid #E8F3F8;border-radius:14px;padding:26px}
+.qual__t{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink4);letter-spacing:.2em;margin-bottom:14px}
+.qual li{display:flex;align-items:center;gap:11px;font-size:13.5px;color:var(--ink2);
+  padding:11px 0;border-bottom:1px solid #E6F1F6;letter-spacing:.02em}
+.qual li:last-child{border-bottom:0;padding-bottom:0}
+.qual li svg{flex-shrink:0}
+.tlink{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;
+  background:linear-gradient(120deg,#EEF5FF,#F5FAFF);border:1px solid #D6E7F8;border-radius:14px;
+  padding:20px 22px;transition:border-color .2s,transform .2s}
+.tlink:hover{border-color:#A9CDEF;transform:translateY(-1px)}
+.tlink b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.tlink span{display:block;font-family:var(--mono);font-size:12px;color:var(--blue);margin-top:6px;letter-spacing:.04em}
+@media(max-width:960px){.ab{grid-template-columns:1fr;gap:32px}.ab h2{font-size:23px}}
+
+/* ── 联系 / 留资 ── */
+.ct{display:grid;grid-template-columns:minmax(0,1fr) 424px;gap:72px;align-items:start}
+.ct h2{font-size:34px;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1.38;margin-top:14px}
+.ct__d{font-size:14.5px;color:var(--ink3);margin-top:18px;line-height:1.9;max-width:520px}
+.ct__ways{margin-top:26px;display:grid;gap:11px;max-width:520px}
+.ct__ways li{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;color:var(--ink3);line-height:1.6}
+.ct__ways li svg{flex:none;margin-top:2px}
+.ct__ways b{color:var(--ink);font-weight:600;margin-right:7px}
+.info{display:grid;grid-template-columns:auto auto;gap:18px 56px;margin-top:32px;justify-content:start}
+.info p:first-child{font-family:var(--mono);font-size:10.5px;color:var(--ink5);letter-spacing:.18em}
+.info p:last-child{font-size:15px;color:var(--ink);margin-top:8px;font-weight:600;letter-spacing:.01em}
+.info a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:color .18s,border-color .18s}
+.info a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.ct__qr{display:flex;align-items:center;gap:15px;margin-top:28px;padding:14px 16px;
+  border:1px solid var(--line);border-radius:12px;background:var(--soft2);max-width:352px}
+.ct__qr img{width:74px;height:74px;border-radius:5px;flex:none}
+.ct__qr b{display:block;font-size:12.5px;font-weight:600;color:var(--ink);letter-spacing:.06em}
+.ct__qr span{display:block;font-family:var(--mono);font-size:12px;color:var(--blue);margin-top:6px;letter-spacing:.03em}
+.ct__addr{display:flex;align-items:flex-start;gap:9px;margin-top:20px;font-size:13px;color:var(--ink4);line-height:1.65}
+.ct__addr svg{flex:none;margin-top:2px}
+.ct__box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 32px 28px;
+  box-shadow:0 34px 66px -50px rgba(6,63,110,.62);position:relative;overflow:hidden}
+.ct__box::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+  background:linear-gradient(90deg,#075DF3,#179CE2 46%,#079D60)}
+.ct__bt{font-size:19px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+.ct__bd{margin:8px 0 24px;font-size:12.5px;line-height:1.75;color:var(--ink3)}
+@media(max-width:1080px){.ct{grid-template-columns:minmax(0,1fr) 380px;gap:48px}}
+@media(max-width:980px){.info{grid-template-columns:1fr 1fr;gap:16px 24px}}
+@media(max-width:900px){
+  .ct{grid-template-columns:1fr;gap:34px}
+  .ct h2{font-size:25px}
+  .ct__box{padding:28px 22px 24px}
+  .ct__qr{max-width:none}
+}
+@media(max-width:560px){.lf__2{grid-template-columns:1fr}.info{grid-template-columns:1fr;gap:16px}}
+
+/* ── 页脚 ── */
+.ft{background:#fff;padding:64px 0 0;border-top:1px solid #F0F6F9}
+.ft__row{display:flex;justify-content:space-between;gap:60px}
+.ft__logo img{height:34px;width:auto}
+.ft__tag{font-size:13px;color:var(--ink4);margin-top:16px;letter-spacing:.03em}
+.ft__claim{font-size:13px;color:#073EAC;margin-top:6px;font-weight:600;letter-spacing:.03em}
+.ft__cols{display:flex;gap:66px}
+.ft__cols h4{font-size:11px;font-weight:600;color:var(--ink5);letter-spacing:.18em;margin:0 0 4px;font-family:var(--mono)}
+.ft__cols a,.ft__cols span{display:block;font-size:13px;color:var(--ink3);margin-top:10px;letter-spacing:.01em}
+.ft__cols a:hover{color:var(--blue)}
+.ft__cols a>svg{margin-left:4px;opacity:.45;vertical-align:baseline}
+.ft__bot{display:flex;justify-content:space-between;gap:20px;margin-top:46px;padding-top:22px;
+  border-top:1px solid #EEF5F8;font-size:12px;color:var(--ink5);letter-spacing:.02em;flex-wrap:wrap}
+.ft__icp{color:var(--ink5);border-bottom:1px solid #DCE7EE}
+.ft__icp:hover{color:var(--blue)}
+@media(max-width:820px){
+  .ft{padding:44px 0 0}
+  .ft__row{flex-direction:column;gap:30px}
+  .ft__cols{gap:40px;flex-wrap:wrap}
+  .ft__bot{margin-top:32px;flex-direction:column;gap:8px}
+}
+/* ── 行业应用与选型（合订手册 P18）── */
+.sel{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.selr{display:grid;grid-template-columns:1.05fr .95fr 1.35fr;align-items:center}
+.selr+.selr{border-top:1px solid var(--line2)}
+.selr--hd{background:#F2FAFC;font-size:11px;font-weight:600;letter-spacing:.14em}
+.selr--hd .selr__s,.selr--hd .selr__p,.selr--hd .selr__f{padding:13px 26px;color:var(--ink4)}
+.selr__s{display:flex;align-items:center;gap:12px;padding:20px 26px;font-size:14.5px;font-weight:700;color:var(--ink)}
+.selr__s svg{flex-shrink:0}
+.selr__p{padding:20px 10px;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--blue);letter-spacing:.01em}
+.selr__f{padding:20px 26px;font-size:13px;color:var(--ink3);line-height:1.7}
+.sel__note{margin-top:16px;font-size:12px;color:var(--ink4);letter-spacing:.02em}
+
+/* ── 产品协同价值（合订手册 P17）── */
+.syns{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.syn{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column}
+.syn__hd{display:flex;align-items:flex-start;gap:14px}
+.syn__ico{width:46px;height:46px;border-radius:50%;background:var(--softb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.syn__hd h3{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+.syn__chain{margin-top:5px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em}
+.syn__d{margin-top:16px;font-size:13px;color:var(--ink3);line-height:1.85;flex:1}
+.syn__to{margin-top:16px;padding-top:14px;border-top:1px solid var(--line2);font-size:11.5px;color:var(--ink4)}
+
+/* ── 技术服务（合订手册 P19）── */
+.svs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 18px}
+.sv{display:flex;align-items:flex-start;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.sv__ico{width:42px;height:42px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sv__b h3{font-size:14.5px;font-weight:700;color:var(--ink)}
+.sv__b p{margin-top:7px;font-size:12.5px;color:var(--ink3);line-height:1.75}
+.sv__no{margin-left:auto;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink5);letter-spacing:.1em;flex-shrink:0;padding-top:4px}
+.svq{margin-top:26px;display:flex;align-items:center;gap:18px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:14px;max-width:540px}
+.svq img{border-radius:10px;flex-shrink:0;background:#fff}
+.svq__b b{display:block;font-size:15px;font-weight:700;color:var(--ink)}
+.svq__b span{display:block;margin-top:4px;font-size:12.5px;color:var(--ink3)}
+.svq__b p{margin-top:9px;font-size:11px;color:var(--ink5)}
+
+/* ── 参照标准 chips ── */
+.stds{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.stds__t{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--ink5);flex-shrink:0}
+.stds__c{display:flex;flex-wrap:wrap;gap:8px}
+.std{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:11.5px;color:var(--ink3);background:#fff}
+.std b{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--blue);letter-spacing:.02em}
+.prod__std{margin-top:10px;font-size:10.5px;color:var(--ink5);line-height:1.6;letter-spacing:.01em}
+
+/* ── 联系区双二维码 ── */
+.ct__qrs{display:flex;gap:12px;flex-wrap:wrap}
+
+@media(max-width:1080px){
+  .syns{grid-template-columns:1fr}
+  .svs{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .selr{grid-template-columns:1fr;gap:4px}
+  .selr--hd{display:none}
+  .selr__s,.selr__p,.selr__f{padding:5px 22px}
+  .selr__s{padding-top:16px}
+  .selr__f{padding-bottom:16px}
+}
+
+.endwave{line-height:0;overflow:hidden;background:#fff}
+.endwave svg{width:100%;display:block}
+
+/* ── 入场 ── */
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero .pill,.hero h1,.hero__sub,.hero__flow,.hero__cta,.trust{animation:fu .7s cubic-bezier(.22,.7,.3,1) both}
+.hero h1{animation-delay:.05s}.hero__sub{animation-delay:.12s}.hero__flow{animation-delay:.17s}
+.hero__cta{animation-delay:.22s}.trust{animation-delay:.28s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <input class="navtg" type="checkbox" id="navtg" aria-label="展开导航菜单">
+  <div class="hd__in">
+    <a class="hd__logo" href="#" aria-label="致联信息首页"><img src="assets/brand/logo.svg" alt="致联信息 ZHILIAN INFORMATION" width="323" height="76"></a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#products">产品体系</a>
+      <a href="#layers">能力结构</a>
+      <a href="#selection">行业选型</a>
+      <a href="#services">技术服务</a>
+      <a href="#about">关于我们</a>
+      <a class="nav__ext" href="/demo/" target="_blank" rel="noopener">系统演示<svg viewBox="0 0 12 12" width="10" height="10" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="nav__ext" href="/alarm" target="_blank" rel="noopener" title="ALARM 报警工作台">报警工作台<svg viewBox="0 0 12 12" width="10" height="10" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="nav__ext" href="http://ai.zlinfot.com" target="_blank" rel="noopener">技术研究<svg viewBox="0 0 12 12" width="10" height="10" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="hd__r">
+      <span class="hd__tel"><svg viewBox="0 0 60 60" width="14" height="14" fill="none" stroke="#2A3F57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 8 8 15c3 17 20 34 37 37l7-7-12-11-7 6c-9-4-13-8-17-17l6-7-7-8Z"/></svg>13516812241</span>
+      <a class="btn btn--blue btn--sm" href="#contact">预约产品演示</a>
+      <label class="burger" for="navtg" aria-hidden="true"><span></span><span></span><span></span></label>
+    </div>
+  </div>
+  <nav class="hd__mob" aria-label="移动导航">
+    <a href="#products">产品体系</a>
+    <a href="#layers">能力结构</a>
+    <a href="#selection">行业选型</a>
+    <a href="#services">技术服务</a>
+    <a href="#about">关于我们</a>
+    <a class="nav__ext" href="/demo/" target="_blank" rel="noopener">系统演示<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="nav__ext" href="/alarm" target="_blank" rel="noopener">报警工作台<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#contact">联系与咨询</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero__media">
+    <img src="assets/hero/factory.jpg" srcset="assets/hero/factory-sm.jpg 760w, assets/hero/factory.jpg 1800w"
+      sizes="(max-width:900px) 100vw, 58vw" alt="精细化工装置区场景示意" width="1800" height="900" fetchpriority="high">
+  </div>
+  <div class="hero__in">
+    <div class="hero__copy">
+      <span class="pill"><i></i>面向流程工业的工业软件与智能应用</span>
+      <h1><span>用<span class="kw grad-b">数据</span>读懂工艺</span><span>用<span class="kw grad-g">智能</span>辅助生产</span></h1>
+      <p class="hero__sub">联接工业数据，释放生产经营价值</p>
+      <p class="hero__flow">数据<i></i>生产力</p>
+      <div class="hero__cta">
+        <a class="btn btn--blue" href="#contact">预约产品演示</a>
+        <a class="btn btn--ghost" href="/download/">下载产品手册 <svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#0069AE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h22l10 10v40H14Z"/><path d="M36 5v10h10M22 26h16M22 35h16M22 44h10"/></svg></a>
+      </div>
+      <p class="trust"><span>国家高新技术企业</span><span>软件著作权 45 项</span><span>服务客户近 200 家</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="layers">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Capability / 能力结构</p>
+        <h2>不是一堆系统，<br>而是一条从<em>数据</em>到<em>判断</em>的链</h2>
+      </div>
+      <p class="lead">七个产品分四层：先把现场数据接全，再把过程看清，然后改进运行与安全，最后把结论送进岗位。<b>每层都能单独交付，也能逐层往上加。</b></p>
+    </div>
+    <div class="layers">
+
+      <div class="layer layer--hi">
+        <div class="layer__no">D</div>
+        <div class="layer__body">
+          <div class="layer__t"><b>接续岗位工作</b><span>inWork</span></div>
+          <p class="layer__d">将授权应用、知识与计算工具组织到任务中，由岗位人员复核并接续处理。</p>
+          <ul class="layer__tags"><li>inWork 智能体工作台</li></ul>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="layer__no">C</div>
+        <div class="layer__body">
+          <div class="layer__t"><b>改进运行与安全管理</b><span>iCLPM / iAAS / iSafe</span></div>
+          <p class="layer__d">评估回路、治理报警、落实风险管控与作业许可，让专业问题进入持续改进。</p>
+          <ul class="layer__tags"><li>iCLPM 回路性能诊断</li><li>iAAS 高级过程报警</li><li>iSafe 安全风险管控</li></ul>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="layer__no">B</div>
+        <div class="layer__body">
+          <div class="layer__t"><b>组织生产并理解差异</b><span>iMCS / iPAE</span></div>
+          <p class="layer__d">以配方、工单和批记录组织生产；按批次与工序阶段比较轨迹、时长及设备。</p>
+          <ul class="layer__tags"><li>iMCS 生产管控</li><li>iPAE 过程分析与探索</li></ul>
+        </div>
+      </div>
+      <div class="layer">
+        <div class="layer__no">A</div>
+        <div class="layer__body">
+          <div class="layer__t"><b>联接与整理数据</b><span>iIoTS</span></div>
+          <p class="layer__d">多协议采集、本地边缘运行、统一测点与历史，为应用提供共同数据基础。</p>
+          <ul class="layer__tags"><li>iIoTS 物联监控</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="products">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Products / 产品体系</p>
+        <h2>七个产品，覆盖从数据到岗位的完整链条</h2>
+      </div>
+      <p class="lead">数据 → 业务背景 → 专业分析 → 岗位行动 → 持续改进；每类产品解决一类具体问题，口径统一、数据同源，不做彼此割裂的烟囱。</p>
+    </div>
+    <div class="prods">
+
+        <article class="prod">
+          <div class="prod__ico prod__ico--blue"><svg viewBox="0 0 60 60" width="30" height="30" fill="none" stroke="#075DF3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg></div>
+          <h3 class="prod__code">iIoTS</h3>
+          <p class="prod__name">物联监控系统</p>
+          <p class="prod__claim"><span>联接现场数据</span><span>服务业务应用</span></p>
+          <p class="prod__desc">面向存量装置与分散设备，让数据按统一口径被看见、被保存、被复用。</p>
+          <p class="prod__meta">多协议接入 · 边缘采集 · 统一建模</p>
+          <p class="prod__std">隔离参照 GB/T 30976</p>
+        </article>
+
+        <article class="prod">
+          <div class="prod__ico prod__ico--green"><svg viewBox="0 0 60 60" width="30" height="30" fill="none" stroke="#079D60" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 35V23a13 13 0 0 1 26 0v12l5 7H12l5-7ZM25 49h10M30 6V2"/></svg></div>
+          <h3 class="prod__code">iAAS</h3>
+          <p class="prod__name">高级过程报警系统</p>
+          <p class="prod__claim"><span>从报警线索</span><span>到治理闭环</span></p>
+          <p class="prod__desc">面向工艺报警全生命周期，让报警从被动响应走向主动治理。</p>
+          <p class="prod__meta">滋扰识别 · 泛滥复盘 · 参数审计</p>
+          <p class="prod__std">参照 ISA 18.2 ｜ GB/T 41261-2022 ｜ T/CCSAS 012-2022</p>
+        </article>
+
+        <article class="prod">
+          <div class="prod__ico prod__ico--blue"><svg viewBox="0 0 60 60" width="30" height="30" fill="none" stroke="#075DF3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg></div>
+          <h3 class="prod__code">iCLPM</h3>
+          <p class="prod__name">控制回路性能评估与诊断系统</p>
+          <p class="prod__claim"><span>评估 · 诊断</span><span>整定与复评</span></p>
+          <p class="prod__desc">面向流程工业回路持续治理，让回路优化有据可循、成效可复核。</p>
+          <p class="prod__meta">只读接入 · 六维观察 · 整定仿真</p>
+          
+        </article>
+
+        <article class="prod">
+          <div class="prod__ico prod__ico--green"><svg viewBox="0 0 60 60" width="30" height="30" fill="none" stroke="#079D60" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg></div>
+          <h3 class="prod__code">iSafe</h3>
+          <p class="prod__name">危险化学品安全风险智能化管控平台</p>
+          <p class="prod__claim"><span>让风险管控</span><span>落实到现场</span></p>
+          <p class="prod__desc">面向危险化学品企业，让风险信息连接岗位行动。</p>
+          <p class="prod__meta">重大危险源 · 双重预防 · 特殊作业</p>
+          <p class="prod__std">参照 GB 30871-2022 ｜ GB/T 33000-2025</p>
+        </article>
+
+        <article class="prod">
+          <div class="prod__ico prod__ico--blue"><svg viewBox="0 0 60 60" width="30" height="30" fill="none" stroke="#075DF3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44V27h8v17m6 0V18h8v26m6 0V8h8v36M8 48h44"/></svg></div>
+          <h3 class="prod__code">iMCS</h3>
+          <p class="prod__name">生产管控系统</p>
+          <p class="prod__claim"><span>从配方到</span><span>电子批记录</span></p>
+          <p class="prod__desc">面向间歇批次生产，以配方和批次连接工艺、现场与质量。</p>
+          <p class="prod__meta">配方版本 · 电子批记录 · 质量追溯</p>
+          
+        </article>
+    </div>
+    <div class="stds">
+      <span class="stds__t">参照标准</span>
+      <div class="stds__c"><span class="std"><b>ISA 18.2</b>报警管理生命周期</span><span class="std"><b>GB/T 41261-2022</b>过程报警管理</span><span class="std"><b>T/CCSAS 012-2022</b>报警管理实施</span><span class="std"><b>GB 30871-2022</b>特殊作业安全规范</span><span class="std"><b>GB/T 33000-2025</b>安全生产标准化</span><span class="std"><b>GB/T 30976</b>控制系统安全（隔离参照）</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Core / 两个核心</p>
+        <h2>一个进<em>岗位</em>，一个看<em>批次</em></h2>
+      </div>
+      <p class="lead">上面两层是我们真正押注的地方：把过程数据变成可比对的批次画像，再把画像变成岗位能直接用的判断。</p>
+    </div>
+    <div class="cores">
+
+      <article class="core " id="inwork">
+        <div class="core__hd">
+          <p class="core__layer">岗位智能应用</p>
+          <h3 class="core__code">inWork</h3>
+          <p class="core__name">智能体工作台</p>
+          <p class="core__claim">组织工具与知识　接续岗位任务</p>
+          <p class="core__desc"><span>面向班组长、工艺工程师、调度及管理岗位，</span><span>把授权应用、知识与工具组织到任务中。</span></p>
+        </div>
+        <div class="lap"><svg viewBox="0 0 600 350" class="lap__svg" role="img" aria-label="inWork 智能体工作台界面示意"><g transform="translate(0 0) scale(1)" font-family="'Source Han Sans SC','PingFang SC',sans-serif">
+    <ellipse cx="300" cy="345" rx="278" ry="3" fill="#123e60" opacity=".12"/>
+    <rect x="20" y="5" width="560" height="313" rx="14" fill="#73818b"/>
+    <rect x="22" y="7" width="556" height="309" rx="12" fill="#162330"/>
+    <rect x="26" y="11" width="548" height="301" rx="9" fill="#07101a"/>
+    <circle cx="300" cy="15.5" r="1.8" fill="#8398a9"/>
+    <g transform="translate(31 22)"><rect x="0" y="0" width="538" height="286" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/><rect x="0" y="33" width="90" height="253" rx="0" fill="#f2f7fc" stroke="none" stroke-width="1"/><rect x="0" y="0" width="538" height="33" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/><rect x="0" y="0" width="90" height="33" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/><circle cx="13" cy="16" r="7.2" fill="#ffffff" stroke="#0871e8" stroke-width="1.6"/><path d="M9 16 L13 11 L17 16 L13 21 Z" fill="#0871e8"/><text x="24" y="23" font-size="18" fill="#152842" font-weight="700" >inWork</text><text x="104" y="23" font-size="13" fill="#3b536c" font-weight="600" >岗位智能应用</text><text x="445" y="22" font-size="11" fill="#667d94" font-weight="500" >生产工作空间</text><circle cx="524" cy="16" r="6" fill="#d1eee5" /><line x1="0" y1="33" x2="538" y2="33" stroke="#dce6f0" stroke-width="1.2" /><rect x="6" y="43" width="78" height="29" rx="5" fill="#dbeaff" stroke="none" stroke-width="1"/><rect x="14" y="52" width="8" height="8" rx="1.5" fill="none" stroke="#085bc7" stroke-width="1.5"/><text x="29" y="61" font-size="11.5" fill="#085bc7" font-weight="700" >我的工作</text><rect x="14" y="91" width="8" height="8" rx="1.5" fill="none" stroke="#526d88" stroke-width="1.5"/><text x="29" y="100" font-size="11.5" fill="#526d88" font-weight="500" >岗位应用</text><rect x="14" y="130" width="8" height="8" rx="1.5" fill="none" stroke="#526d88" stroke-width="1.5"/><text x="29" y="139" font-size="11.5" fill="#526d88" font-weight="500" >知识资料</text><line x1="13" y1="159" x2="77" y2="159" stroke="#dce6f0" stroke-width="1.2" /><rect x="14" y="177" width="8" height="8" rx="1.5" fill="none" stroke="#526d88" stroke-width="1.5"/><text x="29" y="186" font-size="11.5" fill="#526d88" font-weight="500" >生产日报</text><rect x="14" y="216" width="8" height="8" rx="1.5" fill="none" stroke="#526d88" stroke-width="1.5"/><text x="29" y="225" font-size="11.5" fill="#526d88" font-weight="500" >异常记录</text><circle cx="18" cy="266" r="5.5" fill="#d6e7fa" /><text x="30" y="270" font-size="11" fill="#506e8c" font-weight="600" >工作台</text><line x1="90" y1="33" x2="90" y2="286" stroke="#dce6f0" stroke-width="1.2" /><line x1="364" y1="64" x2="364" y2="286" stroke="#dce6f0" stroke-width="1.2" /><text x="104" y="55" font-size="15" fill="#243d58" font-weight="700" >生产工作助手</text><rect x="297" y="41" width="53" height="19" rx="4" fill="#eef5ff" stroke="none" stroke-width="1"/><text x="323.5" y="55" font-size="10.5" fill="#1267cd" font-weight="600" text-anchor="middle">新任务</text><line x1="90" y1="65" x2="538" y2="65" stroke="#dce6f0" stroke-width="1.2" /><rect x="120" y="79" width="230" height="47" rx="7" fill="#e7f2ff" stroke="none" stroke-width="1"/><text x="132" y="98" font-size="12" fill="#284f77" font-weight="600" >整理本班次的生产记录</text><text x="132" y="116" font-size="11.5" fill="#4c6b8b" font-weight="500" >关注关键参数与异常情况</text><circle cx="111" cy="147" r="9" fill="#086fee" /><text x="111" y="151" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">AI</text><text x="126" y="151" font-size="12.5" fill="#204c78" font-weight="700" >生产工作助手</text><text x="110" y="173" font-size="12" fill="#476784" font-weight="500" >已汇总记录，请核对：</text><rect x="110" y="184" width="240" height="45" rx="5" fill="#f0f7fd" stroke="none" stroke-width="1"/><rect x="110" y="184" width="3" height="45" rx="1.5" fill="#2088ee" stroke="none" stroke-width="1"/><text x="121" y="202" font-size="12" fill="#1b65ad" font-weight="700" >班次概况与关键指标</text><text x="121" y="220" font-size="11.5" fill="#4c6d8a" font-weight="500" >异常记录 · 待办事项</text><rect x="104" y="242" width="246" height="32" rx="6" fill="#ffffff" stroke="#b9cfdf" stroke-width="1.3"/><text x="115" y="262" font-size="11.5" fill="#70869b" font-weight="500" >输入生产工作任务…</text><rect x="322" y="249" width="21" height="19" rx="5" fill="#096ee8" stroke="none" stroke-width="1"/><path d="M328 258 H337 M333 254 L337 258 L333 262" fill="none" stroke="#ffffff" stroke-width="1.8"/><text x="379" y="82" font-size="14" fill="#243e59" font-weight="700" >任务流程</text><rect x="374" y="93" width="157" height="151" rx="6" fill="#f7fbfe" stroke="#dbe8f1" stroke-width="1.2"/><g fill="none" stroke="#3d87d0" stroke-width="2" stroke-linejoin="round">
+      <path d="M451 131 V143 H405 V155"/>
+      <path d="M451 143 H498 V155"/>
+      <path d="M405 182 V197 H451 V208"/>
+      <path d="M498 182 V197 H451"/>
+      <path d="M401 150 L405 155 L409 150"/>
+      <path d="M494 150 L498 155 L502 150"/>
+      <path d="M447 203 L451 208 L455 203"/>
+    </g><rect x="426" y="104" width="50" height="27" rx="5" fill="#eaf9ff" stroke="#087fa4" stroke-width="1.8"/><text x="451" y="122" font-size="12" fill="#087fa4" font-weight="700" text-anchor="middle">任务</text><rect x="380" y="155" width="50" height="27" rx="5" fill="#eef5ff" stroke="#1467c0" stroke-width="1.8"/><text x="405" y="173" font-size="12" fill="#1467c0" font-weight="700" text-anchor="middle">分析</text><rect x="473" y="155" width="50" height="27" rx="5" fill="#eaf8f1" stroke="#118462" stroke-width="1.8"/><text x="498" y="173" font-size="12" fill="#118462" font-weight="700" text-anchor="middle">核对</text><rect x="426" y="208" width="50" height="27" rx="5" fill="#eaf8f1" stroke="#118462" stroke-width="1.8"/><text x="451" y="226" font-size="12" fill="#118462" font-weight="700" text-anchor="middle">结果</text><circle cx="383" cy="263" r="3.2" fill="#149d75" /><text x="392" y="267" font-size="10.5" fill="#597589" font-weight="500" >岗位任务 · 协同完成</text></g>
+    <rect x="29" y="20" width="542" height="290" rx="3" fill="none" stroke="#6b7d8c" stroke-width="1.2"/>
+    <path d="M20 318 H580 L600 333 Q594 340 573 342 H27 Q6 340 0 333 Z" fill="#a9b7c2"/>
+    <path d="M20 318 H580 L596 332 H4 Z" fill="#e7edf1"/>
+    <path d="M0 333 H600 Q594 340 573 342 H27 Q6 340 0 333 Z" fill="#8497a6"/>
+    <path d="M4 333 H596" fill="none" stroke="#f7fbff" stroke-width="1.5"/>
+    <path d="M248 318 H352 L349 324 H251 Z" fill="#8399a9"/>
+    <path d="M252 319 H348 L346 321 H254 Z" fill="#cedbe3"/>
+  </g></svg></div>
+        <p class="core__note">AI 只做初筛与组织，判定与复核按人分层执行</p>
+      </article>
+
+      <article class="core " id="ipae">
+        <div class="core__hd">
+          <p class="core__layer">过程分析与探索</p>
+          <h3 class="core__code">iPAE</h3>
+          <p class="core__name">过程分析与探索系统</p>
+          <p class="core__claim">让批次差异回到工序阶段</p>
+          <p class="core__desc"><span>面向间歇批次生产，</span><span>从历史数据看清批次差异。</span></p>
+        </div>
+        <div class="lap"><svg viewBox="0 0 600 350" class="lap__svg" role="img" aria-label="iPAE 黄金批次分析界面示意"><g transform="translate(0 0) scale(1)" font-family="'Source Han Sans SC','PingFang SC',sans-serif">
+    <ellipse cx="300" cy="345" rx="278" ry="3" fill="#123e60" opacity=".12"/>
+    <rect x="20" y="5" width="560" height="313" rx="14" fill="#73818b"/>
+    <rect x="22" y="7" width="556" height="309" rx="12" fill="#162330"/>
+    <rect x="26" y="11" width="548" height="301" rx="9" fill="#07101a"/>
+    <circle cx="300" cy="15.5" r="1.8" fill="#8398a9"/>
+    <g transform="translate(31 22)"><rect x="0" y="0" width="538" height="286" rx="0" fill="#f1f6fb" stroke="none" stroke-width="1"/><rect x="0" y="33" width="90" height="253" rx="0" fill="#143351" stroke="none" stroke-width="1"/><rect x="0" y="0" width="538" height="33" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/><rect x="0" y="0" width="90" height="33" rx="0" fill="#0871e8" stroke="none" stroke-width="1"/><circle cx="13" cy="16" r="7.2" fill="#ffffff" stroke="#ffffff" stroke-width="1.6"/><path d="M9 16 L13 11 L17 16 L13 21 Z" fill="#0871e8"/><text x="24" y="23" font-size="18" fill="#ffffff" font-weight="700" >iPAE</text><text x="104" y="23" font-size="13" fill="#3b536c" font-weight="600" >过程分析与探索</text><text x="445" y="22" font-size="11" fill="#667d94" font-weight="500" >生产工作空间</text><circle cx="524" cy="16" r="6" fill="#d1eee5" /><line x1="0" y1="33" x2="538" y2="33" stroke="#dce6f0" stroke-width="1.2" /><rect x="14" y="52" width="8" height="8" rx="1.5" fill="none" stroke="#d0ddee" stroke-width="1.5"/><text x="29" y="61" font-size="11.5" fill="#d0ddee" font-weight="500" >过程概览</text><rect x="6" y="82" width="78" height="29" rx="5" fill="#146bd2" stroke="none" stroke-width="1"/><rect x="14" y="91" width="8" height="8" rx="1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/><text x="29" y="100" font-size="11.5" fill="#ffffff" font-weight="700" >批次分析</text><rect x="14" y="130" width="8" height="8" rx="1.5" fill="none" stroke="#d0ddee" stroke-width="1.5"/><text x="29" y="139" font-size="11.5" fill="#d0ddee" font-weight="500" >趋势探索</text><rect x="14" y="169" width="8" height="8" rx="1.5" fill="none" stroke="#d0ddee" stroke-width="1.5"/><text x="29" y="178" font-size="11.5" fill="#d0ddee" font-weight="500" >指标监控</text><rect x="14" y="208" width="8" height="8" rx="1.5" fill="none" stroke="#d0ddee" stroke-width="1.5"/><text x="29" y="217" font-size="11.5" fill="#d0ddee" font-weight="500" >分析报告</text><circle cx="18" cy="266" r="5.5" fill="#3a6081" /><text x="30" y="270" font-size="11" fill="#d1dfec" font-weight="600" >过程分析</text><rect x="90" y="33" width="448" height="30" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/><text x="103" y="54" font-size="15" fill="#214766" font-weight="700" >黄金批次分析</text><text x="276" y="54" font-size="11.5" fill="#607c95" font-weight="500" >关键指标</text><text x="364" y="54" font-size="11.5" fill="#607c95" font-weight="500" >分析记录</text><line x1="103" y1="62" x2="193" y2="62" stroke="#0977ed" stroke-width="2.4" /><rect x="101" y="72" width="306" height="204" rx="5" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.2"/><text x="113" y="94" font-size="14" fill="#294966" font-weight="700" >批次趋势对比</text><line x1="114" y1="109" x2="129" y2="109" stroke="#199b78" stroke-width="2.8" /><text x="134" y="113" font-size="10.5" fill="#526f87" font-weight="500" >参考批次</text><line x1="196" y1="109" x2="211" y2="109" stroke="#147cff" stroke-width="2.8" /><text x="216" y="113" font-size="10.5" fill="#526f87" font-weight="500" >当前批次</text><rect x="279" y="104" width="12" height="10" rx="1" fill="#f9e6a2" stroke="none" stroke-width="1"/><text x="297" y="113" font-size="10.5" fill="#526f87" font-weight="500" >参考范围</text><line x1="132" y1="131" x2="394" y2="131" stroke="#e3ebf1" stroke-width="1" /><text x="125" y="134.5" font-size="10" fill="#6b8297" font-weight="500" text-anchor="end">120</text><line x1="132" y1="165" x2="394" y2="165" stroke="#e3ebf1" stroke-width="1" /><text x="125" y="168.5" font-size="10" fill="#6b8297" font-weight="500" text-anchor="end">80</text><line x1="132" y1="199" x2="394" y2="199" stroke="#e3ebf1" stroke-width="1" /><text x="125" y="202.5" font-size="10" fill="#6b8297" font-weight="500" text-anchor="end">40</text><line x1="132" y1="233" x2="394" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="125" y="236.5" font-size="10" fill="#6b8297" font-weight="500" text-anchor="end">0</text><line x1="132" y1="126" x2="132" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="132" y="248" font-size="10" fill="#6b8297" font-weight="500" text-anchor="middle">0</text><line x1="197.5" y1="126" x2="197.5" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="197.5" y="248" font-size="10" fill="#6b8297" font-weight="500" text-anchor="middle">6</text><line x1="263" y1="126" x2="263" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="263" y="248" font-size="10" fill="#6b8297" font-weight="500" text-anchor="middle">12</text><line x1="328.5" y1="126" x2="328.5" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="328.5" y="248" font-size="10" fill="#6b8297" font-weight="500" text-anchor="middle">18</text><line x1="394" y1="126" x2="394" y2="233" stroke="#e3ebf1" stroke-width="1" /><text x="394" y="248" font-size="10" fill="#6b8297" font-weight="500" text-anchor="middle">24</text><path d="M132 210 C153 200 172 174 197 176 S234 189 263 179 S303 173 329 177 S368 169 394 149 L394 177 C369 194 349 198 329 200 S289 193 263 203 S223 212 197 204 S157 231 132 233 Z" fill="#f9e8ad" opacity=".85"/><path d="M132 226 C148 216 154 177 170 155 S189 173 202 195 S224 212 237 198 S254 176 270 183 S294 199 313 200 S348 209 365 188 S383 162 394 158" fill="none" stroke="#119b78" stroke-width="3" stroke-linecap="round"/><path d="M132 228 C148 218 163 199 182 198 S209 221 225 225 S246 202 263 197 S289 216 305 216 S335 216 355 209 S379 193 394 182" fill="none" stroke="#e15d59" stroke-width="2.6" stroke-linecap="round"/><path d="M132 229 C149 217 157 160 172 142 S190 177 203 205 S218 232 230 228 S253 198 270 204 S299 222 315 223 S346 225 363 207 S382 191 394 174" fill="none" stroke="#147cff" stroke-width="3.1" stroke-linecap="round"/><path d="M132 224 C151 208 175 185 197 188 S233 202 263 190 S303 187 329 190 S368 190 394 168" fill="none" stroke="#d4a21d" stroke-width="2.6" stroke-linecap="round"/><line x1="132" y1="233" x2="394" y2="233" stroke="#9ab2c6" stroke-width="1.3" /><text x="263" y="267" font-size="10.5" fill="#56728b" font-weight="500" text-anchor="middle">生产时间（小时）</text><rect x="418" y="72" width="108" height="204" rx="5" fill="#ffffff" stroke="#dbe5ef" stroke-width="1.2"/><text x="430" y="94" font-size="13" fill="#294966" font-weight="700" >关键指标</text><line x1="428" y1="105" x2="516" y2="105" stroke="#dce6f0" stroke-width="1.2" /><text x="430" y="122" font-size="10.5" fill="#627d94" font-weight="600" >指标</text><text x="478" y="122" font-size="10.5" fill="#627d94" font-weight="600" >状态</text><text x="430" y="146" font-size="11.5" fill="#425f79" font-weight="600" >温度</text><text x="478" y="146" font-size="11.5" fill="#07855e" font-weight="700" >稳定</text><circle cx="512" cy="142" r="2.8" fill="#07855e" /><line x1="428" y1="157" x2="516" y2="157" stroke="#e8eef4" stroke-width="1" /><text x="430" y="177" font-size="11.5" fill="#425f79" font-weight="600" >压力</text><text x="478" y="177" font-size="11.5" fill="#07855e" font-weight="700" >正常</text><circle cx="512" cy="173" r="2.8" fill="#07855e" /><line x1="428" y1="188" x2="516" y2="188" stroke="#e8eef4" stroke-width="1" /><text x="430" y="208" font-size="11.5" fill="#425f79" font-weight="600" >流量</text><text x="478" y="208" font-size="11.5" fill="#b27709" font-weight="700" >关注</text><circle cx="512" cy="204" r="2.8" fill="#b27709" /><line x1="428" y1="219" x2="516" y2="219" stroke="#e8eef4" stroke-width="1" /><text x="430" y="239" font-size="11.5" fill="#425f79" font-weight="600" >能耗</text><text x="478" y="239" font-size="11.5" fill="#176dca" font-weight="700" >对比</text><circle cx="512" cy="235" r="2.8" fill="#176dca" /><rect x="428" y="254" width="88" height="14" rx="3" fill="#e9f2fc" stroke="none" stroke-width="1"/><text x="472" y="264.5" font-size="10" fill="#3b729f" font-weight="500" text-anchor="middle">关注参数变化</text></g>
+    <rect x="29" y="20" width="542" height="290" rx="3" fill="none" stroke="#6b7d8c" stroke-width="1.2"/>
+    <path d="M20 318 H580 L600 333 Q594 340 573 342 H27 Q6 340 0 333 Z" fill="#a9b7c2"/>
+    <path d="M20 318 H580 L596 332 H4 Z" fill="#e7edf1"/>
+    <path d="M0 333 H600 Q594 340 573 342 H27 Q6 340 0 333 Z" fill="#8497a6"/>
+    <path d="M4 333 H596" fill="none" stroke="#f7fbff" stroke-width="1.5"/>
+    <path d="M248 318 H352 L349 324 H251 Z" fill="#8399a9"/>
+    <path d="M252 319 H348 L346 321 H254 Z" fill="#cedbe3"/>
+  </g></svg></div>
+        <p class="core__note">可从 CSV / Excel 历史数据独立起步，不依赖实时接入</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="ipae">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Golden Batch / 黄金批次</p>
+        <h2>先定「好」的标准，<br>才谈得上<em>偏差</em></h2>
+      </div>
+      <p class="lead">同一配方跑出的多条批次曲线叠在一起，中间那条金黄色带就是黄金批次参考范围。落在带内是正常，穿出带外才值得复盘。</p>
+    </div>
+    <div class="gold">
+      <figure class="goldcard">
+        <div class="goldcard__hd">
+          <div>
+            <p class="goldcard__t">黄金批次分析与监控</p>
+            <p class="goldcard__d">同一配方 · 多条批次曲线叠加对比</p>
+          </div>
+          <span class="goldcard__tag">iPAE</span>
+        </div>
+        <svg viewBox="0 0 520 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="黄金批次参考范围与批次曲线对比">
+<line x1="0" y1="152.5" x2="520" y2="152.5" stroke="#DFEEF4" stroke-width="1"/><line x1="0" y1="105" x2="520" y2="105" stroke="#DFEEF4" stroke-width="1"/><line x1="0" y1="57.5" x2="520" y2="57.5" stroke="#DFEEF4" stroke-width="1"/><line x1="67.6" y1="10" x2="67.6" y2="200" stroke="#C9DCE6" stroke-width="1" stroke-dasharray="3 5"/><line x1="171.6" y1="10" x2="171.6" y2="200" stroke="#C9DCE6" stroke-width="1" stroke-dasharray="3 5"/><line x1="384.8" y1="10" x2="384.8" y2="200" stroke="#C9DCE6" stroke-width="1" stroke-dasharray="3 5"/>
+<path d="M0.0 176.8 C6.2 164.9 24.7 127.3 37.1 105.5 C49.5 83.7 61.9 58.3 74.3 46.1 C86.7 34.0 99.0 37.0 111.4 32.6 C123.8 28.3 136.2 23.3 148.6 20.0 C161.0 16.7 173.3 13.8 185.7 12.6 C198.1 11.4 210.5 12.5 222.9 12.7 C235.3 12.9 247.6 13.0 260.0 13.7 C272.4 14.3 284.7 14.6 297.1 16.6 C309.5 18.7 321.9 22.8 334.3 26.0 C346.7 29.2 359.0 31.3 371.4 35.9 C383.8 40.4 396.2 46.8 408.6 53.3 C421.0 59.8 433.3 66.5 445.7 74.8 C458.1 83.1 470.5 93.3 482.9 103.3 C495.3 113.3 513.8 127.7 520.0 135.0 C526.2 142.3 526.2 149.3 520.0 147.2 C513.8 145.1 495.3 130.1 482.9 122.3 C470.5 114.5 458.1 106.8 445.7 100.6 C433.3 94.4 421.0 89.8 408.6 85.3 C396.2 80.8 383.8 76.5 371.4 73.7 C359.0 70.9 346.7 70.3 334.3 68.5 C321.9 66.7 309.5 63.8 297.1 62.8 C284.7 61.8 272.4 62.4 260.0 62.3 C247.6 62.2 235.3 62.3 222.9 62.1 C210.5 61.9 198.1 60.5 185.7 61.1 C173.3 61.7 161.0 63.7 148.6 65.8 C136.2 67.9 123.8 71.2 111.4 73.6 C99.0 76.0 86.7 70.9 74.3 80.4 C61.9 89.9 49.5 112.7 37.1 130.8 C24.7 148.9 6.2 179.3 0.0 189.0 Z" fill="#F6D976" fill-opacity=".5"/>
+<path d="M0.0 176.8 C6.2 164.9 24.7 127.3 37.1 105.5 C49.5 83.7 61.9 58.3 74.3 46.1 C86.7 34.0 99.0 37.0 111.4 32.6 C123.8 28.3 136.2 23.3 148.6 20.0 C161.0 16.7 173.3 13.8 185.7 12.6 C198.1 11.4 210.5 12.5 222.9 12.7 C235.3 12.9 247.6 13.0 260.0 13.7 C272.4 14.3 284.7 14.6 297.1 16.6 C309.5 18.7 321.9 22.8 334.3 26.0 C346.7 29.2 359.0 31.3 371.4 35.9 C383.8 40.4 396.2 46.8 408.6 53.3 C421.0 59.8 433.3 66.5 445.7 74.8 C458.1 83.1 470.5 93.3 482.9 103.3 C495.3 113.3 513.8 129.7 520.0 135.0" stroke="#E3C860" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+<path d="M0.0 189.0 C6.2 179.3 24.7 148.9 37.1 130.8 C49.5 112.7 61.9 89.9 74.3 80.4 C86.7 70.9 99.0 76.0 111.4 73.6 C123.8 71.2 136.2 67.9 148.6 65.8 C161.0 63.7 173.3 61.7 185.7 61.1 C198.1 60.5 210.5 61.9 222.9 62.1 C235.3 62.3 247.6 62.2 260.0 62.3 C272.4 62.4 284.7 61.8 297.1 62.8 C309.5 63.8 321.9 66.7 334.3 68.5 C346.7 70.3 359.0 70.9 371.4 73.7 C383.8 76.5 396.2 80.8 408.6 85.3 C421.0 89.8 433.3 94.4 445.7 100.6 C458.1 106.8 470.5 114.5 482.9 122.3 C495.3 130.1 513.8 143.0 520.0 147.2" stroke="#E3C860" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+<path d="M0.0 171.2 C6.2 161.0 24.7 127.6 37.1 109.8 C49.5 92.0 61.9 73.3 74.3 64.1 C86.7 54.9 99.0 57.7 111.4 54.5 C123.8 51.3 136.2 47.2 148.6 44.8 C161.0 42.4 173.3 40.9 185.7 40.3 C198.1 39.6 210.5 40.7 222.9 40.9 C235.3 41.1 247.6 40.9 260.0 41.4 C272.4 41.9 284.7 42.3 297.1 43.9 C309.5 45.5 321.9 48.6 334.3 51.0 C346.7 53.4 359.0 54.5 371.4 58.2 C383.8 61.9 396.2 67.8 408.6 73.2 C421.0 78.6 433.3 83.6 445.7 90.7 C458.1 97.8 470.5 107.6 482.9 115.7 C495.3 123.8 513.8 135.3 520.0 139.2" stroke="#08A85A" stroke-width="1.2" stroke-opacity="0.55" fill="none" stroke-linecap="round"/><path d="M0.0 176.9 C6.2 165.9 24.7 130.2 37.1 110.7 C49.5 91.2 61.9 69.9 74.3 59.7 C86.7 49.5 99.0 52.8 111.4 49.3 C123.8 45.8 136.2 41.5 148.6 38.9 C161.0 36.3 173.3 34.5 185.7 33.7 C198.1 32.9 210.5 34.1 222.9 34.3 C235.3 34.5 247.6 34.4 260.0 34.9 C272.4 35.4 284.7 35.6 297.1 37.3 C309.5 39.0 321.9 42.4 334.3 45.0 C346.7 47.6 359.0 48.9 371.4 52.8 C383.8 56.7 396.2 62.8 408.6 68.6 C421.0 74.4 433.3 79.8 445.7 87.4 C458.1 95.0 470.5 105.3 482.9 114.1 C495.3 122.9 513.8 135.9 520.0 140.3" stroke="#08A85A" stroke-width="1.2" stroke-opacity="0.58" fill="none" stroke-linecap="round"/><path d="M0.0 183.5 C6.2 174.4 24.7 148.4 37.1 128.7 C49.5 109.0 61.9 77.5 74.3 65.2 C86.7 52.9 99.0 58.4 111.4 55.0 C123.8 51.6 136.2 47.8 148.6 44.8 C161.0 41.8 173.3 38.3 185.7 37.1 C198.1 35.9 210.5 37.5 222.9 37.7 C235.3 37.9 247.6 38.1 260.0 38.3 C272.4 38.5 284.7 37.5 297.1 38.9 C309.5 40.3 321.9 44.0 334.3 46.5 C346.7 49.0 359.0 50.6 371.4 54.0 C383.8 57.4 396.2 61.7 408.6 66.9 C421.0 72.1 433.3 78.3 445.7 85.3 C458.1 92.3 470.5 100.3 482.9 109.0 C495.3 117.7 513.8 132.6 520.0 137.3" stroke="#08A85A" stroke-width="1.2" stroke-opacity="0.63" fill="none" stroke-linecap="round"/><path d="M0.0 182.5 C6.2 171.6 24.7 137.0 37.1 116.9 C49.5 96.9 61.9 73.1 74.3 62.2 C86.7 51.4 99.0 55.3 111.4 51.8 C123.8 48.3 136.2 44.2 148.6 41.5 C161.0 38.8 173.3 36.4 185.7 35.5 C198.1 34.6 210.5 35.9 222.9 36.1 C235.3 36.3 247.6 36.3 260.0 36.7 C272.4 37.1 284.7 37.0 297.1 38.6 C309.5 40.2 321.9 43.7 334.3 46.2 C346.7 48.8 359.0 50.1 371.4 53.9 C383.8 57.7 396.2 63.2 408.6 68.8 C421.0 74.4 433.3 80.1 445.7 87.5 C458.1 94.9 470.5 104.2 482.9 113.2 C495.3 122.2 513.8 136.6 520.0 141.3" stroke="#08A85A" stroke-width="1.2" stroke-opacity="0.52" fill="none" stroke-linecap="round"/><path d="M0.0 176.7 C6.2 165.9 24.7 130.5 37.1 111.9 C49.5 93.3 61.9 74.8 74.3 65.3 C86.7 55.8 99.0 58.5 111.4 55.1 C123.8 51.7 136.2 47.4 148.6 44.9 C161.0 42.4 173.3 41.0 185.7 40.4 C198.1 39.8 210.5 40.8 222.9 41.0 C235.3 41.2 247.6 41.0 260.0 41.6 C272.4 42.2 284.7 42.7 297.1 44.4 C309.5 46.1 321.9 49.4 334.3 51.9 C346.7 54.4 359.0 55.5 371.4 59.5 C383.8 63.5 396.2 69.8 408.6 75.6 C421.0 81.3 433.3 86.5 445.7 94.0 C458.1 101.5 470.5 112.3 482.9 120.7 C495.3 129.2 513.8 140.7 520.0 144.7" stroke="#08A85A" stroke-width="1.2" stroke-opacity="0.58" fill="none" stroke-linecap="round"/><path d="M0.0 173.9 C6.2 163.1 24.7 128.2 37.1 109.2 C49.5 90.2 61.9 69.8 74.3 59.9 C86.7 50.0 99.0 53.2 111.4 49.8 C123.8 46.4 136.2 42.5 148.6 39.6 C161.0 36.7 173.3 35.0 185.7 32.3 C198.1 29.6 210.5 26.6 222.9 23.5 C235.3 20.4 247.6 16.0 260.0 13.7 C272.4 11.4 284.7 9.1 297.1 9.8 C309.5 10.6 321.9 14.4 334.3 18.2 C346.7 22.0 359.0 25.7 371.4 32.4 C383.8 39.1 396.2 49.5 408.6 58.3 C421.0 67.1 433.3 75.8 445.7 85.0 C458.1 94.2 470.5 104.5 482.9 113.5 C495.3 122.5 513.8 134.6 520.0 138.8" stroke="#F15B40" stroke-width="1.9" stroke-opacity="0.95" fill="none" stroke-linecap="round"/>
+<path d="M0.0 182.9 C6.2 172.1 24.7 138.1 37.1 118.2 C49.5 98.3 61.9 74.1 74.3 63.3 C86.7 52.4 99.0 56.5 111.4 53.1 C123.8 49.7 136.2 45.6 148.6 42.9 C161.0 40.2 173.3 37.7 185.7 36.8 C198.1 35.9 210.5 37.2 222.9 37.4 C235.3 37.6 247.6 37.6 260.0 38.0 C272.4 38.4 284.7 38.2 297.1 39.7 C309.5 41.2 321.9 44.7 334.3 47.2 C346.7 49.7 359.0 51.1 371.4 54.8 C383.8 58.5 396.2 63.8 408.6 69.3 C421.0 74.8 433.3 80.5 445.7 87.7 C458.1 95.0 470.5 103.9 482.9 112.8 C495.3 121.7 513.8 136.4 520.0 141.1" stroke="#165DFA" stroke-width="2.2" stroke-opacity=".92" fill="none" stroke-linecap="round"/>
+<g font-family="'Noto Sans SC',sans-serif" font-size="10" fill="#6B8297" letter-spacing="1.2">
+         <text x="2" y="208">投料预热</text>
+         <text x="176.8" y="208">升温 · 恒温反应</text>
+         <text x="416" y="208">出料降温</text>
+       </g>
+</svg>
+        
+        <div class="lg">
+          <span><i class="lg__band"></i>黄金批次参考范围</span>
+          <span><i class="lg__ln" style="background:#08A85A"></i>批次曲线</span>
+          <span><i class="lg__ln" style="background:#F15B40"></i>偏离批次</span>
+          <span><i class="lg__ln" style="background:#165DFA"></i>当前批次</span>
+        </div>
+      </figure>
+      <ul class="reader">
+        <li><i>01</i><div><b>把连续时间流还原成批次</b><p>DCS、SCADA、LIMS 里的数据本来是按秒记的流水，按批次切段、按阶段对齐之后，才能横向比。</p></div></li>
+        <li><i>02</i><div><b>用历史最优批次定基准</b><p>不是拍脑袋设阈值，而是从已经跑好的批次里统计出参考范围，质量、收率、能耗都能各自成带。</p></div></li>
+        <li><i>03</i><div><b>偏差定位到阶段和参数</b><p>哪一批、从哪个阶段开始偏、偏在温度还是压力，直接落到可核查的位置，而不是笼统的「这批不太好」。</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec--tight" style="padding:34px 0 46px">
+  <div class="wrap">
+    <div class="chain">
+      <div class="chain__l">
+        <p class="chain__lb">VALUE / 价值链路</p>
+        <p class="chain__lt">系统不是目的，<br>岗位才是</p>
+      </div>
+      <div class="chain__r">
+        <div class="chain__row">
+
+            <div class="chain__it">
+              <div class="chain__ico"><svg viewBox="0 0 60 60" width="29" height="29" fill="none" stroke="#079D60" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 48V21l15 8V18l14 10V7h10v41H9Z"/><path d="M17 37h2m10 0h2m10 0h2"/></svg></div>
+              <p class="chain__t">生产岗位</p>
+            </div><div class="chain__ar" aria-hidden="true"><svg viewBox="0 0 54 20" width="54" height="20" fill="none"><path d="M0 10h44m-9-8 9 8-9 8" stroke="#07152B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="chain__it">
+              <div class="chain__ico chain__ico--ai"><span class="chain__ai">AI</span></div>
+              <p class="chain__t">智能体应用</p>
+            </div><div class="chain__ar" aria-hidden="true"><svg viewBox="0 0 54 20" width="54" height="20" fill="none"><path d="M0 10h44m-9-8 9 8-9 8" stroke="#07152B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="chain__it">
+              <div class="chain__ico"><svg viewBox="0 0 60 60" width="29" height="29" fill="none" stroke="#079D60" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg></div>
+              <p class="chain__t">辅助工作</p>
+            </div>
+        </div>
+        <p class="chain__note">围绕岗位任务，辅助人员研判</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="evidence">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Industry / 行业与实证</p>
+        <h2>在真实装置上跑过，不是概念演示</h2>
+      </div>
+      <p class="lead">以下数字来自已交付项目，客户名称与装置位号均已脱敏；涉及第三方系统的部分只做集成，不冒认为自研。</p>
+    </div>
+    <div class="ev">
+      <div>
+        <div class="scene">
+          <h3>精细化工</h3>
+          <p>多品种、小批量，配方频繁切换，批次一致性长期依赖老师傅经验。</p>
+        </div>
+        <div class="scene">
+          <h3>涂料 / 树脂</h3>
+          <p>同一配方不同批次的色差与黏度波动，直接变成客户投诉。</p>
+        </div>
+        <div class="scene">
+          <h3>氟化工 / 连续装置</h3>
+          <p>连续与间歇并存，安全约束严，任何参数调整都必须留下依据。</p>
+        </div></div>
+      <div class="metrics">
+          <div class="metric metric--hi">
+            <p class="metric__v">99579 → 3900</p>
+            <p class="metric__l">月报警量（降幅 96%）</p>
+            <p class="metric__s">某新材料企业 6 套装置 · 11,000 测点 · 折日均 3212 → 126 条</p>
+          </div>
+          <div class="metric">
+            <p class="metric__v">70%–90%</p>
+            <p class="metric__l">滋扰报警降幅</p>
+            <p class="metric__s">典型项目实测，视装置规模与管理基础而异</p>
+          </div>
+          <div class="metric">
+            <p class="metric__v">近 200 家</p>
+            <p class="metric__l">服务客户</p>
+            <p class="metric__s">流程工业，以精细化工为主</p>
+          </div>
+          <div class="metric">
+            <p class="metric__v">45 套</p>
+            <p class="metric__l">园区级平台接入装置</p>
+            <p class="metric__s">化工园区级平台项目</p>
+          </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="selection">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Application Selection / 行业应用与选型</p>
+        <h2>从生产模式与当前问题<br><em>选择起点</em></h2>
+      </div>
+      <p class="lead">优先解决一个明确问题，再逐步完善数据、分析和岗位协作。以下为应用切入建议，<b>产品组合按企业实际基础与目标确定。</b></p>
+    </div>
+    <div class="sel">
+      <div class="selr selr--hd"><div class="selr__s">生产模式 / 场景</div><div class="selr__p">推荐组合</div><div class="selr__f">常见关注点</div></div>
+
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44V27h8v17m6 0V18h8v26m6 0V8h8v36M8 48h44"/></svg><b>精细化工 / 医药中间体</b></div>
+          <div class="selr__p">iMCS + iPAE</div>
+          <div class="selr__f">配方变更、批记录整理、质量复盘</div>
+        </div>
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg><b>新材料 / 多品种生产</b></div>
+          <div class="selr__p">iPAE，按需结合 iMCS</div>
+          <div class="selr__f">批次节拍、设备差异、换产后表现</div>
+        </div>
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#079D60" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 35V23a13 13 0 0 1 26 0v12l5 7H12l5-7ZM25 49h10M30 6V2"/></svg><b>连续过程 / 公用工程</b></div>
+          <div class="selr__p">iCLPM + iAAS</div>
+          <div class="selr__f">回路波动、低投用、报警负荷偏高</div>
+        </div>
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#079D60" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg><b>危险化学品生产企业</b></div>
+          <div class="selr__p">iSafe</div>
+          <div class="selr__f">重大危险源、岗位排查、特殊作业</div>
+        </div>
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg><b>存量装置 / 分散设备</b></div>
+          <div class="selr__p">iIoTS</div>
+          <div class="selr__f">协议多、历史分散、生产报表不一致</div>
+        </div>
+        <div class="selr">
+          <div class="selr__s"><svg viewBox="0 0 60 60" width="20" height="20" fill="none" stroke="#079D60" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="12" width="36" height="36" rx="9"/><path d="M30 22v16M22 30h16"/><path d="M22 6v6M38 6v6M22 48v6M38 48v6M6 22h6M6 38h6M48 22h6M48 38h6"/></svg><b>班组 / 工艺 / 管理岗位</b></div>
+          <div class="selr__p">inWork</div>
+          <div class="selr__f">跨应用统计、知识查找、周期任务</div>
+        </div>
+    </div>
+    <p class="sel__note">iPAE 可独立从历史数据起步；选型结合实际功能范围、数据条件与专业分工。</p>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="synergy">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Product Collaboration / 产品协同价值</p>
+        <h2>把专业分析连接到<em>改进行动</em></h2>
+      </div>
+      <p class="lead">一项改进通常需要数据、业务背景和多专业参与。按问题组织产品分工，使信息能够服务现场行动，并用后续运行结果检验改进。</p>
+    </div>
+    <div class="syns">
+
+        <article class="syn">
+          <div class="syn__hd">
+            <span class="syn__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44V27h8v17m6 0V18h8v26m6 0V8h8v36M8 48h44"/></svg></span>
+            <div><h3>批次与工艺改进</h3><p class="syn__chain">iMCS → iPAE</p></div>
+          </div>
+          <p class="syn__d">批次执行背景与历史过程分析相互补充，聚焦偏差阶段，结合现场条件确认改进措施，再以可比批次复评。</p>
+          <p class="syn__to">面向 工艺与质量团队</p>
+        </article>
+
+        <article class="syn">
+          <div class="syn__hd">
+            <span class="syn__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg></span>
+            <div><h3>控制与报警治理</h3><p class="syn__chain">iAAS + iCLPM</p></div>
+          </div>
+          <p class="syn__d">分别观察报警负荷和控制表现，共享重点位号、时间窗口及趋势线索，区分报警配置、工况和控制因素。</p>
+          <p class="syn__to">面向 工艺与仪表团队</p>
+        </article>
+
+        <article class="syn">
+          <div class="syn__hd">
+            <span class="syn__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 48V21l15 8V18l14 10V7h10v41H9Z"/><path d="M17 37h2m10 0h2m10 0h2"/></svg></span>
+            <div><h3>现场与岗位协作</h3><p class="syn__chain">iIoTS / iSafe / inWork</p></div>
+          </div>
+          <p class="syn__d">iIoTS 提供共同数据基础；iSafe 组织风险排查与作业管理；inWork 围绕授权应用与工具接续岗位任务。</p>
+          <p class="syn__to">面向 现场与岗位</p>
+        </article>
+    </div>
+    <p class="sel__note">以上为业务协作建议；接口、数据交换、权限及执行方式按实际项目确定。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Delivery / 落地方式</p>
+        <h2>从一条产线开始，不必推倒重来</h2>
+      </div>
+      <p class="lead">数智化最容易失败的方式，是一上来就做全厂大平台。我们建议先小，再谈大。</p>
+    </div>
+    <div class="delivs">
+          <div class="deliv">
+            <div class="deliv__top"><span class="deliv__no">01</span><svg viewBox="0 0 60 60" width="22" height="22" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg></div>
+            <h3>存量数据起步</h3>
+            <p>不换仪表、不改控制逻辑，先把已有 DCS 数据接进来。</p>
+          </div>
+          <div class="deliv">
+            <div class="deliv__top"><span class="deliv__no">02</span><svg viewBox="0 0 60 60" width="22" height="22" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg></div>
+            <h3>单线试点</h3>
+            <p>从一条产线、一个配方开始，跑出第一批基准再谈复制。</p>
+          </div>
+          <div class="deliv">
+            <div class="deliv__top"><span class="deliv__no">03</span><svg viewBox="0 0 60 60" width="22" height="22" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg></div>
+            <h3>单机可部署</h3>
+            <p>本地化私有部署，一台服务器即可运行，数据不出厂区。</p>
+          </div></div>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="services">
+  <div class="wrap">
+    <div class="sh">
+      <div>
+        <p class="eyebrow">Engineering Services / 技术服务</p>
+        <h2>立足工业现场　推动<em>专业改进</em></h2>
+      </div>
+      <p class="lead">围绕流程工业数据、工艺、控制与报警，提供软件应用、专业咨询和技术服务，将问题分析与现场工作衔接。</p>
+    </div>
+    <div class="svs">
+
+          <div class="sv">
+            <span class="sv__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 35V23a13 13 0 0 1 26 0v12l5 7H12l5-7ZM25 49h10M30 6V2"/></svg></span>
+            <div class="sv__b"><h3>报警治理与绩效评价</h3><p>梳理报警台账与重点问题，开展滋扰治理、泛滥复盘、参数审计和同口径绩效复评。</p></div>
+            <span class="sv__no">01</span>
+          </div>
+          <div class="sv">
+            <span class="sv__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg></span>
+            <div class="sv__b"><h3>控制回路评估与优化</h3><p>筛选重点回路，结合工况分析控制短板，开展适用条件下的离线辨识、整定辅助与复评。</p></div>
+            <span class="sv__no">02</span>
+          </div>
+          <div class="sv">
+            <span class="sv__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44V27h8v17m6 0V18h8v26m6 0V8h8v36M8 48h44"/></svg></span>
+            <div class="sv__b"><h3>批次工艺分析与生产协同</h3><p>整理批次与工序背景，比较轨迹和阶段差异，围绕配方、执行、批记录与质量组织改进。</p></div>
+            <span class="sv__no">03</span>
+          </div>
+          <div class="sv">
+            <span class="sv__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg></span>
+            <div class="sv__b"><h3>工业数据接入与应用集成</h3><p>梳理测点及接口，统一模型与历史数据，结合授权范围衔接业务系统和岗位应用。</p></div>
+            <span class="sv__no">04</span>
+          </div>
+          <div class="sv">
+            <span class="sv__ico"><svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h22l10 10v40H14Z"/><path d="M36 5v10h10M22 26h16M22 35h16M22 44h10"/></svg></span>
+            <div class="sv__b"><h3>培训与持续技术支持</h3><p>提供分角色培训、应用指导和约定的运维支持，结合实际运行问题接续优化。</p></div>
+            <span class="sv__no">05</span>
+          </div>
+    </div>
+    <div class="svq">
+      <img src="assets/qr-service.png" alt="扫码关注致联信息服务号" width="132" height="132" decoding="async" loading="lazy">
+      <div class="svq__b">
+        <b>关注服务号「致联信息」</b>
+        <span>产品资料 · 技术交流 · 应用咨询</span>
+        <p>服务内容与支持安排以双方确认范围为准。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wbsec" id="workbench">
+  <div class="wrap">
+    <div class="wb">
+      <div class="wb__l">
+        <p class="eyebrow">Public Workbench / 公开工作台</p>
+        <h2>只讲报警，<span class="grad-b">讲透报警</span></h2>
+        <p class="wb__d">围绕应急管理部《工艺生产报警优化管理系统建设应用指南（试行）》与 GB/T 41261、AQ/T 3034、T/CCSAS 012 等标准，把这一窄域内的法规、工具与样例收在一处；对同行公开，不需要销售介入，也不用先留联系方式。</p>
+        <div class="wb__tags"><span>全部附官方原文</span><span>每日 08:00 更新</span><span>自评可打印保存</span><span>分析不限次数</span></div>
+        <div class="wb__act">
+          <a class="btn btn--blue" href="/alarm" target="_blank" rel="noopener">进入工作台
+            <svg viewBox="0 0 20 12" width="16" height="10" fill="none" aria-hidden="true"><path d="M1 6h16m-5-5 5 5-5 5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="wb__demo" href="/alarm/demo" target="_blank" rel="noopener">先看一份评估样例
+            <svg viewBox="0 0 20 12" width="17" height="10" fill="none" aria-hidden="true"><path d="M1 6h16m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="wb__r">
+<div class="wbi">
+          <span class="wbi__ico"><svg viewBox="0 0 60 60" width="19" height="19" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg></span>
+          <div>
+            <h3><i>01</i>报警管理体系自评</h3>
+            <p>五个维度、11 个核查问题，对照标准做一次体系体检，给出成熟度分级与差距清单。</p>
+            <p class="wbi__m">匿名可用 · 结果可打印保存</p>
+          </div>
+        </div>
+<div class="wbi">
+          <span class="wbi__ico"><svg viewBox="0 0 60 60" width="19" height="19" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 44V27h8v17m6 0V18h8v26m6 0V8h8v36M8 48h44"/></svg></span>
+          <div>
+            <h3><i>02</i>历史报警数据分析</h3>
+            <p>上传 DCS 导出的历史报警记录，自动统计 14 组 KPI，说明适用依据与参考目标，输出问题清单与优化建议。</p>
+            <p class="wbi__m">注册后免费 · 不限次数</p>
+          </div>
+        </div>
+<div class="wbi">
+          <span class="wbi__ico"><svg viewBox="0 0 60 60" width="19" height="19" fill="none" stroke="#075DF3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h22l10 10v40H14Z"/><path d="M36 5v10h10M22 26h16M22 35h16M22 44h10"/></svg></span>
+          <div>
+            <h3><i>03</i>法规标准资料中心</h3>
+            <p>法规、标准、解读与指南按类型 / 层级 / 地区 / 效力筛选，每条附官方原文链接，人工核对后发布。</p>
+            <p class="wbi__m">每日 08:00 更新</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--soft" id="about">
+  <div class="wrap ab">
+    <div>
+      <p class="eyebrow">Company / 关于我们</p>
+      <h2>杭州致联信息工程有限公司</h2>
+      <p>致力于工业数据的联接、分析与应用。我们围绕精细化工的生产现场做工业软件与智能应用：从现场数据联接、过程监控，到过程分析、批次智能与岗位智能体。</p>
+      <p>产品支持本地化私有部署，单机可运行；现场实施、体系培训与长期运维一体交付。用装置上已有的数据起步，让第一批基准先跑出来，再谈复制。</p>
+    </div>
+    <div>
+      <div class="qual">
+        <p class="qual__t">QUALIFICATION</p>
+        <ul>
+          <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#079D60" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 5c8 7 15 8 22 9-1 21-8 31-22 40C16 45 9 35 8 14c7-1 14-2 22-9Z"/><path d="m20 29 7 7 14-16"/></svg>国家高新技术企业（有效期内）</li>
+          <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#079D60" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h22l10 10v40H14Z"/><path d="M36 5v10h10M22 26h16M22 35h16M22 44h10"/></svg>软件著作权 45 项</li>
+          <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#079D60" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg>本地化私有部署 · 单机可运行</li>
+        </ul>
+      </div>
+      <a class="tlink" href="http://ai.zlinfot.com">
+        <div><b>技术研究门户</b><span>ai.zlinfot.com</span></div>
+        <svg viewBox="0 0 60 60" width="24" height="24" fill="none" stroke="#0069AE" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="30" r="23"/><ellipse cx="30" cy="30" rx="10" ry="23"/><path d="M8 22h44M8 38h44"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap ct">
+    <div>
+      <p class="eyebrow">Contact / 联系</p>
+      <h2>先看一条产线，<br>再谈全厂</h2>
+      <p class="ct__d">30 分钟线上沟通，我们带一个同行业的批次案例过来；觉得对路，再约现场。留个手机号就行，其余信息都可以后补。</p>
+      <ul class="ct__ways">
+        <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#079D60" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 35V23a13 13 0 0 1 26 0v12l5 7H12l5-7ZM25 49h10M30 6V2"/></svg><span><b>报警治理</b>从一天几千条报警里，挑出真正要处理的几十条。</span></li>
+        <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#075DF3" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M47 24A19 19 0 0 0 15 14l-5 6m0-13v13h13M9 34a19 19 0 0 0 32 10l5-6m0 13V38H33"/></svg><span><b>批次偏差</b>把同配方多批次叠在一起，看偏差从哪一步开始。</span></li>
+        <li><svg viewBox="0 0 60 60" width="16" height="16" fill="none" stroke="#075DF3" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="30" cy="11" r="7"/><circle cx="12" cy="44" r="7"/><circle cx="48" cy="44" r="7"/><path d="M30 18v11H12v8m18-8h18v8"/></svg><span><b>回路诊断</b>找出长期手动、频繁饱和的回路，给出改善顺序。</span></li>
+      </ul>
+      <div class="info">
+        <div><p>PHONE</p><p><a href="tel:13516812241">张平 · 13516812241</a></p></div>
+        <div><p>MAIL</p><p><a href="mailto:service@zlinfot.com">service@zlinfot.com</a></p></div>
+      </div>
+      <p class="ct__addr"><svg viewBox="0 0 60 60" width="15" height="15" fill="none" stroke="#8FA3B8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 54S11 34 11 21a19 19 0 0 1 38 0c0 13-19 33-19 33Z"/><circle cx="30" cy="21" r="6"/></svg><span>杭州市钱塘区科技园路 21 号鸿汇中心 808 室</span></p>
+      <div class="ct__qrs">
+        <div class="ct__qr">
+          <img src="assets/qr-www-zlinfot-black.png" alt="扫码访问致联信息官网" width="148" height="148" decoding="async">
+          <div><b>扫码访问官网</b><span>www.zlinfot.com</span></div>
+        </div>
+        <div class="ct__qr">
+          <img src="assets/qr-service.png" alt="扫码关注致联信息服务号" width="148" height="148" decoding="async" loading="lazy">
+          <div><b>关注服务号</b><span>致联信息</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ct__box">
+      <p class="ct__bt">预约产品演示</p>
+      <p class="ct__bd">填完直接提交，我们工作日 24 小时内回电。</p>
+      <div class="lf" data-lead-box>
+  <form id="lfHome" data-lead-form data-lead-src="home" novalidate>
+    <div class="lf__f">
+      <label class="lf__lb" for="lfHome-p">手机号</label>
+      <input class="lf__tel" type="tel" id="lfHome-p" name="p" inputmode="numeric" maxlength="11"
+             autocomplete="tel" placeholder="11 位手机号，用于回电" required>
+    </div>
+    <div class="lf__f lf__2">
+      <div><label class="lf__lb" for="lfHome-n">称呼</label><input class="lf__in" id="lfHome-n" name="n" maxlength="20" placeholder="如：王工"></div>
+      <div><label class="lf__lb" for="lfHome-c">单位 / 装置</label><input class="lf__in" id="lfHome-c" name="c" maxlength="40" placeholder="如：某新材料 二分厂"></div>
+    </div>
+    <div class="lf__f">
+      <span class="lf__lb">关注的系统 <em>（可多选，不确定就跳过）</em></span>
+      <div class="lf__chips"><label class="lf__chip"><input type="checkbox" name="g" value="iPAE"><span>iPAE</span></label><label class="lf__chip"><input type="checkbox" name="g" value="inWork"><span>inWork</span></label><label class="lf__chip"><input type="checkbox" name="g" value="iIoTS"><span>iIoTS</span></label><label class="lf__chip"><input type="checkbox" name="g" value="iAAS"><span>iAAS</span></label><label class="lf__chip"><input type="checkbox" name="g" value="iCLPM"><span>iCLPM</span></label><label class="lf__chip"><input type="checkbox" name="g" value="iSafe"><span>iSafe</span></label><label class="lf__chip"><input type="checkbox" name="g" value="iMCS"><span>iMCS</span></label><label class="lf__chip"><input type="checkbox" name="g" value="先了解"><span>先了解</span></label></div>
+    </div>
+    <button class="btn btn--blue lf__sub" type="submit">提交，等我们联系你</button>
+    <p class="lf__note" data-lead-note>提交即同意杭州致联信息工程有限公司将所填信息用于本次及后续业务沟通，保存不超过 24 个月、不对外共享；如需撤回同意或删除，可邮件 service@zlinfot.com。工作日 24 小时内回电。</p>
+  </form>
+  <div class="lf__ok" data-lead-ok>
+    <span class="lf__okm"><svg viewBox="0 0 24 24" width="21" height="21" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#079D60" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <p class="lf__okt">已收到，我们会尽快联系你</p>
+    <p class="lf__okd">工作日 24 小时内回电；急事可直接致电 张平 13516812241。<br>等回电的这段时间，可以先翻翻产品手册。</p>
+    <a class="btn btn--ghost lf__okb" href="/manual/">在线翻阅手册 →</a>
+    <a class="btn btn--ghost lf__okb" href="/download/">下载 PDF 手册 ↓</a>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__row">
+      <div>
+        <a class="ft__logo" href="#"><img src="assets/brand/logo.svg" alt="致联信息" width="323" height="76"></a>
+        <p class="ft__tag">致力于工业数据的联接、分析与应用</p>
+        <p class="ft__claim">立足工业现场 推动专业改进</p>
+      </div>
+      <div class="ft__cols">
+        <div>
+          <h4>产品</h4>
+          <a href="#ipae">iPAE 过程分析</a>
+          <a href="#inwork">inWork 智能体工作台</a>
+          <a href="#products">iAAS 过程报警</a>
+          <a href="#products">iCLPM 回路诊断</a>
+          <a href="#products">iMCS 生产管控</a>
+          <a href="#products">iSafe 安全管控</a>
+        </div>
+        <div>
+          <h4>公司</h4>
+          <a href="#about">关于我们</a>
+          <a href="#layers">能力结构</a>
+          <a href="#evidence">行业实证</a>
+          <a href="#selection">行业选型</a>
+          <a href="/demo/" target="_blank" rel="noopener">系统演示<svg viewBox="0 0 12 12" width="9" height="9" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/alarm" target="_blank" rel="noopener">报警工作台<svg viewBox="0 0 12 12" width="9" height="9" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="http://ai.zlinfot.com" target="_blank" rel="noopener">技术研究<svg viewBox="0 0 12 12" width="9" height="9" fill="none" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/manual/">产品手册（在线）</a>
+          <a href="/download/">手册下载中心</a>
+        </div>
+        <div>
+          <h4>联系</h4>
+          <a href="tel:13516812241">张平 13516812241</a>
+          <a href="mailto:service@zlinfot.com">service@zlinfot.com</a>
+          <span>www.zlinfot.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft__bot">
+      <span>© 2026 杭州致联信息工程有限公司　保留所有权利</span>
+      <span>工业软件与智能应用 · 版本 2026.10.26</span>
+    </div>
+  </div>
+</footer>
+<div class="endwave" aria-hidden="true"><svg viewBox="0 1620 2000 510" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height:236px">
+<defs>
+  <linearGradient id="wv-ground" x1="0" y1="1450" x2="0" y2="2130" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".3" stop-color="#F2FBFE" stop-opacity=".8"/>
+    <stop offset=".62" stop-color="#DAF5FD" stop-opacity=".9"/><stop offset="1" stop-color="#B6E8FA"/>
+  </linearGradient>
+  <linearGradient id="wv-azure" x1="0" y1="1880" x2="2000" y2="2070" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#008BEF"/><stop offset=".30" stop-color="#0064E4"/><stop offset=".57" stop-color="#087CDB"/>
+    <stop offset=".81" stop-color="#43B6EF"/><stop offset="1" stop-color="#BCEBFA"/>
+  </linearGradient>
+  <linearGradient id="wv-rear" x1="0" y1="1780" x2="0" y2="2050" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#3CC2EE"/><stop offset=".40" stop-color="#27BDF0"/><stop offset=".68" stop-color="#9EEEF8"/>
+    <stop offset=".83" stop-color="#2CD6EE"/><stop offset="1" stop-color="#0087E9"/>
+  </linearGradient>
+  <linearGradient id="wv-cyan" x1="0" y1="1815" x2="0" y2="2090" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#12BCEF"/><stop offset=".22" stop-color="#00A6EE"/><stop offset=".40" stop-color="#23D2F4"/>
+    <stop offset=".54" stop-color="#82F4F2"/><stop offset=".69" stop-color="#1ECDEB"/><stop offset=".86" stop-color="#00A4ED"/>
+    <stop offset="1" stop-color="#0386EB"/>
+  </linearGradient>
+  <linearGradient id="wv-front" x1="20" y1="1900" x2="1690" y2="2170" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#006EF0"/><stop offset=".22" stop-color="#0054E9"/><stop offset=".43" stop-color="#0042D4"/>
+    <stop offset=".65" stop-color="#005DE6"/><stop offset=".84" stop-color="#098FEF"/><stop offset="1" stop-color="#6DCEF4"/>
+  </linearGradient>
+  <linearGradient id="wv-glaze" x1="0" y1="1880" x2="0" y2="2130" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#2CD5FF" stop-opacity=".12"/><stop offset=".25" stop-color="#0AB9FC" stop-opacity=".4"/>
+    <stop offset=".54" stop-color="#058BED" stop-opacity=".08"/><stop offset="1" stop-color="#18B1F4" stop-opacity=".2"/>
+  </linearGradient>
+  <linearGradient id="wv-whiteline" x1="0" y1="0" x2="2000" y2="0" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFFFF" stop-opacity=".85"/><stop offset=".24" stop-color="#FFFFFF" stop-opacity=".96"/>
+    <stop offset=".46" stop-color="#FFFFFF" stop-opacity=".31"/><stop offset=".68" stop-color="#D5FFFF" stop-opacity=".30"/>
+    <stop offset=".88" stop-color="#FFFFFF" stop-opacity=".96"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".84"/>
+  </linearGradient>
+  <linearGradient id="wv-cyanline" x1="0" y1="0" x2="2000" y2="0" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#43EAFF" stop-opacity=".50"/><stop offset=".35" stop-color="#1FFFF7" stop-opacity=".95"/>
+    <stop offset=".60" stop-color="#22C9FA" stop-opacity=".28"/><stop offset=".86" stop-color="#E0FFFF" stop-opacity=".85"/>
+    <stop offset="1" stop-color="#D4FFFF" stop-opacity=".24"/>
+  </linearGradient>
+  <linearGradient id="wv-mist" x1="0" y1="1720" x2="0" y2="2020" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#A4E3F6" stop-opacity=".07"/><stop offset=".45" stop-color="#A3E5FA" stop-opacity=".42"/>
+    <stop offset="1" stop-color="#A6E5F6" stop-opacity=".13"/>
+  </linearGradient>
+  <radialGradient id="wv-pearl"><stop stop-color="#E9FFFF" stop-opacity=".75"/><stop offset=".28" stop-color="#B2FFFC" stop-opacity=".49"/><stop offset=".60" stop-color="#4AF5F2" stop-opacity=".18"/><stop offset="1" stop-color="#62FFF6" stop-opacity="0"/></radialGradient>
+  <radialGradient id="wv-depth"><stop stop-color="#0037CC" stop-opacity=".55"/><stop offset=".52" stop-color="#0057DB" stop-opacity=".24"/><stop offset="1" stop-color="#007BE6" stop-opacity="0"/></radialGradient>
+  <clipPath id="wv-sheetclip"><path d="M-30 1890 C241 1810 467 1877 724 1968 C1060 2087 1311 2027 1648 1904 C1817 1842 1944 1820 2030 1805 L2030 1882 C1787 1886 1602 2018 1352 2113 C1047 2205 717 2098 472 1995 C281 1914 120 1872 -30 1923Z"/></clipPath>
+  <clipPath id="wv-frontclip"><path d="M-30 1919 C172 1871 351 1954 613 2050 C934 2129 1221 2082 1525 2002 C1751 1913 1893 1861 2030 1844 L2030 1881 C1837 1937 1742 2054 1494 2130 L-30 2130Z"/></clipPath>
+</defs>
+<rect x="-30" y="1620" width="2060" height="520" fill="url(#wv-ground)"/>
+<path d="M-30 1769 C250 1753 508 1880 828 1882 C1260 1885 1662 1834 2030 1752 L2030 2130 L-30 2130Z" fill="url(#wv-mist)"/>
+<path d="M-30 1814 C286 1855 527 2021 968 2084 C1328 2123 1730 1938 2030 1790 L2030 2130 L-30 2130Z" fill="url(#wv-azure)"/>
+<path d="M-30 1795 C207 1869 426 1857 677 1929 C1093 2050 1399 2017 1728 1894 C1857 1846 1948 1813 2030 1791 L2030 1873 C1779 1921 1589 2068 1305 2123 C944 2167 620 2039 356 1949 C211 1900 80 1875 -30 1879Z" fill="url(#wv-rear)" opacity=".82"/>
+<path d="M-30 1890 C241 1810 467 1877 724 1968 C1060 2087 1311 2027 1648 1904 C1817 1842 1944 1820 2030 1805 L2030 1882 C1787 1886 1602 2018 1352 2113 C1047 2205 717 2098 472 1995 C281 1914 120 1872 -30 1923Z" fill="url(#wv-cyan)"/>
+<g clip-path="url(#wv-sheetclip)">
+  <ellipse cx="396" cy="1909" rx="292" ry="85" fill="url(#wv-pearl)" transform="rotate(15 396 1909)"/>
+  <ellipse cx="1790" cy="1852" rx="358" ry="63" fill="url(#wv-pearl)" transform="rotate(-19 1790 1852)"/>
+</g>
+<path d="M-30 1919 C172 1871 351 1954 613 2050 C934 2129 1221 2082 1525 2002 C1751 1913 1893 1861 2030 1844 L2030 1881 C1837 1937 1742 2054 1494 2130 L-30 2130Z" fill="url(#wv-front)"/>
+<path d="M-30 1951 C161 1888 357 1976 633 2074 C941 2182 1263 2100 1553 1988 C1787 1897 1904 1872 2030 1868 L2030 1904 C1793 1941 1605 2079 1397 2130 L-30 2130Z" fill="url(#wv-glaze)"/>
+<g clip-path="url(#wv-frontclip)"><ellipse cx="834" cy="2133" rx="710" ry="138" fill="url(#wv-depth)"/></g>
+<path d="M-30 1909 C174 1871 355 1955 614 2045 C934 2119 1220 2074 1523 1997 C1752 1909 1894 1858 2030 1842" fill="none" stroke="#00BDF6" stroke-width="12" opacity="0.11" stroke-linecap="round"/>
+<path d="M-30 1909 C174 1871 355 1955 614 2045 C934 2119 1220 2074 1523 1997 C1752 1909 1894 1858 2030 1842" fill="none" stroke="#7CF8F8" stroke-width="6" opacity="0.18" stroke-linecap="round"/>
+<path d="M-30 1909 C174 1871 355 1955 614 2045 C934 2119 1220 2074 1523 1997 C1752 1909 1894 1858 2030 1842" fill="none" stroke="url(#wv-whiteline)" stroke-width="2.5" opacity="1" stroke-linecap="round"/>
+<path d="M-30 1764 C218 1779 437 1893 739 1932 C1119 1981 1390 1936 1671 1831 C1826 1772 1938 1733 2030 1707" fill="none" stroke="url(#wv-whiteline)" stroke-width="3.1" opacity="0.61" stroke-linecap="round"/>
+<path d="M-30 1872 C263 1786 558 1927 835 1956 C1217 1996 1484 1936 1780 1830 C1908 1784 1982 1763 2030 1752" fill="none" stroke="url(#wv-whiteline)" stroke-width="2.4" opacity="0.34" stroke-linecap="round"/>
+<path d="M1180 2056 C1439 1987 1597 1891 1774 1809 C1881 1759 1971 1732 2030 1717" fill="none" stroke="#DFFFFF" stroke-width="2.8" opacity="0.74" stroke-linecap="round"/>
+<path d="M1206 2054 C1477 1977 1626 1882 1790 1812 C1899 1766 1978 1746 2030 1738" fill="none" stroke="#FFFFFF" stroke-width="2.1" opacity="0.82" stroke-linecap="round"/>
+<path d="M1327 2026 C1536 1961 1705 1871 1847 1824 C1934 1795 1996 1782 2030 1780" fill="none" stroke="#DEFFFF" stroke-width="1.6" opacity="0.51" stroke-linecap="round"/>
+</svg></div>
+
+<button class="ldbtn" type="button" data-lead-open aria-haspopup="dialog" aria-controls="leadDrawer">
+  <svg viewBox="0 0 60 60" width="19" height="19" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11h42v29H26L12 51V40H9V11Z"/><path d="M19 22h22M19 30h14"/></svg><span>预约演示</span>
+</button>
+<div class="ldw" id="leadDrawer" data-lead-drawer aria-hidden="true">
+  <div class="ldw__msk" data-lead-close></div>
+  <aside class="ldw__p" role="dialog" aria-modal="true" aria-labelledby="ldwT">
+    <button class="ldw__x" type="button" data-lead-close aria-label="关闭">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <p class="ldw__eyebrow">Contact / 预约</p>
+    <h3 class="ldw__t" id="ldwT">预约产品演示</h3>
+    <p class="ldw__d">30 分钟线上沟通，我们带一个同行业的批次案例过来。留个手机号就行，其余都可以后补。</p>
+    <div class="ldw__f"><div class="lf" data-lead-box>
+  <form id="lfDrawer" data-lead-form data-lead-src="home-fab" novalidate>
+    <div class="lf__f">
+      <label class="lf__lb" for="lfDrawer-p">手机号</label>
+      <input class="lf__tel" type="tel" id="lfDrawer-p" name="p" inputmode="numeric" maxlength="11"
+             autocomplete="tel" placeholder="11 位手机号，用于回电" required>
+    </div>
+    <div class="lf__f lf__2">
+      <div><label class="lf__lb" for="lfDrawer-n">称呼</label><input class="lf__in" id="lfDrawer-n" name="n" maxlength="20" placeholder="如：王工"></div>
+      <div><label class="lf__lb" for="lfDrawer-c">单位 / 装置</label><input class="lf__in" id="lfDrawer-c" name="c" maxlength="40" placeholder="如：某新材料 二分厂"></div>
+    </div>
+    
+    <button class="btn btn--blue lf__sub" type="submit">预约，等我们联系你</button>
+    <p class="lf__note" data-lead-note>提交即同意杭州致联信息工程有限公司将所填信息用于本次及后续业务沟通，保存不超过 24 个月、不对外共享；如需撤回同意或删除，可邮件 service@zlinfot.com。工作日 24 小时内回电。</p>
+  </form>
+  <div class="lf__ok" data-lead-ok>
+    <span class="lf__okm"><svg viewBox="0 0 24 24" width="21" height="21" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#079D60" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <p class="lf__okt">已收到，我们会尽快联系你</p>
+    <p class="lf__okd">工作日 24 小时内回电；急事可直接致电 张平 13516812241。<br>等回电的这段时间，可以先翻翻产品手册。</p>
+    <a class="btn btn--ghost lf__okb" href="/manual/">在线翻阅手册 →</a>
+    <a class="btn btn--ghost lf__okb" href="/download/">下载 PDF 手册 ↓</a>
+  </div>
+</div></div>
+    <p class="ldw__alt">不方便填？直接打 <a href="tel:13516812241">张平 13516812241</a></p>
+  </aside>
+</div>
+<script>
+(function(){
+  var TEL = '13516812241';
+
+  function bind(f){
+    var box = f.closest('.lf');
+    var note = f.querySelector('[data-lead-note]');
+    var btn  = f.querySelector('.lf__sub');
+    if(!box || !btn) return;
+    var label = btn.textContent;
+    function bad(m){ if(note){ note.style.color = '#D4433B'; note.textContent = m; } }
+    function reset(){ btn.disabled = false; btn.textContent = label; }
+
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var q = function(n){ var el = f.querySelector('[name="' + n + '"]'); return el ? (el.value || '').trim() : ''; };
+      var p = q('p').replace(/[\s\-]/g, '');
+      if(!/^1[3-9]\d{9}$/.test(p)){
+        bad('手机号看起来不对，检查一下？');
+        var el = f.querySelector('[name="p"]'); if(el) el.focus();
+        return;
+      }
+      var g = [].slice.call(f.querySelectorAll('input[name="g"]:checked')).map(function(x){ return x.value; });
+      var i = f.querySelector('input[name="i"]:checked');
+      btn.disabled = true; btn.textContent = '提交中…';
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          p: p, n: q('n'), c: q('c'), i: i ? i.value : '', g: g,
+          s: f.getAttribute('data-lead-src') || 'home',
+          r: document.referrer || ''
+        })
+      }).then(function(r){ return r.json().then(function(j){ return {j: j}; }); })
+        .then(function(res){
+          if(res.j && res.j.ok){ box.classList.add('is-ok'); return; }
+          reset();
+          bad((res.j && res.j.msg) || ('提交没成功，稍后再试或直接致电 ' + TEL));
+        })
+        .catch(function(){ reset(); bad('网络不太顺，请重试；或直接致电 ' + TEL); });
+    });
+  }
+
+  [].slice.call(document.querySelectorAll('[data-lead-form]')).forEach(bind);
+
+  var wrap = document.querySelector('[data-lead-drawer]');
+  if(!wrap) return;
+  var panel = wrap.querySelector('.ldw__p');
+  var opener = null;
+
+  function open(btn){
+    opener = btn || null;
+    wrap.classList.add('is-open');
+    wrap.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+    var first = panel.querySelector('input');
+    setTimeout(function(){ if(first) first.focus({preventScroll: true}); }, 130);
+  }
+  function close(){
+    wrap.classList.remove('is-open');
+    wrap.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    [].slice.call(wrap.querySelectorAll('.lf.is-ok')).forEach(function(b){ b.classList.remove('is-ok'); });
+    if(opener) opener.focus({preventScroll: true});
+  }
+
+  [].slice.call(document.querySelectorAll('[data-lead-open]')).forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); open(b); });
+  });
+  [].slice.call(wrap.querySelectorAll('[data-lead-close]')).forEach(function(b){
+    b.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && wrap.classList.contains('is-open')) close();
+  });
+
+  var fab = document.querySelector('.ldbtn');
+  if(fab){
+    var tick = function(){
+      if(window.scrollY > 460) fab.classList.add('is-in');
+      else fab.classList.remove('is-in');
+    };
+    window.addEventListener('scroll', tick, {passive: true});
+    tick();
+  }
+})();
+</script>
+<script>
+document.querySelectorAll('.hd__mob a').forEach(function(a){
+  a.addEventListener('click',function(){var t=document.getElementById('navtg');if(t)t.checked=false;});
+});
+</script>
+</body>
+</html>
