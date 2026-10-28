@@ -44,7 +44,7 @@ cp -R expo manual demo dist/
 SIM_DIR="$PWD/../../../08_演示系统/08_高仿真系统"
 if [ -d "$SIM_DIR" ]; then
   mkdir -p dist/demo/app
-  for SIM in _shared imcs iaas ipae iclpm chain inwork ai-config iacms; do
+  for SIM in _shared imcs iaas ipae iclpm chain inwork ai-config iacms scenarios; do
     [ -d "$SIM_DIR/$SIM" ] && cp -R "$SIM_DIR/$SIM" dist/demo/app/
   done
 fi

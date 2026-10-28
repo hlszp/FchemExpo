@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>精细化工异常工况 · 场景导演模式</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B1B2E'/%3E%3Ctext x='16' y='22' font-size='10' text-anchor='middle' fill='%23FBBF24' font-family='Arial'%3EDIR%3C/text%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F4F7FB;color:#0F172A;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.hd{background:#0B1B2E;color:#E8F1FA;padding:0 26px;height:56px;display:flex;align-items:center;gap:13px;position:sticky;top:0;z-index:20}
+.hd .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px}.hd .logo{width:30px;height:30px;border-radius:8px;background:#FBBF24;color:#0B1B2E;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900}.hd .sub{font-size:9px;color:#8FA9C1;margin-left:2px}.hd .sp{flex:1}.hd a{color:#B9CCE0;font-size:10px;text-decoration:none}.hd a:hover{color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 22px 80px}
+.hero{background:linear-gradient(135deg,#08172A,#0E2A46 58%,#123B5C);border-radius:15px;padding:26px 28px;color:#E8F1FA;position:relative;overflow:hidden;margin-bottom:16px}
+.hero:after{content:"";position:absolute;right:-80px;top:-120px;width:340px;height:340px;border:1px solid rgba(251,191,36,.25);border-radius:50%}.hero:before{content:"";position:absolute;right:40px;bottom:-170px;width:300px;height:300px;border:1px solid rgba(80,155,240,.2);border-radius:50%}
+.hero .k{font-size:9px;letter-spacing:.16em;color:#FBBF24;font-weight:800}
+.hero h1{font-size:28px;line-height:1.25;margin:6px 0 7px;letter-spacing:-.02em;position:relative;z-index:1}
+.hero h1 em{color:#FBBF24;font-style:normal}
+.hero p{font-size:11.5px;line-height:1.8;color:#B9CCE0;max-width:760px;margin:0;position:relative;z-index:1}
+.hero .acts{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px;position:relative;z-index:1}
+.btn{border:1px solid #2A4D6E;background:#12314E;color:#D7E8F8;border-radius:7px;padding:8px 12px;font:inherit;font-size:10.5px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.primary{background:#FBBF24;border-color:#FBBF24;color:#0B1B2E}.btn.ghost{background:transparent;color:#B9CCE0}.btn:hover{filter:brightness(1.06)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0 18px}.stat{background:#fff;border:1px solid #E5EBF3;border-radius:9px;padding:10px 12px}.stat b{display:block;font-size:19px}.stat span{font-size:8.5px;color:#8A97A8}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:18px 0 9px}.sec-head h2{font-size:16px;margin:0}.sec-head p{font-size:9.5px;color:#94A3B8;margin:2px 0 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sc{background:#fff;border:1px solid #E5EBF3;border-radius:12px;padding:14px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:250px;border-top:3px solid var(--c)}
+.sc-top{display:flex;justify-content:space-between;align-items:center;gap:6px}.sc-no{font-size:9px;color:#94A3B8;letter-spacing:.08em;font-weight:800}.sc-risk{font-size:8px;border-radius:5px;padding:2px 6px;font-weight:700}.sc-risk.high{background:#FEF2F2;color:#B91C1C}.sc-risk.mid{background:#FFF7E6;color:#B45309}
+.sc h3{font-size:15px;margin:7px 0 2px}.sc .sub{font-size:9.5px;color:#64748B;margin:0 0 6px}.sc .pain{font-size:9px;color:#475569;line-height:1.65;background:#F8FAFC;border-left:2px solid var(--c);padding:6px 7px;margin:0 0 7px;border-radius:0 5px 5px 0}.sc .fine{font-size:8.5px;color:#94A3B8;line-height:1.6;margin:0 0 7px}
+.sys{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:7px}.sys span{font-size:7.5px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:4px;padding:2px 4px}.meta{display:flex;gap:9px;flex-wrap:wrap;font-size:8px;color:#94A3B8;margin-bottom:7px}.meta b{color:#475569;font-weight:600}
+.sc-foot{display:flex;align-items:center;gap:5px;margin-top:auto;padding-top:8px;border-top:1px solid #F1F5F9}.sc-foot .sp{flex:1}.sc-foot .btn{padding:6px 9px;font-size:9px}
+.legend{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:16px}.card{background:#fff;border:1px solid #E5EBF3;border-radius:11px;padding:13px 14px}.card h3{font-size:12px;margin:0 0 6px}.card p{font-size:9.5px;color:#64748B;line-height:1.7;margin:0}
+.roles{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.roles span{font-size:8px;color:#475569;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:999px;padding:2px 6px}
+.note{font-size:8.5px;color:#94A3B8;line-height:1.7;margin-top:8px}
+.modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(8,20,38,.55);padding:16px}.modal.show{display:flex}.modal-panel{background:#fff;border-radius:12px;width:min(620px,96vw);max-height:86vh;overflow:auto;padding:16px;box-shadow:0 30px 80px rgba(2,10,24,.35)}.modal-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}.modal-h h3{font-size:15px;margin:0;flex:1}.modal-h button{border:1px solid #E2E8F0;background:#fff;border-radius:6px;width:24px;height:24px;cursor:pointer;color:#64748B}.steps{display:grid;gap:5px}.step{display:flex;gap:7px;border-bottom:1px solid #F1F5F9;padding:5px 0}.step span{width:18px;height:18px;border-radius:50%;background:#EEF5FF;color:#1466E8;display:flex;align-items:center;justify-content:center;font-size:7px;flex:none}.step b{font-size:9px;display:block}.step p{font-size:8.5px;color:#64748B;line-height:1.55;margin:1px 0 0}.step em{font-style:normal;font-size:7.5px;color:#94A3B8}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.legend{grid-template-columns:1fr}.hero h1{font-size:23px}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.wrap{padding:16px 12px 92px}.hero{padding:20px 16px}.hero h1{font-size:21px}.hd{padding:0 12px}.hd .sub{display:none}.sc{min-height:auto}.sc-foot .btn{flex:1}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="brand"><div class="logo">DIR</div><div>精细化工 · 场景导演模式<div class="sub">INDUSTRIAL STORY / ABNORMAL CONDITION</div></div></div><div class="sp"></div><a href="/demo/">返回演示首页 ↗</a></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="k">DIRECTOR MODE / 导演模式</div>
+    <h1>不是带客户看五个系统，<br>是带他走完 <em>五次异常工况处置</em></h1>
+    <p>每个场景 6–8 分钟：从 iAAS 发现、iPAE/iCLPM 解释，到 iACMS 生成安全门禁任务链，iMCS eBR 留痕，inWork 闭环。AI 只做发现、建议与缺项检查，人做最终决策。</p>
+    <div class="acts"><button class="btn primary" data-start-first>从场景 01 开始 →</button><button class="btn ghost" data-reset>重置演示状态</button><a class="btn ghost" href="/demo/app/iacms/">进入 iACMS</a></div>
+  </section>
+  <div class="stats"><div class="stat"><b>5</b><span>精细化工异常场景</span></div><div class="stat"><b>6–8</b><span>分钟 / 场景</span></div><div class="stat"><b>9</b><span>安全门禁（高风险场景）</span></div><div class="stat"><b>6</b><span>角色视角</span></div></div>
+  <div class="sec-head"><div><h2>选择一个场景，直接开始导演</h2><p>系统会跨 iAAS / iPAE / iCLPM / iACMS / iMCS / inWork 自动翻页，底部常驻当前幕。</p></div></div>
+  <div class="grid" id="scGrid"></div>
+  <div class="legend"><div class="card"><h3>导演模式怎么用</h3><p>点击“开始导演”后，系统按剧本自动打开第一个系统；底部导演条会持续显示“第几幕 / 当前系统 / 当前角色 / 下一步”。可以用“下一幕”推进，也可以随时回到场景中心或重置。</p><div class="note">演示脚本是产品叙事，不是生产操作规程；AI 建议不替代 SIS、企业预案和人工授权。</div></div><div class="card"><h3>角色视角</h3><p>每个场景按真实岗位切分，让客户看到“谁在什么时间做什么决定”。</p><div class="roles"><span>操作员</span><span>工艺工程师</span><span>控制工程师</span><span>值班长</span><span>质量工程师</span><span>生产经理</span></div></div></div>
+</main>
+<div class="modal" id="modal"><div class="modal-panel"><div class="modal-h"><h3 id="mTitle"></h3><button id="mClose">×</button></div><div id="mBody"></div></div></div>
+<script src="../_shared/scenarios.js"></script>
+<script>
+(function(){
+  var scs = window.DEMO_SCENARIOS || [];
+  var grid = document.getElementById('scGrid');
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  grid.innerHTML = scs.map(function(s){
+    return '<article class="sc" style="--c:'+s.color+'"><div class="sc-top"><span class="sc-no">SCENE '+esc(s.no)+'</span><span class="sc-risk '+(s.risk==='高'?'high':'mid')+'">'+esc(s.risk)+'风险</span></div><h3>'+esc(s.title)+'</h3><p class="sub">'+esc(s.subtitle)+'</p><p class="pain">'+esc(s.pain)+'</p><p class="fine">'+esc(s.fineChemical)+'</p><div class="sys">'+s.systems.map(function(x){return '<span>'+esc(x)+'</span>';}).join('')+'</div><div class="meta"><span>批号 <b>'+esc(s.batch)+'</b></span><span>装置 <b>'+esc(s.unit)+'</b></span><span><b>'+s.steps.length+'</b> 幕 · '+esc(s.duration)+'</span></div><div class="sc-foot"><button class="btn" data-view="'+esc(s.id)+'">查看步骤</button><span class="sp"></span><button class="btn primary" data-start="'+esc(s.id)+'">开始导演 →</button></div></article>';
+  }).join('');
+  function start(id){ if(window.DirectorMode){ window.DirectorMode.start(id,0); } }
+  document.querySelectorAll('[data-start]').forEach(function(b){b.onclick=function(){start(b.getAttribute('data-start'));};});
+  document.querySelectorAll('[data-start-first]').forEach(function(b){b.onclick=function(){start(scs[0].id);};});
+  document.querySelectorAll('[data-reset]').forEach(function(b){b.onclick=function(){if(window.DirectorMode){window.DirectorMode.reset();}else{localStorage.removeItem('ZL_DEMO_DIRECTOR_V1');location.reload();}};});
+  var modal=document.getElementById('modal'), mTitle=document.getElementById('mTitle'), mBody=document.getElementById('mBody');
+  function close(){modal.classList.remove('show');}
+  document.getElementById('mClose').onclick=close; modal.onclick=function(e){if(e.target===modal)close();};
+  document.querySelectorAll('[data-view]').forEach(function(b){b.onclick=function(){var s=null;for(var i=0;i<scs.length;i++){if(scs[i].id===b.getAttribute('data-view'))s=scs[i];}if(!s)return;mTitle.textContent=s.title+' · 导演脚本';mBody.innerHTML='<div class="steps">'+s.steps.map(function(st,i){return '<div class="step"><span>'+(i+1)+'</span><div><b>'+esc(st.title)+'</b><p>'+esc(st.text)+'</p><em>'+esc(st.system)+' · '+esc(st.role)+'</em></div></div>';}).join('')+'</div>';modal.classList.add('show');};});
+})();
+</script>
+<script src="../_shared/director.js"></script>
+</body>
+</html>

@@ -135,6 +135,16 @@
 - embed 模式隐藏独立侧栏/顶栏，只保留任务内容；通过 postMessage 发送 ilink:ready 给宿主；
 - 真实 inWork 侧只需把 iLINK 注册为 iframe 应用并指向 embed URL；本次未修改线上 inWork 的五个应用。
 
+### 5.2 导演模式与 5 个精细化工场景
+
+- 场景中心：/demo/app/scenarios/；
+- 5 个场景：R101 反应釜超温、A01 冷却水中断、蒸馏塔不出料、RTO 尾气含氯、催化剂/换热器慢变量；
+- 每个场景 6–8 幕，跨 iAAS / iPAE / iCLPM / iACMS / iMCS / inWork 自动翻页；
+- 底部导演条：上一幕 / 下一幕 / 场景中心 / 收起 / 重置，显示当前系统、角色、第几幕；
+- 状态存 localStorage（ZL_DEMO_DIRECTOR_V1），刷新不丢；同时写 sessionStorage 的贯穿批次；
+- 场景脚本在 _shared/scenarios.js，导演逻辑在 _shared/director.js；所有高仿真系统 index.html 已加载。
+
+
 ## 6. 跨系统贯穿 + 可配置 DeepSeek
 
 ### 6.1 同批号贯穿
