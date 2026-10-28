@@ -20,7 +20,7 @@ window.DEMO_SCENARIOS = [
       { system: 'iAAS', page: 'iaas', hash: 'realtime', role: '操作员', title: '报警洪水里找到那一条', text: 'TIC-1203 连续 3 次超温，压力同步上涨；iAAS 把 957 条实时报警收敛为 1 个异常工况候选。' },
       { system: 'iPAE', page: 'ipae', hash: 'batch', role: '工艺工程师', title: '用历史批次解释“为什么这次不一样”', text: '历史批次 OP30 升温快 14 min，越界率 12.6%；不是单点仪表问题，而是反应路径偏离。' },
       { system: 'iCLPM', page: 'iclpm', hash: 'loops', role: '控制工程师', title: '回路评分 18.4：先别急着调 PID', text: 'TIC-1203 存在振荡/黏滞；但当前第一优先级是退守，不是深度整定。' },
-      { system: 'iACMS', page: 'iacms', hash: 'case', role: '值班长', title: '把它变成一张有门禁的处置任务', text: '分类 Agent 命中 RC-01；程序 Agent 生成 9 个安全门禁，合规 Agent 发现联锁、隔离、人数三项证据缺失。' },
+      { system: 'iACMS', page: 'iacms', hash: 'case', caseId: 'R101_OVERHEAT', role: '值班长', title: '把它变成一张有门禁的处置任务', text: '分类 Agent 命中 RC-01；程序 Agent 生成 9 个安全门禁，合规 Agent 发现联锁、隔离、人数三项证据缺失。' },
       { system: 'iACMS', page: 'iacms', hash: 'workbench', role: '值班长', title: 'Agent 协作：AI 建议，人确认', text: '监测/分类/程序/合规/处置/复盘 6 个 Agent 协同；AI 只做发现、建议、缺项检查，不替代 SIS 和授权。' },
       { system: 'iMCS', page: 'imcs', hash: 'ebr', role: '质量工程师', title: 'eBR 里看批次影响与放行边界', text: '同一批号 LX-BIT-2610136A1：11 个单元、72 个 OP；先核对质量与收率，再判断是否允许继续/放行。' },
       { system: 'iACMS', page: 'iacms', hash: 'drill', role: '生产经理', title: '推演与复盘：把一次异常变成组织能力', text: '推演发现“联锁审批”应前置；复盘生成整改清单，回写 SOP、知识库和培训案例。' },
@@ -47,7 +47,7 @@ window.DEMO_SCENARIOS = [
     steps: [
       { system: 'iAAS', page: 'iaas', hash: 'realtime', role: '操作员', title: '公用工程报警进入报警池', text: '冷却水压力低、夹套流量低同时出现；iAAS 将其与 R101 温度关联，提示“可能影响反应撤热”。' },
       { system: 'iCLPM', page: 'iclpm', hash: 'loops', role: '控制工程师', title: '先看夹套流量和阀门，不只看压力', text: 'PIC-1201 输出与阀位不匹配，怀疑调节阀黏滞；先确认实际冷却能力，再决定是否切备用。' },
-      { system: 'iACMS', page: 'iacms', hash: 'library', role: '工艺工程师', title: '匹配“冷却中断”处置程序', text: '异常工况库 RC-02 给出降负荷、停加热、备用冷却、必要时停车退守的处置路径。' },
+      { system: 'iACMS', page: 'iacms', hash: 'case', caseId: 'A01_COOLING', role: '值班长', title: '冷却中断的 7 个门禁', text: 'RC-02 独立 case：冷却确认、搅拌状态、降负荷/停加热、备用冷却、人员管控、隔离、复盘。' },
       { system: 'iACMS', page: 'iacms', hash: 'workbench', role: '值班长', title: 'Agent 生成“冷却中断”任务链', text: '监测 Agent 确认冷却/搅拌状态，程序 Agent 生成 7 个门禁；AI 建议先切备用，不直接建议继续满负荷。' },
       { system: 'iMCS', page: 'imcs', hash: 'execution', role: '生产经理', title: '看批次影响：继续、降负荷还是停车', text: '关联当前批次与后续排产，评估降负荷对质量/收率的影响，形成生产决策。' },
       { system: 'iACMS', page: 'iacms', hash: 'drill', role: '生产经理', title: '复盘：冷却中断的 12 分钟窗口', text: '推演“切备用失败”分支，验证人员管控、停车条件和上下游平衡。' }
@@ -74,9 +74,9 @@ window.DEMO_SCENARIOS = [
       { system: 'iAAS', page: 'iaas', hash: 'realtime', role: '操作员', title: '采出流量为零，塔釜温度还在涨', text: 'FIC-2204 采出为零、TIC-2201 塔釜温度持续上升；iAAS 给出“蒸馏不出料”候选。' },
       { system: 'iPAE', page: 'ipae', hash: 'outlier', role: '工艺工程师', title: '历史批次里，不出料前有什么征兆', text: 'iPAE 对比历史批次：真空度先降、回流比异常，采出为零只是最后结果。' },
       { system: 'iCLPM', page: 'iclpm', hash: 'diagnosis', role: '控制工程师', title: '是阀卡、真空，还是仪表假值', text: 'FIC-2204 阀位与流量不匹配；先确认仪表与阀，不把“假零”当成“真堵”。' },
-      { system: 'iACMS', page: 'iacms', hash: 'library', role: '工艺工程师', title: '调取 RC-04 处置卡', text: '准则附录1-6：不出料应分析原因，严禁继续加热、干蒸；先停加热，再查堵/真空。' },
+      { system: 'iACMS', page: 'iacms', hash: 'case', caseId: 'DISTILLATION', role: '值班长', title: '不出料的 6 个门禁', text: '独立 case：不出料确认、停加热、查堵/真空、泄压隔离、物料处置、复盘；停加热是前置门禁。' },
       { system: 'iACMS', page: 'iacms', hash: 'workbench', role: '值班长', title: '生成停加热/查堵任务链', text: 'Agent 将“停加热”设为前置门禁，未经确认不允许进入疏通步骤。' },
-      { system: 'iMCS', page: 'imcs', hash: 'ebr', role: '质量工程师', title: '记录异常，评估物料与批次', text: '把不出料时段、温度、真空、处置动作写进 eBR，支持后续质量判断。' }
+      { system: 'iMCS', page: 'imcs', hash: 'quality', role: '质量工程师', title: '记录异常，评估物料与批次', text: '把不出料时段、温度、真空、处置动作写进 eBR，支持后续质量判断。' }
     ]
   },
   {
@@ -99,9 +99,9 @@ window.DEMO_SCENARIOS = [
     steps: [
       { system: 'iAAS', page: 'iaas', hash: 'realtime', role: '操作员', title: '尾气含氯高 + 风机电流异常', text: 'AIC-3302 含氯上升，风机电流下降；iAAS 将其升级为有毒气体系统异常。' },
       { system: 'iCLPM', page: 'iclpm', hash: 'diagnosis', role: '控制工程师', title: '风机/阀/仪表：先判断是否真失效', text: '风机阀位与电流不匹配，存在“假风量”风险；先确认备用系统可投用。' },
-      { system: 'iACMS', page: 'iacms', hash: 'library', role: '工艺工程师', title: '匹配 RC-05 尾气故障处置', text: '处置程序要求停进料、联锁/远程启动备用、人员撤离；AI 不得建议继续维持生产。' },
+      { system: 'iACMS', page: 'iacms', hash: 'case', caseId: 'RTO_CHLORINE', role: '值班长', title: '尾气故障的 6 个门禁', text: '独立 case：尾气确认、停进料、备用系统、人员撤离、隔离、复盘；人员安全优先。' },
       { system: 'iACMS', page: 'iacms', hash: 'workbench', role: '值班长', title: 'Agent 协同：人员安全优先', text: '监测/分类/程序/合规 Agent 共同确认人员、联锁、备用系统证据；处置 Agent 才可派发。' },
-      { system: 'iMCS', page: 'imcs', hash: 'ebr', role: '质量工程师', title: '批次隔离与 eBR 记录', text: '标记异常时段、隔离受影响物料，保留尾气数据供后续质量与环保判断。' },
+      { system: 'iMCS', page: 'imcs', hash: 'quality', role: '质量工程师', title: '批次隔离与质量记录', text: '标记异常时段、隔离受影响物料，保留尾气数据供后续质量与环保判断。' },
       { system: 'iACMS', page: 'iacms', hash: 'drill', role: '生产经理', title: '复盘：为什么没有第一时间切备用', text: '推演“风机故障 + 备用未投用”分支，固化联锁测试和人员撤离路线。' }
     ]
   },
@@ -113,7 +113,7 @@ window.DEMO_SCENARIOS = [
     risk: '中',
     batch: '408-R401 历史批次',
     unit: '408 · R401',
-    loop: 'A01-TIC-1203',
+    loop: '408-TIC-1203',
     product: 'BIT',
     duration: '7 min',
     color: '#1466E8',
@@ -126,7 +126,7 @@ window.DEMO_SCENARIOS = [
       { system: 'iPAE', page: 'ipae', hash: 'latent', role: '工艺工程师', title: '打开慢变量与软测量', text: '催化剂活性指数 82.4%、R² 0.91；换热器 U 从 240 降到 186，污垢热阻 +55%。' },
       { system: 'iPAE', page: 'ipae', hash: 'batch', role: '工艺工程师', title: '回到批次：这些指标不是凭空来的', text: '用历史批次窗口验证：活性下降与升温速率、选择性变化同步。' },
       { system: 'iCLPM', page: 'iclpm', hash: 'performance', role: '控制工程师', title: '控制回路能不能解释一部分波动', text: '排除回路振荡/阀黏滞后，剩余偏差更可能来自催化剂/换热器。' },
-      { system: 'iACMS', page: 'iacms', hash: 'library', role: '工艺工程师', title: '把慢变量纳入异常工况管理', text: '不是等到超温才处置；把“活性触线/污垢窗口”作为早期异常工况。' },
+      { system: 'iACMS', page: 'iacms', hash: 'case', caseId: 'CATALYST_HX', role: '工艺工程师', title: '慢变量的 5 个门禁', text: '独立 case：数据窗口、模型可信度、活性/污垢判断、操作建议、验证回写；AI 建议不直接动作。' },
       { system: 'iACMS', page: 'iacms', hash: 'workbench', role: '生产经理', title: '生成“提前 18 天”的操作建议', text: 'Agent 生成提温/降负荷/清洗窗口建议，并标注模型可信度与验证动作。' },
       { system: 'iACMS', page: 'iacms', hash: 'drill', role: '生产经理', title: '回测与复盘：建议是否真的有效', text: '把建议执行后的批次表现回写模型，持续校准活性/污垢预测。' }
     ]

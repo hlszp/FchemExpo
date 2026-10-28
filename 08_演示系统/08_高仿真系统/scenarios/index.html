@@ -31,6 +31,7 @@
 .roles{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.roles span{font-size:8px;color:#475569;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:999px;padding:2px 6px}
 .note{font-size:8.5px;color:#94A3B8;line-height:1.7;margin-top:8px}
 .modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(8,20,38,.55);padding:16px}.modal.show{display:flex}.modal-panel{background:#fff;border-radius:12px;width:min(620px,96vw);max-height:86vh;overflow:auto;padding:16px;box-shadow:0 30px 80px rgba(2,10,24,.35)}.modal-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}.modal-h h3{font-size:15px;margin:0;flex:1}.modal-h button{border:1px solid #E2E8F0;background:#fff;border-radius:6px;width:24px;height:24px;cursor:pointer;color:#64748B}.steps{display:grid;gap:5px}.step{display:flex;gap:7px;border-bottom:1px solid #F1F5F9;padding:5px 0}.step span{width:18px;height:18px;border-radius:50%;background:#EEF5FF;color:#1466E8;display:flex;align-items:center;justify-content:center;font-size:7px;flex:none}.step b{font-size:9px;display:block}.step p{font-size:8.5px;color:#64748B;line-height:1.55;margin:1px 0 0}.step em{font-style:normal;font-size:7.5px;color:#94A3B8}
+.data-note{font-size:8.5px;line-height:1.7;color:#8FA9C1;margin:8px 0 0;position:relative;z-index:1;max-width:760px}.sc-status{font-size:9px;color:#B9CCE0;margin-top:7px;min-height:14px;position:relative;z-index:1}.sc-status.ok{color:#7EE0C1}.sc-status.err{color:#FCA5A5}
 @media(max-width:900px){.grid{grid-template-columns:1fr}.legend{grid-template-columns:1fr}.hero h1{font-size:23px}.stats{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.wrap{padding:16px 12px 92px}.hero{padding:20px 16px}.hero h1{font-size:21px}.hd{padding:0 12px}.hd .sub{display:none}.sc{min-height:auto}.sc-foot .btn{flex:1}}
 </style>
@@ -41,8 +42,8 @@
   <section class="hero">
     <div class="k">DIRECTOR MODE / 导演模式</div>
     <h1>不是带客户看五个系统，<br>是带他走完 <em>五次异常工况处置</em></h1>
-    <p>每个场景 6–8 分钟：从 iAAS 发现、iPAE/iCLPM 解释，到 iACMS 生成安全门禁任务链，iMCS eBR 留痕，inWork 闭环。AI 只做发现、建议与缺项检查，人做最终决策。</p>
-    <div class="acts"><button class="btn primary" data-start-first>从场景 01 开始 →</button><button class="btn ghost" data-reset>重置演示状态</button><a class="btn ghost" href="/demo/app/iacms/">进入 iACMS</a></div>
+    <p>每个场景 6–8 分钟：从 iAAS 发现、iPAE/iCLPM 解释，到 iACMS 生成安全门禁任务链，iMCS eBR 留痕，inWork 闭环。AI 只做发现、建议与缺项检查，人做最终决策。</p><p class="data-note">数据口径：场景 01 为 2026-10-28 当前演示批次；iPAE 使用 2024-03–05 历史基线做对比；其他场景为演示合成数据。导演脚本不替代企业预案与法规原文。</p>
+    <div class="acts"><button class="btn primary" data-start-first>从场景 01 开始 →</button><button class="btn ghost" data-fullscreen>全屏演示</button><button class="btn ghost" data-selfcheck>演示自检</button><button class="btn ghost" data-reset>重置演示状态</button><a class="btn ghost" href="/demo/app/iacms/">进入 iACMS</a></div><div class="sc-status" id="scStatus"></div>
   </section>
   <div class="stats"><div class="stat"><b>5</b><span>精细化工异常场景</span></div><div class="stat"><b>6–8</b><span>分钟 / 场景</span></div><div class="stat"><b>9</b><span>安全门禁（高风险场景）</span></div><div class="stat"><b>6</b><span>角色视角</span></div></div>
   <div class="sec-head"><div><h2>选择一个场景，直接开始导演</h2><p>系统会跨 iAAS / iPAE / iCLPM / iACMS / iMCS / inWork 自动翻页，底部常驻当前幕。</p></div></div>
@@ -63,6 +64,11 @@
   document.querySelectorAll('[data-start]').forEach(function(b){b.onclick=function(){start(b.getAttribute('data-start'));};});
   document.querySelectorAll('[data-start-first]').forEach(function(b){b.onclick=function(){start(scs[0].id);};});
   document.querySelectorAll('[data-reset]').forEach(function(b){b.onclick=function(){if(window.DirectorMode){window.DirectorMode.reset();}else{localStorage.removeItem('ZL_DEMO_DIRECTOR_V1');location.reload();}};});
+  var statusEl=document.getElementById('scStatus');
+  function setStatus(t,cls){statusEl.textContent=t;statusEl.className='sc-status'+(cls?' '+cls:'');}
+  document.querySelectorAll('[data-fullscreen]').forEach(function(b){b.onclick=async function(){try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();b.textContent='退出全屏';}else{await document.exitFullscreen();b.textContent='全屏演示';}}catch(e){setStatus('当前浏览器不支持全屏，请按 F11。','err');}}});
+  document.addEventListener('fullscreenchange',function(){var b=document.querySelector('[data-fullscreen]');if(b)b.textContent=document.fullscreenElement?'退出全屏':'全屏演示';});
+  document.querySelectorAll('[data-selfcheck]').forEach(function(b){b.onclick=async function(){if(!window.DirectorMode){setStatus('导演脚本未加载。','err');return;}setStatus('正在检查 5 个场景的关键页面…');var urls=[];scs.forEach(function(s){s.steps.forEach(function(st){var u=window.DirectorMode.base+st.page+'/index.html';if(urls.indexOf(u)<0)urls.push(u);});});var ok=0;var bad=[];for(var i=0;i<urls.length;i++){try{var r=await fetch(urls[i],{method:'GET',cache:'no-store'});if(r.ok)ok++;else bad.push(urls[i]);}catch(e){bad.push(urls[i]);}}if(bad.length){setStatus('自检完成：'+ok+'/'+urls.length+' 可访问；异常：'+bad.length+' 个。','err');}else{setStatus('自检通过：'+ok+' 个关键页面均可访问，导演模式可用。','ok');}};});
   var modal=document.getElementById('modal'), mTitle=document.getElementById('mTitle'), mBody=document.getElementById('mBody');
   function close(){modal.classList.remove('show');}
   document.getElementById('mClose').onclick=close; modal.onclick=function(e){if(e.target===modal)close();};

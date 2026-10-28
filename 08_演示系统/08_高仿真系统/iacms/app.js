@@ -13,9 +13,53 @@
     docs: D.docs.slice(),
     libraryGenerated: false
   };
-  var GATE = {};
-  D.caseDetail.gates.forEach(function (g, i) { GATE[i] = g.status; });
-  state.gateStatus = GATE;
+  var CASES = D.caseDetails || [D.caseDetail];
+  state.gateStatus = {};
+  CASES.forEach(function (c) {
+    var m = {};
+    c.gates.forEach(function (g, i) { m[i] = g.status; });
+    state.gateStatus[c.id] = m;
+  });
+  try {
+    var savedGates = JSON.parse(localStorage.getItem('IACMS_GATES_V1') || '{}');
+    Object.keys(savedGates).forEach(function (id) {
+      if (state.gateStatus[id]) { Object.keys(savedGates[id]).forEach(function (k) { state.gateStatus[id][k] = savedGates[id][k]; }); }
+    });
+  } catch (e) {}
+  function getCase() {
+    var id = '';
+    try { id = new URLSearchParams(location.search).get('case') || ''; } catch (e) {}
+    if (!id) { try { id = sessionStorage.getItem('DEMO_CASE_ID') || ''; } catch (e) {} }
+    for (var i = 0; i < CASES.length; i++) {
+      if (CASES[i].scenarioId === id || CASES[i].id === id) {
+        try {
+          var cc = CASES[i];
+          sessionStorage.setItem('DEMO_CASE_ID', cc.scenarioId || cc.id);
+          sessionStorage.setItem('DEMO_CHAIN_BATCH', cc.batch);
+          sessionStorage.setItem('DEMO_CHAIN_AREA', (cc.unit || '').split('·')[0].trim());
+          sessionStorage.setItem('DEMO_CHAIN_LOOP', cc.loop || '');
+          sessionStorage.setItem('DEMO_CHAIN_PRODUCT', 'BIT');
+        } catch (e) {}
+        return CASES[i];
+      }
+    }
+    try {
+      var c0 = CASES[0];
+      sessionStorage.setItem('DEMO_CASE_ID', c0.scenarioId || c0.id);
+      sessionStorage.setItem('DEMO_CHAIN_BATCH', c0.batch);
+      sessionStorage.setItem('DEMO_CHAIN_AREA', (c0.unit || '').split('·')[0].trim());
+      sessionStorage.setItem('DEMO_CHAIN_LOOP', c0.loop || '');
+      sessionStorage.setItem('DEMO_CHAIN_PRODUCT', 'BIT');
+    } catch (e) {}
+    return CASES[0];
+  }
+  function gateMap(c) {
+    if (!state.gateStatus[c.id]) {
+      var m = {}; c.gates.forEach(function (g, i) { m[i] = g.status; }); state.gateStatus[c.id] = m;
+    }
+    return state.gateStatus[c.id];
+  }
+  function caseHref(c) { return '?case=' + encodeURIComponent(c.scenarioId || c.id) + '#case'; }
 
   function h(v) { return esc(v == null ? '' : String(v)); }
   function nowShort() { return S.nowText().slice(0, 5); }
@@ -94,7 +138,7 @@
     var html = head('KNOWLEDGE / 文档入库', '知识库与异常工况生成', '上传准则、AQ 标准、企业办法、HAZOP、LOPA、SOP、应急预案，由 AI 抽取异常分类、触发条件、处置动作、安全门禁。', '<button class="btn primary" data-upload-trigger>上传文档</button><button class="btn ai" data-generate-library>AI 生成异常工况库</button>');
     html += '<div class="iac-know-grid"><section class="iac-card iac-upload-card"><div class="iac-drop" data-upload-trigger><div class="iac-drop-ico">＋</div><b>拖拽文件到这里，或点击上传</b><p>支持 PDF / Word / Excel / PPT / TXT；演示环境用文件名校验，不做真实内容解析</p><div class="iac-file-types"><span>PDF</span><span>DOCX</span><span>XLSX</span><span>PPTX</span></div><input id="iacFile" type="file" multiple hidden></div><div class="iac-upload-note"><b>自动流水线</b><span>解析 → 分类 → 抽取 → 关联 → 审核</span></div></section><section class="iac-card iac-pipeline"><div class="iac-card-head"><h3>知识生成流水线</h3><span class="iac-sub">可追溯</span></div><div class="iac-pipe">' + ['文档解析', '要素抽取', '异常分类', '程序生成', '知识关联'].map(function (x, i) { return '<div class="iac-pipe-step"><span>' + (i + 1) + '</span><b>' + x + '</b><em>' + (i < 4 ? '完成' : '运行中') + '</em></div>'; }).join('') + '</div><div class="iac-extract-stats"><div><b>42</b><span>异常工况</span></div><div><b>186</b><span>处置动作</span></div><div><b>68</b><span>安全门禁</span></div><div><b>12</b><span>关联文档</span></div></div><div class="iac-ai-inline small"><div class="iac-ai-mark">AI</div><div><b>抽取结果</b><p>识别到「反应釜超温/反应失控」「冷却中断」「搅拌失效」等精细化工典型场景，关联 HAZOP 节点与 LOPA 场景；所有条目保留原文出处。</p></div></div></section></div>';
     html += '<section class="iac-card"><div class="iac-card-head"><h3>文档清单</h3><span class="iac-sub">' + state.docs.length + ' 份 · 已解析 ' + state.docs.filter(function (d) { return d.status === '已解析'; }).length + ' 份</span></div><div class="iac-table-wrap"><table class="iac-table"><thead><tr><th>文档</th><th>类型 / 编号</th><th>状态</th><th>异常工况</th><th>动作</th><th>门禁</th><th>更新</th></tr></thead><tbody>' + state.docs.map(function (d) {
-      return '<tr><td><b>' + h(d.name) + '</b><span class="iac-dim">' + h(d.code) + ' · ' + h(d.pages) + ' 页</span></td><td>' + h(d.type) + '</td><td>' + docStatus(d.status) + '</td><td>' + h(d.scenarios) + '</td><td>' + h(d.steps) + '</td><td>' + h(d.gates) + '</td><td>' + h(d.updated) + '</td></tr>';
+      return '<tr><td><b>' + h(d.name) + '</b><span class="iac-dim">' + h(d.code) + ' · ' + h(d.pages) + ' 页</span>' + (d.preview ? '<span class="iac-doc-preview">文本已读取：' + h(d.preview) + '</span>' : d.note ? '<span class="iac-doc-preview warn">' + h(d.note) + '</span>' : '') + '</td><td>' + h(d.type) + '</td><td>' + docStatus(d.status) + '</td><td>' + h(d.scenarios) + '</td><td>' + h(d.steps) + '</td><td>' + h(d.gates) + '</td><td>' + h(d.updated) + '</td></tr>';
     }).join('') + '</tbody></table></div></section>';
     html += '<div class="iac-grid-3"><section class="iac-card"><div class="iac-card-head"><h3>原文依据</h3><span class="iac-sub">法规/标准</span></div><div class="iac-ref"><b>应急厅〔2024〕17号</b><span>《化工企业生产过程异常工况安全处置准则（试行）》</span><a href="https://www.gov.cn/zhengce/zhengceku/202405/content_6948790.htm" target="_blank" rel="noopener">查看原文 ↗</a></div><div class="iac-ref"><b>AQ 3062—2025</b><span>《精细化工企业安全管理规范》</span><a href="https://www.mem.gov.cn/xw/yjglbgzdt/202505/t20250523_538198.shtml" target="_blank" rel="noopener">查看发布信息 ↗</a></div></section><section class="iac-card"><div class="iac-card-head"><h3>AI 抽取示例</h3><span class="iac-sub">RC-01</span></div><div class="iac-quote"><b>触发条件</b><p>温度骤升、压力骤变、冷却/搅拌异常；反应釜飞温、爆聚、冲料。</p><b>关键动作</b><p>停进料、停加热、启动冷却、淬灭/转移、人员撤离。</p><b>安全门禁</b><p>紧急处置程序可用、联锁不得擅自旁路、能量隔离、现场人数。</p></div><button class="btn" data-go="library">查看异常工况库 →</button></section><section class="iac-card"><div class="iac-card-head"><h3>知识关联</h3><span class="iac-sub">文档 × 场景 × 系统</span></div><div class="iac-graph"><span>准则</span><i>→</i><span>RC-01</span><i>→</i><span>HAZOP</span><span>LOPA</span><span>SOP</span><i>→</i><span>任务链</span></div><p class="iac-dim">每条异常工况保留原文段落、HAZOP 节点、LOPA 场景与系统证据，处置时可直接回溯。</p></section></div>';
     return html;
@@ -107,15 +151,25 @@
       input.onchange = function () {
         var files = Array.prototype.slice.call(input.files || []);
         if (!files.length) { return; }
-        var names = files.map(function (f) { return f.name; });
-        state.docs = names.map(function (n, i) { return { name: n, type: '上传文档', code: 'UPLOAD-' + (i + 1), status: '解析中', pages: '—', scenarios: 0, steps: 0, gates: 0, updated: nowShort() }; }).concat(state.docs);
-        S.toast('<b>文档已上传</b>：' + names.length + ' 份，开始解析');
-        setTimeout(function () {
-          state.docs.forEach(function (d) { if (d.status === '解析中') { d.status = '已解析'; d.scenarios = 6; d.steps = 21; d.gates = 7; } });
-          S.toast('<b>解析完成</b>：已抽取 6 类异常工况、21 个动作、7 个门禁');
-          if (location.hash === '#knowledge') { S.go('knowledge'); }
-        }, 1400);
+        files.forEach(function (f, i) {
+          var textLike = /\.(txt|md|markdown|csv|json|html|htm)$/i.test(f.name);
+          var doc = { name: f.name, type: textLike ? '文本文件' : '二进制文档', code: 'UPLOAD-' + (i + 1), status: textLike ? '解析中' : '待解析', pages: '—', scenarios: 0, steps: 0, gates: 0, updated: nowShort(), note: textLike ? '' : '需接入 PDF/Word OCR 解析服务' };
+          state.docs.unshift(doc);
+          if (textLike && window.FileReader) {
+            var reader = new FileReader();
+            reader.onload = function () {
+              var text = String(reader.result || '').replace(/\s+/g, ' ').trim();
+              doc.preview = text.slice(0, 90) + (text.length > 90 ? '…' : '');
+              doc.status = '已解析'; doc.scenarios = 3; doc.steps = Math.min(12, Math.max(3, Math.ceil(text.length / 240))); doc.gates = 3;
+              S.toast('<b>文本已读取</b>：' + f.name + '，已生成演示级抽取结果');
+              if (location.hash === '#knowledge') { S.go('knowledge'); }
+            };
+            reader.readAsText(f, 'utf-8');
+          }
+        });
+        S.toast('<b>文档已上传</b>：' + files.length + ' 份；文本文件本机读取，PDF/Word 需解析服务');
         S.go('knowledge');
+        input.value = '';
       };
     }
     document.querySelectorAll('[data-generate-library]').forEach(function (b) {
@@ -166,21 +220,43 @@
 
   // ---------- workbench ----------
   function renderWorkbench() {
-    var html = head('AGENT WORKBENCH / 智能体工作台', '异常工况 Agent 协作', '像工作台一样组织任务：左边是异常工况，中间是 Agent 链路与事件，右边是 AI 对话；人始终保留最终决策权。', '<button class="btn primary" data-run-agents>' + (state.agentRunning ? 'Agent 运行中…' : '运行 Agent 协作') + '</button><button class="btn" data-go="case">进入处置</button><button class="btn ai" data-ai-chat>AI 助手</button>');
-    html += '<div class="iac-workbench"><aside class="iac-wb-left"><div class="iac-wb-title">异常工况任务 <span>' + D.cases.length + '</span></div>' + D.cases.map(function (c) {
-      var on = c.id === D.caseDetail.id ? 'on' : '';
-      return '<div class="iac-wb-case ' + on + '" data-go="case"><div><b>' + h(c.title) + '</b><span>' + h(c.id) + ' · ' + h(c.unit) + '</span></div><div class="iac-wb-case-foot"><span class="iac-risk ' + (c.risk === '高' ? 'high' : c.risk === '中' ? 'mid' : 'low') + '">' + h(c.risk) + '</span><em>' + h(c.status) + '</em></div></div>';
+    var html = head('AGENT WORKBENCH / 智能体工作台', '异常工况 Agent 协作', '像工作台一样组织任务：左边是异常工况，中间是 Agent 链路与事件，右边是 AI 对话；人始终保留最终决策权。', '<button class="btn primary" data-run-agents>' + (state.agentRunning ? 'Agent 运行中…' : '运行 Agent 协作') + '</button><a class="btn" href="' + caseHref(getCase()) + '">进入处置</a><button class="btn ai" data-ai-chat>AI 助手</button>');
+    html += '<div class="iac-workbench"><aside class="iac-wb-left"><div class="iac-wb-title">异常工况任务 <span>' + CASES.length + '</span></div>' + CASES.map(function (c) {
+      var on = c.id === getCase().id ? 'on' : '';
+      return '<a class="iac-wb-case ' + on + '" href="' + caseHref(c) + '"><div><b>' + h(c.title) + '</b><span>' + h(c.id) + ' · ' + h(c.unit) + '</span></div><div class="iac-wb-case-foot"><span class="iac-risk ' + (c.risk === '高' ? 'high' : c.risk === '中' ? 'mid' : 'low') + '">' + h(c.risk) + '</span><em>' + h(c.status) + '</em></div></a>';
     }).join('') + '<div class="iac-wb-note"><b>iLINK 已融合</b><span>任务链、步骤流、分系统证据入口作为 iACMS 的处置执行层。</span><a href="' + sysHref('iLINK', 'abnormal') + '">打开 iLINK 任务链 →</a></div></aside>';
     html += '<section class="iac-wb-main"><div class="iac-wb-title">Agent 协作链 <span>' + (state.agentComplete ? '全部完成' : state.agentRunning ? '运行中' : '可运行') + '</span></div><div class="iac-agent-pipeline">' + D.agents.map(function (a, i) {
       var st = state.agentComplete ? 'done' : state.agentRunning ? (i < 4 ? 'active' : 'pending') : a.status;
       var label = st === 'done' ? '已完成' : st === 'active' ? '进行中' : '待启动';
-      return '<div class="iac-pipe-agent ' + st + '"><div class="iac-pipe-num">' + (i + 1) + '</div><div><b>' + h(a.name) + '</b><span>' + h(a.role) + '</span><em>' + label + '</em></div></div>';
+      return '<div class="iac-pipe-agent ' + st + '" data-agent="' + a.id + '"><div class="iac-pipe-num">' + (i + 1) + '</div><div><b>' + h(a.name) + '</b><span>' + h(a.role) + '</span><em>' + label + '</em></div></div>';
     }).join('<div class="iac-pipe-arrow">→</div>') + '</div><div class="iac-event-log"><div class="iac-event-head"><b>实时事件</b><span>演示数据 · ' + nowShort() + '</span></div>' + D.agents.map(function (a, i) { return '<div class="iac-event"><span class="iac-event-time">05:' + (2 + i * 2 < 10 ? '0' : '') + (2 + i * 2) + '</span><i class="' + (state.agentComplete || i < 3 ? 'on' : '') + '"></i><div><b>' + h(a.name) + '</b><p>' + h(a.msg) + '</p></div></div>'; }).join('') + '</div></section>';
-    html += '<aside class="iac-wb-right"><div class="iac-wb-title">AI 对话 <span>DeepSeek</span></div><div class="iac-chat-card"><div class="iac-chat-msg ai"><b>AI</b><p>我已读取当前异常工况、处置程序与 9 个安全门禁。你可以直接问：现在最该先做什么？哪些证据还不能闭环？</p></div><div class="iac-chat-msg user"><b>你</b><p>按应急厅17号，当前还缺什么？</p></div><div class="iac-chat-msg ai"><b>AI</b><p>缺 3 项证据：①联锁旁路审批；②能量隔离（盲板/泄压/吹扫）；③现场人数确认。另建议先完成退守，再进入回路深度诊断。</p></div><div class="iac-quick">' + ['现在最该先做什么？', '哪些门禁还不能闭环？', '给我一段交接班说明'].map(function (q) { return '<button data-ask="' + h(q) + '">' + h(q) + '</button>'; }).join('') + '</div><button class="btn ai iac-full" data-ai-chat>打开完整 AI 对话 →</button><p class="iac-dim">AI 只做识别、汇总、建议；安全决策与授权由人完成。</p></div></aside></div>';
+    html += '<aside class="iac-wb-right"><div class="iac-wb-title">AI 对话 <span>DeepSeek</span></div><div class="iac-chat-card"><div class="iac-chat-msg ai"><b>AI</b><p>我已读取当前异常工况、处置程序与 ' + getCase().gates.length + ' 个安全门禁。你可以直接问：现在最该先做什么？哪些证据还不能闭环？</p></div><div class="iac-chat-msg user"><b>你</b><p>按应急厅17号，当前还缺什么？</p></div><div class="iac-chat-msg ai"><b>AI</b><p>缺 3 项证据：①联锁旁路审批；②能量隔离（盲板/泄压/吹扫）；③现场人数确认。另建议先完成退守，再进入回路深度诊断。</p></div><div class="iac-quick">' + ['现在最该先做什么？', '哪些门禁还不能闭环？', '给我一段交接班说明'].map(function (q) { return '<button data-ask="' + h(q) + '">' + h(q) + '</button>'; }).join('') + '</div><button class="btn ai iac-full" data-ai-chat>打开完整 AI 对话 →</button><p class="iac-dim">AI 只做识别、汇总、建议；安全决策与授权由人完成。</p></div></aside></div>';
     return html;
+  }
+  function openAgent(id) {
+    var a = null;
+    for (var i = 0; i < D.agents.length; i++) { if (D.agents[i].id === id) { a = D.agents[i]; } }
+    if (!a) { return; }
+    ensureAgentModal();
+    var m = document.getElementById('iacAgentModal');
+    var conf = Math.round((a.confidence || 0.8) * 100);
+    m.querySelector('.iac-modal-panel').innerHTML = '<div class="iac-agent-modal-head"><div><div class="iac-drawer-kicker">AGENT TRACE / 可解释链路</div><h3>' + h(a.name) + '</h3><p>' + h(a.role) + '</p></div><button class="iac-modal-close" data-agent-close>×</button></div><div class="iac-agent-trace"><div class="iac-trace-block"><b>输入</b><p>' + h(a.input || '当前异常工况页面数据') + '</p></div><div class="iac-trace-block"><b>输出</b><p>' + h(a.msg) + '</p></div><div class="iac-trace-block"><b>证据/来源</b><p>' + h(a.evidence || '当前页面数据') + '</p></div><div class="iac-trace-block"><b>置信度</b><div class="iac-conf"><i style="width:' + conf + '%"></i></div><span>' + conf + '% · 仅作为建议</span></div></div><div class="iac-agent-warning">Agent 输出不是授权：涉及联锁、隔离、人员撤离、停车等动作，必须由授权人确认。</div><div class="iac-modal-actions"><button class="btn" data-agent-close>关闭</button><button class="btn" data-agent-confirm>人工确认已阅</button><button class="btn primary" data-agent-approve>确认建议</button></div>';
+    m.classList.add('show');
+    m.querySelectorAll('[data-agent-close]').forEach(function (b) { b.onclick = function () { m.classList.remove('show'); }; });
+    m.querySelectorAll('[data-agent-confirm]').forEach(function (b) { b.onclick = function () { m.classList.remove('show'); S.toast('<b>' + h(a.name) + '</b>：已阅，未授权任何动作'); }; });
+    m.querySelectorAll('[data-agent-approve]').forEach(function (b) { b.onclick = function () { m.classList.remove('show'); S.toast('<b>' + h(a.name) + '</b>：建议已确认，仍待授权人执行'); }; });
+  }
+  function ensureAgentModal() {
+    if (document.getElementById('iacAgentModal')) { return; }
+    var m = document.createElement('div');
+    m.id = 'iacAgentModal'; m.className = 'iac-modal';
+    m.innerHTML = '<div class="iac-modal-bg" data-agent-close></div><div class="iac-modal-panel"></div>';
+    document.body.appendChild(m);
+    m.querySelectorAll('[data-agent-close]').forEach(function (b) { b.onclick = function () { m.classList.remove('show'); }; });
   }
   function bindWorkbench() {
     bindCommon();
+    document.querySelectorAll('[data-agent]').forEach(function (b) { b.onclick = function () { openAgent(b.getAttribute('data-agent')); }; });
     document.querySelectorAll('[data-run-agents]').forEach(function (b) {
       b.onclick = function () {
         if (state.agentRunning) { return; }
@@ -199,27 +275,33 @@
 
   // ---------- case ----------
   function renderCase() {
-    var c = D.caseDetail;
-    var done = countDone();
+    var c = getCase();
+    var gm = gateMap(c);
+    var done = countDone(c);
     var html = head('CASE / 当前处置', c.title, c.batch + ' · ' + c.unit + ' · 触发：' + c.trigger, '<button class="btn" data-generate-chain>' + (state.chainGenerated ? '重新生成任务链' : 'AI 生成任务链') + '</button><button class="btn primary" data-go="drill">开始推演</button><a class="btn" href="' + sysHref('iLINK', 'abnormal') + '">iLINK 任务链</a>');
-    html += '<div class="iac-case-top"><div class="iac-case-main"><div class="iac-drawer-tags">' + tag(c.category, 'danger') + tag('高风险', 'danger') + tag('处置中', 'warn') + tag('SLA ' + c.sla, 'gray') + '</div><div class="iac-case-facts"><div><span>批号</span><b>' + h(c.batch) + '</b></div><div><span>装置</span><b>' + h(c.unit) + '</b></div><div><span>负责人/指挥</span><b>' + h(c.owner) + ' / ' + h(c.commander) + '</b></div><div><span>已用时间</span><b>' + h(c.elapsed) + '</b></div></div>' + phaseFlow(c.phase) + '<div class="iac-source-row">' + c.source.map(function (x) { return '<span>' + h(x) + '</span>'; }).join('') + '</div><div class="iac-brake"><b>处置边界</b><span>' + h(c.brake.mode) + ' · ' + h(c.brake.sis) + ' · 建议：' + h(c.brake.suggested) + '</span></div></div><div class="iac-case-side"><b>' + done + '<small>/9</small></b><span>安全门禁完成</span><div class="iac-bar"><i style="width:' + Math.round(done / 9 * 100) + '%"></i></div><em>' + (done < 9 ? '未完成项：联锁 / 隔离 / 复盘' : '已全部确认') + '</em></div></div>';
+    var provenance = c.batch.indexOf('历史') >= 0 ? '历史批次 / 模型回测' : '当前演示批次 ' + c.batch + '（2026-10-28）';
+    html += '<div class="iac-data-note"><b>数据口径</b>' + h(provenance) + '；iPAE 历史基线仅用于对比（2024-03–05，408 车间）；演示合成数据，不替代企业实时数据。</div>';
+    html += '<div class="iac-case-top"><div class="iac-case-main"><div class="iac-drawer-tags">' + tag(c.category, 'danger') + tag(c.risk + '风险', c.risk === '高' ? 'danger' : 'warn') + tag(c.status, 'warn') + tag('SLA ' + c.sla, 'gray') + '</div><div class="iac-case-facts"><div><span>批号</span><b>' + h(c.batch) + '</b></div><div><span>装置</span><b>' + h(c.unit) + '</b></div><div><span>负责人/指挥</span><b>' + h(c.owner) + ' / ' + h(c.commander) + '</b></div><div><span>已用时间</span><b>' + h(c.elapsed) + '</b></div></div>' + phaseFlow(c.phase) + '<div class="iac-source-row">' + c.source.map(function (x) { return '<span>' + h(x) + '</span>'; }).join('') + '</div><div class="iac-brake"><b>处置边界</b><span>' + h(c.brake.mode) + ' · ' + h(c.brake.sis) + ' · 建议：' + h(c.brake.suggested) + '</span></div></div><div class="iac-case-side"><b>' + done + '<small>/' + c.gates.length + '</small></b><span>安全门禁完成</span><div class="iac-bar"><i style="width:' + Math.round(done / c.gates.length * 100) + '%"></i></div><em>' + (done < c.gates.length ? '未完成项：' + c.gates.filter(function (g, i) { return gm[i] !== 'done'; }).slice(0, 3).map(function (g) { return g.name; }).join(' / ') : '已全部确认') + '</em></div></div>';
     html += '<div class="iac-grid-2 iac-case-grid"><section class="iac-card"><div class="iac-card-head"><h3>处置门禁</h3><span class="iac-sub">未完成不允许闭环</span></div><div class="iac-gates">' + c.gates.map(function (g, i) {
-      var st = state.gateStatus[i] || g.status;
+      var st = gm[i] || g.status;
       var label = st === 'done' ? '已确认' : st === 'active' ? '进行中' : '待确认';
       return '<div class="iac-gate ' + st + '"><div class="iac-gate-dot">' + (st === 'done' ? '✓' : (i + 1)) + '</div><div><b>' + h(g.name) + '</b><span>' + h(g.action) + '</span><em>' + h(g.evidence) + '</em></div><button class="mini-btn" data-gate="' + i + '">' + (st === 'done' ? '查看' : '确认') + '</button></div>';
     }).join('') + '</div></section><section class="iac-card"><div class="iac-card-head"><h3>任务链</h3><span class="iac-sub">iLINK 执行层</span></div>' + (state.chainGenerated ? '<div class="iac-chain">' + c.taskChain.map(function (s, i) { return '<div class="iac-chain-row"><span>' + (i + 1) + '</span><div><b>' + h(s.role) + '</b><p>' + h(s.task) + '</p><em>' + h(s.source) + '</em></div><i class="' + s.status + '">' + (s.status === 'done' ? '完成' : s.status === 'active' ? '进行中' : '待启动') + '</i></div>'; }).join('') + '</div><button class="btn" data-go="workbench">在 Agent 工作台查看 →</button>' : '<div class="iac-empty"><b>尚未生成任务链</b><p>点击“AI 生成任务链”，由程序 Agent 按准则、SOP、HAZOP 生成可执行动作与责任人。</p><button class="btn ai" data-generate-chain>生成任务链</button></div>') + '</section></div>';
     html += '<div class="iac-grid-3"><section class="iac-card"><div class="iac-card-head"><h3>证据入口</h3><span class="iac-sub">分系统</span></div>' + c.source.map(function (s) { return '<div class="iac-evidence"><span>' + h(s) + '</span>' + sysLink(s.split(' ')[0], s.indexOf('iAAS') >= 0 ? 'realtime' : s.indexOf('iPAE') >= 0 ? 'batch' : s.indexOf('iCLPM') >= 0 ? 'loops' : 'ebr', '打开证据') + '</div>'; }).join('') + '</section><section class="iac-card"><div class="iac-card-head"><h3>合规提醒</h3><span class="iac-sub">2024/17号</span></div><div class="iac-warning"><b>禁止事项</b><p>未评估审批，不得摘除/旁路联锁；不得以关阀代替盲板；情况不明不得进入现场。</p></div><div class="iac-warning"><b>必须动作</b><p>及时退守、人员最少化、能量隔离、统一指挥、处置后复盘。</p></div></section><section class="iac-card"><div class="iac-card-head"><h3>AI 建议</h3><span class="iac-sub">不作为授权</span></div><div class="iac-quote"><p>先完成停进料、停加热、紧急冷却；确认现场人数与隔离证据；联锁旁路必须走审批。完成后再进入回路深度诊断。</p></div><button class="btn ai iac-full" data-ask="当前处置还缺哪些安全门禁？">问 AI</button></section></div>';
     return html;
   }
-  function countDone() { var n = 0; for (var k in state.gateStatus) { if (state.gateStatus[k] === 'done') { n++; } } return n; }
+  function countDone(c) { var m = gateMap(c || getCase()); var n = 0; for (var k in m) { if (m[k] === 'done') { n++; } } return n; }
   function bindCase() {
     bindCommon();
+    var c = getCase();
+    var gm = gateMap(c);
     document.querySelectorAll('[data-gate]').forEach(function (b) {
       b.onclick = function () {
         var i = b.getAttribute('data-gate');
-        if (state.gateStatus[i] === 'done') { S.toast('<b>门禁</b>：已确认，证据已归档'); return; }
-        state.gateStatus[i] = 'done';
-        S.toast('<b>门禁确认</b>：' + D.caseDetail.gates[i].name + ' 已记录，证据已归档');
+        if (gm[i] === 'done') { S.toast('<b>门禁</b>：已确认，证据已归档'); return; }
+        gm[i] = 'done';
+        try { localStorage.setItem('IACMS_GATES_V1', JSON.stringify(state.gateStatus)); } catch (e) {}
+        S.toast('<b>门禁确认</b>：' + c.gates[i].name + ' 已记录，证据已归档');
         S.go('case');
       };
     });
@@ -232,13 +314,14 @@
     });
   }
   function caseInsight() {
-    return { summary: 'R101 反应釜超温处于退守阶段，9 个安全门禁完成 6 个；当前缺联锁旁路审批、能量隔离、现场人数三项证据，不能闭环。', findings: ['iAAS、iPAE、iCLPM 三源已确认异常，批号一致。', '紧急处置程序已调取，退守动作执行中。', '任务链尚未派发到 iMCS eBR 与 inWork。'], actions: ['先完成停进料/停加热/紧急冷却。', '补齐联锁、隔离、人员证据后再诊断。', '处置结束后由复盘 Agent 回写知识库。'], evidence: ['9 个门禁', '3 项缺失', '应急厅〔2024〕17号'], basis: '当前处置任务' };
+    var c = getCase(); var done = countDone(c); var miss = c.gates.length - done;
+    return { summary: c.title + '处于' + c.phase + '阶段，' + c.gates.length + ' 个安全门禁完成 ' + done + ' 个；当前有 ' + miss + ' 项未完成，不能直接闭环。', findings: [c.source.join('；'), '批号 ' + c.batch + ' 与当前任务链一致。', '任务链尚未全部派发到 iMCS eBR 与 inWork。'], actions: ['先完成当前阶段的安全动作与人员/隔离证据。', '未完成门禁不得闭环，联锁旁路必须审批。', '处置结束后由复盘 Agent 回写知识库。'], evidence: [c.gates.length + ' 个门禁', miss + ' 项缺失', c.risk + '风险'], basis: c.title };
   }
 
   // ---------- drill ----------
   function renderDrill() {
-    var html = head('DRILL / 推演与复盘', '处置推演与闭环复盘', '在真正处置前，用数字孪生任务链推演“发现→退守→处置→恢复”；推演完成后生成复盘报告，回写异常工况库与培训案例。', '<button class="btn primary" data-run-drill>' + (state.drillDone ? '重新推演' : '开始推演') + '</button><button class="btn" data-go="case">返回处置</button>');
-    html += '<div class="iac-grid-2"><section class="iac-card"><div class="iac-card-head"><h3>推演场景</h3><span class="iac-sub">精细化工</span></div>' + D.drills.map(function (d) { return '<div class="iac-drill-row"><div><b>' + h(d.name) + '</b><span>' + h(d.id) + ' · ' + h(d.steps) + ' 步 · ' + h(d.duration) + ' · 上次 ' + h(d.last) + '</span></div><span class="iac-risk ' + (d.risk === '高' ? 'high' : 'mid') + '">' + h(d.risk) + '</span><em class="' + (d.result === '通过' ? 'ok' : 'warn') + '">' + h(d.result) + '</em></div>'; }).join('') + '<div class="iac-warning" style="margin-top:10px"><b>推演原则</b><p>AI 只生成情景、提示缺项；指挥与处置动作由人确认。推演结果不替代法规要求和企业预案。</p></div></section><section class="iac-card"><div class="iac-card-head"><h3>推演进度</h3><span class="iac-sub">R101 反应失控</span></div><div class="iac-drill-progress"><div class="iac-bar big"><i style="width:' + (state.drillDone ? 100 : 0) + '%"></i></div><b>' + (state.drillDone ? '100%' : '0%') + '</b></div><div class="iac-drill-steps">' + D.caseDetail.gates.map(function (g, i) {
+    var html = head('DRILL / 推演与复盘', '处置推演与闭环复盘', '在真正处置前，用数字孪生任务链推演“发现→退守→处置→恢复”；推演完成后生成复盘报告，回写异常工况库与培训案例。', '<button class="btn primary" data-run-drill>' + (state.drillDone ? '重新推演' : '开始推演') + '</button><a class="btn" href="' + caseHref(getCase()) + '">返回处置</a>');
+    html += '<div class="iac-grid-2"><section class="iac-card"><div class="iac-card-head"><h3>推演场景</h3><span class="iac-sub">精细化工</span></div>' + D.drills.map(function (d) { return '<div class="iac-drill-row"><div><b>' + h(d.name) + '</b><span>' + h(d.id) + ' · ' + h(d.steps) + ' 步 · ' + h(d.duration) + ' · 上次 ' + h(d.last) + '</span></div><span class="iac-risk ' + (d.risk === '高' ? 'high' : 'mid') + '">' + h(d.risk) + '</span><em class="' + (d.result === '通过' ? 'ok' : 'warn') + '">' + h(d.result) + '</em></div>'; }).join('') + '<div class="iac-warning" style="margin-top:10px"><b>推演原则</b><p>AI 只生成情景、提示缺项；指挥与处置动作由人确认。推演结果不替代法规要求和企业预案。</p></div></section><section class="iac-card"><div class="iac-card-head"><h3>推演进度</h3><span class="iac-sub">' + h(getCase().title) + '</span></div><div class="iac-drill-progress"><div class="iac-bar big"><i style="width:' + (state.drillDone ? 100 : 0) + '%"></i></div><b>' + (state.drillDone ? '100%' : '0%') + '</b></div><div class="iac-drill-steps">' + getCase().gates.map(function (g, i) {
       var done = state.drillDone || i < 3;
       return '<div class="iac-drill-step ' + (done ? 'done' : '') + '"><span>' + (i + 1) + '</span><b>' + h(g.name) + '</b><em>' + (done ? '通过' : '待推演') + '</em></div>';
     }).join('') + '</div></section></div>';
@@ -292,4 +375,5 @@
   drawer.innerHTML = '<div class="iac-drawer-bg" data-close-drawer></div><aside class="iac-drawer-panel"><button class="iac-close" data-close-drawer aria-label="关闭">×</button><div class="iac-drawer-body"></div></aside>';
   document.body.appendChild(drawer);
   drawer.querySelectorAll('[data-close-drawer]').forEach(function (b) { b.onclick = closeDrawer; });
+  ensureAgentModal();
 })();

@@ -35,16 +35,16 @@ window.IACMS_DEMO = {
     { id: 'AC-20261027-018', title: 'A01 冷却水压力低', category: 'RC-02', risk: '中', status: '已闭环', phase: '复盘', batch: 'LX-BIT-2610135B1', unit: 'A01 · 公用工程', source: 'iAAS / iCLPM', owner: '王工', time: '昨日 21:40', gates: '7 / 7', agent: '复盘 Agent 已完成' }
   ],
   agents: [
-    { id: 'watch', name: '监测 Agent', role: '接入 iAAS/iPAE/iCLPM/iSafe，识别异常信号', status: 'done', msg: '05:02 捕获 A01-TIC-1203 连续 3 次超限，关联批号 LX-BIT-2610136A1。' },
-    { id: 'classify', name: '分类 Agent', role: '匹配异常工况库与历史案例', status: 'done', msg: '匹配 RC-01 反应釜超温/反应失控，置信度 0.93；关联 HAZOP 节点 R101-04。' },
-    { id: 'procedure', name: '程序 Agent', role: '从准则/SOP/HAZOP/LOPA 生成处置程序', status: 'done', msg: '生成 9 个安全门禁、18 个动作；引用应急厅〔2024〕17号 4.1/附录1。' },
-    { id: 'compliance', name: '合规 Agent', role: '检查联锁、人员、隔离、审批证据', status: 'active', msg: '当前缺：联锁旁路审批、能量隔离确认、现场人数确认；建议先退守再诊断。' },
-    { id: 'commander', name: '处置 Agent', role: '生成任务链、派发责任人、跟踪 SLA', status: 'pending', msg: '待合规门禁确认后，向 iMCS/inWork 派发停进料、冷却、eBR 记录任务。' },
-    { id: 'review', name: '复盘 Agent', role: '处置后原因分析、SOP/预案更新', status: 'pending', msg: '待任务关闭后生成复盘报告，回写知识库与培训案例。' }
+    { id: 'watch', name: '监测 Agent', role: '接入 iAAS/iPAE/iCLPM/iSafe，识别异常信号', status: 'done', msg: '05:02 捕获 A01-TIC-1203 连续 3 次超限，关联批号 LX-BIT-2610136A1。', confidence: 0.96, input: 'iAAS 实时报警 957 条 / iPAE OP30 趋势 / iCLPM 回路评分', evidence: 'iAAS-20261028-0502；iPAE 408-R401 历史基线' },
+    { id: 'classify', name: '分类 Agent', role: '匹配异常工况库与历史案例', status: 'done', msg: '匹配 RC-01 反应釜超温/反应失控，置信度 0.93；关联 HAZOP 节点 R101-04。', confidence: 0.93, input: '异常工况库 42 类 / HAZOP R101-04 / 历史案例', evidence: 'RC-01；HAZOP-A01-2026 R101-04' },
+    { id: 'procedure', name: '程序 Agent', role: '从准则/SOP/HAZOP/LOPA 生成处置程序', status: 'done', msg: '生成 9 个安全门禁、18 个动作；引用应急厅〔2024〕17号 4.1/附录1。', confidence: 0.89, input: '应急厅〔2024〕17号 / AQ 3062 / SOP-R101-V4', evidence: '应急厅〔2024〕17号 4.1、附录1-1/2' },
+    { id: 'compliance', name: '合规 Agent', role: '检查联锁、人员、隔离、审批证据', status: 'active', msg: '当前缺：联锁旁路审批、能量隔离确认、现场人数确认；建议先退守再诊断。', confidence: 0.87, input: 'iACMS 9 门禁 / iSafe 人员 / 联锁台账', evidence: '门禁 6/9；缺联锁审批、隔离、人数' },
+    { id: 'commander', name: '处置 Agent', role: '生成任务链、派发责任人、跟踪 SLA', status: 'pending', msg: '待合规门禁确认后，向 iMCS/inWork 派发停进料、冷却、eBR 记录任务。', confidence: 0.82, input: '合规 Agent 通过项 / 处置程序', evidence: '任务链待派发；需人工确认' },
+    { id: 'review', name: '复盘 Agent', role: '处置后原因分析、SOP/预案更新', status: 'pending', msg: '待任务关闭后生成复盘报告，回写知识库与培训案例。', confidence: 0.78, input: '任务链 / eBR / 偏差记录', evidence: '复盘模板；待任务关闭' }
   ],
   caseDetail: {
     id: 'AC-20261028-001', title: 'R101 反应釜超温', category: 'RC-01', risk: '高', status: '处置中', phase: '退守',
-    batch: 'LX-BIT-2610136A1', unit: 'A01 · R101', owner: '张平', commander: '李工', time: '05:02', elapsed: '26 min', sla: '2 h',
+    batch: 'LX-BIT-2610136A1', unit: 'A01 · R101', loop: 'A01-TIC-1203', owner: '张平', commander: '李工', time: '05:02', elapsed: '26 min', sla: '2 h',
     trigger: 'TIC-1203 ≥ 118℃ 连续 3 次；升温速率 3.8℃/min；压力 0.46 MPa 上涨',
     brake: { mode: 'AI 指导 + 人工授权', sis: 'SIS/联锁独立执行', suggested: '停进料 · 停加热 · 紧急冷却' },
     source: ['iAAS 实时报警', 'iPAE OP30 趋势', 'iCLPM TIC-1203 回路评分 18.4'],
@@ -79,3 +79,119 @@ window.IACMS_DEMO = {
     { id: 'DR-03', name: 'RTO 尾气故障', risk: '中', duration: '5 min', steps: 6, last: '2026-10-12', result: '通过' }
   ]
 };
+
+(function (D) {
+  function g(name, action, evidence, status) { return { name: name, action: action, evidence: evidence, status: status || 'pending' }; }
+  function t(role, task, source, status) { return { role: role, task: task, source: source, status: status || 'pending' }; }
+  var basePhases = [
+    { name: '识别', status: 'done', detail: '异常确认 · 分类 · 风险分级' },
+    { name: '退守', status: 'active', detail: '退守动作 / 人员管控 / 隔离' },
+    { name: '恢复', status: 'pending', detail: '原因分析 / eBR / SOP 更新' }
+  ];
+  var cooling = {
+    id: 'AC-20261028-002', scenarioId: 'A01_COOLING', title: 'A01 冷却水中断', category: 'RC-02', risk: '高', status: '处置中', phase: '退守',
+    batch: 'LX-BIT-2610139B2', unit: 'A01 · 公用工程', loop: 'A01-PIC-1201', owner: '李工', commander: '王工', time: '05:18', elapsed: '12 min', sla: '2 h',
+    trigger: '冷却水压力 0.18 MPa（低于 0.25）；夹套流量 12 m³/h；R101 温度仍在上行',
+    brake: { mode: 'AI 指导 + 人工授权', sis: 'SIS/联锁独立执行', suggested: '降负荷 · 切备用冷却 · 必要时停加热' },
+    source: ['iAAS 冷却水压力低', 'iCLPM 夹套流量/阀位异常', 'iMCS 批次影响'],
+    phases: basePhases,
+    gates: [
+      g('冷却能力确认', '确认压力、流量与阀位', 'iAAS / iCLPM', 'done'),
+      g('搅拌状态确认', '确认搅拌电流/转速', 'iMCS / DCS', 'done'),
+      g('降负荷/停加热', '按反应风险执行', 'SOP / 操作票', 'active'),
+      g('备用冷却投用', '切备用泵/备用水源', 'iCLPM / 现场', 'active'),
+      g('现场人员管控', '限制无关人员进入', 'iSafe 人员定位', 'pending'),
+      g('联锁/隔离', '确认联锁状态与隔离', '联锁台账 / 盲板', 'pending'),
+      g('处置后复盘', '原因分析 / SOP 更新', 'eBR / 复盘报告', 'pending')
+    ],
+    taskChain: [
+      t('监测 Agent', '确认冷却水压力/流量/阀位', 'iAAS/iCLPM', 'done'),
+      t('分类 Agent', '匹配 RC-02 冷却中断', '知识库', 'done'),
+      t('程序 Agent', '生成降负荷/切备用/人员管控任务', '准则/SOP', 'active'),
+      t('合规 Agent', '检查人员/隔离证据', 'iSafe/iMCS', 'pending'),
+      t('处置 Agent', '派发切备用与降负荷任务', 'inWork', 'pending'),
+      t('复盘 Agent', '生成冷却中断复盘', 'iACMS', 'pending')
+    ]
+  };
+  var distillation = {
+    id: 'AC-20261028-003', scenarioId: 'DISTILLATION', title: 'T201 蒸馏塔不出料', category: 'RC-04', risk: '中', status: '识别中', phase: '识别',
+    batch: 'LX-BIT-2610141C1', unit: 'A01 · T201', loop: 'A01-FIC-2204', owner: '王工', commander: '李工', time: '05:40', elapsed: '8 min', sla: '1 h',
+    trigger: 'FIC-2204 采出 0 m³/h；TIC-2201 塔釜温度 142℃ 持续上升；真空度下降',
+    brake: { mode: 'AI 指导 + 人工授权', sis: 'SIS/联锁独立执行', suggested: '停加热 · 查堵/真空 · 必要时泄压' },
+    source: ['iAAS 采出为零/塔釜温度高', 'iPAE 历史不出料征兆', 'iCLPM 阀位/流量不匹配'],
+    phases: [
+      { name: '识别', status: 'active', detail: '不出料确认 · 查堵/真空' },
+      { name: '退守', status: 'pending', detail: '停加热 / 泄压 / 物料处置' },
+      { name: '恢复', status: 'pending', detail: '原因分析 / eBR / SOP 更新' }
+    ],
+    gates: [
+      g('不出料确认', '排除仪表假值', 'iAAS / 现场', 'done'),
+      g('停加热', '禁止继续加热、干蒸', 'SOP / DCS', 'active'),
+      g('查堵/真空', '检查真空、回流、阀位', 'iCLPM / 现场', 'pending'),
+      g('泄压隔离', '按物料特性泄压/隔离', '盲板 / 泄压记录', 'pending'),
+      g('物料处置', '退料/稀释/隔离', 'iMCS / 质量', 'pending'),
+      g('处置后复盘', '原因分析 / SOP 更新', 'eBR / 复盘', 'pending')
+    ],
+    taskChain: [
+      t('监测 Agent', '确认采出为零与塔釜温度', 'iAAS/iPAE', 'done'),
+      t('分类 Agent', '匹配 RC-04 蒸馏不出料', '知识库', 'done'),
+      t('程序 Agent', '生成停加热/查堵/泄压任务', '准则附录1-6', 'active'),
+      t('合规 Agent', '确认停加热前置门禁', 'SOP / DCS', 'pending'),
+      t('处置 Agent', '派发查堵与物料处置', 'inWork/iMCS', 'pending'),
+      t('复盘 Agent', '生成干蒸风险复盘', 'iACMS', 'pending')
+    ]
+  };
+  var rto = {
+    id: 'AC-20261028-004', scenarioId: 'RTO_CHLORINE', title: 'RTO 尾气含氯偏高', category: 'RC-05', risk: '高', status: '处置中', phase: '退守',
+    batch: 'LX-BIT-2610138A1', unit: 'A01 · RTO', loop: 'A01-AIC-3302', owner: '张平', commander: '李工', time: '05:18', elapsed: '9 min', sla: '1 h',
+    trigger: 'AIC-3302 尾气含氯 18 ppm；风机电流下降；备用系统未确认投用',
+    brake: { mode: 'AI 指导 + 人工授权', sis: 'SIS/联锁独立执行', suggested: '停进料 · 切备用 · 人员撤离' },
+    source: ['iAAS 尾气含氯高', 'iCLPM 风机/阀位异常', 'iSafe 现场人员'],
+    phases: basePhases,
+    gates: [
+      g('尾气确认', '确认含氯与风机状态', 'iAAS / iCLPM', 'done'),
+      g('停进料', '切断含氯物料来源', 'DCS / 操作票', 'done'),
+      g('备用系统', '联锁/远程启动备用', 'SIS / 现场', 'active'),
+      g('人员撤离', '按风向撤离无关人员', 'iSafe / 广播', 'active'),
+      g('隔离', '隔离尾气系统', '盲板 / 阀组', 'pending'),
+      g('处置后复盘', '原因分析 / 联锁测试', 'eBR / 复盘', 'pending')
+    ],
+    taskChain: [
+      t('监测 Agent', '确认尾气含氯与风机电流', 'iAAS/iCLPM', 'done'),
+      t('分类 Agent', '匹配 RC-05 尾气故障', '知识库', 'done'),
+      t('程序 Agent', '生成停进料/切备用/撤离任务', '准则附录1-7', 'active'),
+      t('合规 Agent', '确认人员撤离与备用证据', 'iSafe/SIS', 'pending'),
+      t('处置 Agent', '派发停进料与隔离任务', 'inWork', 'pending'),
+      t('复盘 Agent', '生成尾气故障复盘', 'iACMS', 'pending')
+    ]
+  };
+  var catalyst = {
+    id: 'AC-20261028-005', scenarioId: 'CATALYST_HX', title: '催化剂活性 / 换热器性能', category: 'RC-01', risk: '中', status: '分析中', phase: '识别',
+    batch: '408-R401 历史批次', unit: '408 · R401', loop: '408-TIC-1203', owner: '工艺组', commander: '张平', time: '06:10', elapsed: '—', sla: '—',
+    trigger: '催化剂活性指数 82.4%（R² 0.91）；换热器 U 240→186；污垢热阻 +55%',
+    brake: { mode: 'AI 建议 + 人工评估', sis: '不直接动作', suggested: '提温/降负荷/清洗窗口评估' },
+    source: ['iPAE 慢变量/软测量', 'iCLPM 回路绩效', 'iMCS 批次质量'],
+    phases: [
+      { name: '识别', status: 'active', detail: '数据窗口 / 模型可信度' },
+      { name: '评估', status: 'pending', detail: '活性/污垢 / 操作建议' },
+      { name: '验证', status: 'pending', detail: '回测 / 回写模型' }
+    ],
+    gates: [
+      g('数据窗口', '确认历史窗口与批次可比性', 'iPAE 数据就绪度', 'done'),
+      g('模型可信度', 'R²/残差/漂移检查', 'iPAE 模型卡', 'active'),
+      g('活性/污垢判断', '交叉验证催化剂/换热器', 'iPAE + iCLPM', 'pending'),
+      g('操作建议', '提温/降负荷/清洗窗口', '工艺评审', 'pending'),
+      g('验证/回写', '执行后回测并更新模型', 'iMCS / 复盘', 'pending')
+    ],
+    taskChain: [
+      t('监测 Agent', '读取活性/污垢趋势', 'iPAE', 'done'),
+      t('分类 Agent', '归入慢变量异常', '知识库', 'done'),
+      t('程序 Agent', '生成评估/验证任务', 'iPAE 模型', 'active'),
+      t('合规 Agent', '标注模型边界与人工复核', 'iACMS', 'pending'),
+      t('处置 Agent', '形成操作建议', 'inWork', 'pending'),
+      t('复盘 Agent', '回测并回写模型', 'iACMS', 'pending')
+    ]
+  };
+  D.caseDetails = [D.caseDetail, cooling, distillation, rto, catalyst];
+})(window.IACMS_DEMO);
+

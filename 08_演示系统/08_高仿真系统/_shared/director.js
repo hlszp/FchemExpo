@@ -11,13 +11,18 @@
   function scById(id) { for (var i = 0; i < scs.length; i++) { if (scs[i].id === id) { return scs[i]; } } return null; }
   function hrefFor(step) {
     if (!step) { return BASE + 'scenarios/'; }
-    return BASE + step.page + '/index.html' + (step.hash ? '#' + step.hash : '');
+    return BASE + step.page + '/index.html' + (step.caseId ? '?case=' + encodeURIComponent(step.caseId) : '') + (step.hash ? '#' + step.hash : '');
   }
   function save() {
     if (state) { localStorage.setItem(KEY, JSON.stringify(state)); } else { localStorage.removeItem(KEY); }
     if (state) {
       var sc = scById(state.scenario);
-      if (sc) { try { sessionStorage.setItem('DEMO_CHAIN_BATCH', sc.batch); } catch (e) {} }
+      if (sc) { try {
+        sessionStorage.setItem('DEMO_CHAIN_BATCH', sc.batch);
+        sessionStorage.setItem('DEMO_CHAIN_AREA', (sc.unit || '').split('·')[0].trim());
+        sessionStorage.setItem('DEMO_CHAIN_LOOP', sc.loop || '');
+        sessionStorage.setItem('DEMO_CHAIN_PRODUCT', sc.product || '');
+      } catch (e) {} }
     }
   }
   function injectCss() {
@@ -106,7 +111,7 @@
   }
   function reset() {
     state = null; save();
-    try { sessionStorage.removeItem('DEMO_CHAIN_BATCH'); } catch (e) {}
+    try { ['DEMO_CHAIN_BATCH','DEMO_CHAIN_AREA','DEMO_CHAIN_LOOP','DEMO_CHAIN_PRODUCT','DEMO_CASE_ID'].forEach(function (k) { sessionStorage.removeItem(k); }); localStorage.removeItem('IACMS_GATES_V1'); } catch (e) {}
     location.href = BASE + 'scenarios/';
   }
   window.DirectorMode = { start: start, reset: reset, stop: reset, scenarios: scs, get: function () { return state; }, base: BASE, hrefFor: function (id, n) { var s = scById(id); return s ? hrefFor(s.steps[n || 0]) : BASE + 'scenarios/'; } };

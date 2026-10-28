@@ -1,14 +1,23 @@
 (function () {
   var BATCH = 'LX-BIT-2610136A1';
+  var AREA = 'A01';
+  var LOOP = 'A01-TIC-1203';
+  var PRODUCT = 'BIT';
+  try {
+    BATCH = sessionStorage.getItem('DEMO_CHAIN_BATCH') || BATCH;
+    AREA = sessionStorage.getItem('DEMO_CHAIN_AREA') || AREA;
+    LOOP = sessionStorage.getItem('DEMO_CHAIN_LOOP') || LOOP;
+    PRODUCT = sessionStorage.getItem('DEMO_CHAIN_PRODUCT') || PRODUCT;
+  } catch (e) {}
   var CHAIN = {
-    batch: BATCH, product: 'BIT', area: 'A01', loop: 'A01-TIC-1203',
+    batch: BATCH, product: PRODUCT, area: AREA, loop: LOOP,
     title: '同批号贯穿演示',
-    note: '跨系统演示映射：同一批号 LX-BIT-2610136A1 / 同一装置 A01 / 同一回路 A01-TIC-1203。各系统数据为演示合成，用于说明数据链，不写回真实系统。',
+    note: '跨系统演示映射：批号 ' + BATCH + ' / 装置 ' + AREA + ' / 回路 ' + LOOP + '。各系统数据为演示合成，用于说明数据链，不写回真实系统。',
     nodes: [
-      { key: 'ipae', name: 'iPAE', title: '批次异常', href: '/demo/app/ipae/#batch', detail: 'OP30 升温偏长 / 越界率 12.6%', color: '#0069AE' },
-      { key: 'iaas', name: 'iAAS', title: '报警', href: '/demo/app/iaas/#realtime', detail: 'A01-TIC-1203 反应温度高 · 连续 3 次', color: '#0B9A78' },
-      { key: 'iclpm', name: 'iCLPM', title: '回路', href: '/demo/app/iclpm/#loops', detail: 'A01-TIC-1203 评分 18.4 · 振荡/黏滞', color: '#0B9A78' },
-      { key: 'imcs', name: 'iMCS', title: '电子批记录', href: '/demo/app/imcs/#ebr', detail: BATCH + ' · 收率 127.34%', color: '#D97706' }
+      { key: 'ipae', name: 'iPAE', title: '批次异常', href: '/demo/app/ipae/#batch', detail: '批次异常 / 越界清单 / 历史基线', color: '#0069AE' },
+      { key: 'iaas', name: 'iAAS', title: '报警', href: '/demo/app/iaas/#realtime', detail: LOOP + ' · 报警/联锁', color: '#0B9A78' },
+      { key: 'iclpm', name: 'iCLPM', title: '回路', href: '/demo/app/iclpm/#loops', detail: LOOP + ' · 绩效/诊断', color: '#0B9A78' },
+      { key: 'imcs', name: 'iMCS', title: '电子批记录', href: '/demo/app/imcs/#ebr', detail: BATCH + ' · eBR / 质量', color: '#D97706' }
     ]
   };
   window.DEMO_CHAIN = CHAIN;
