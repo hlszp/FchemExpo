@@ -108,6 +108,11 @@
   }
   function catById(id) { for (var i = 0; i < D.categories.length; i++) { if (D.categories[i].id === id) { return D.categories[i]; } } return null; }
   function caseById(id) { for (var i = 0; i < D.cases.length; i++) { if (D.cases[i].id === id) { return D.cases[i]; } } return null; }
+  function scenarioForCase(c) {
+    var list = window.DEMO_SCENARIOS || [];
+    for (var i = 0; i < list.length; i++) { if (list[i].id === c.scenarioId) { return list[i]; } }
+    return null;
+  }
 
   // ---------- dashboard ----------
   function renderDashboard() {
@@ -282,6 +287,10 @@
     var provenance = c.batch.indexOf('历史') >= 0 ? '历史批次 / 模型回测' : '当前演示批次 ' + c.batch + '（2026-10-28）';
     html += '<div class="iac-data-note"><b>数据口径</b>' + h(provenance) + '；iPAE 历史基线仅用于对比（2024-03–05，408 车间）；演示合成数据，不替代企业实时数据。</div>';
     html += '<div class="iac-case-top"><div class="iac-case-main"><div class="iac-drawer-tags">' + tag(c.category, 'danger') + tag(c.risk + '风险', c.risk === '高' ? 'danger' : 'warn') + tag(c.status, 'warn') + tag('SLA ' + c.sla, 'gray') + '</div><div class="iac-case-facts"><div><span>批号</span><b>' + h(c.batch) + '</b></div><div><span>装置</span><b>' + h(c.unit) + '</b></div><div><span>负责人/指挥</span><b>' + h(c.owner) + ' / ' + h(c.commander) + '</b></div><div><span>已用时间</span><b>' + h(c.elapsed) + '</b></div></div>' + phaseFlow(c.phase) + '<div class="iac-source-row">' + c.source.map(function (x) { return '<span>' + h(x) + '</span>'; }).join('') + '</div><div class="iac-brake"><b>处置边界</b><span>' + h(c.brake.mode) + ' · ' + h(c.brake.sis) + ' · 建议：' + h(c.brake.suggested) + '</span></div></div><div class="iac-case-side"><b>' + done + '<small>/' + c.gates.length + '</small></b><span>安全门禁完成</span><div class="iac-bar"><i style="width:' + Math.round(done / c.gates.length * 100) + '%"></i></div><em>' + (done < c.gates.length ? '未完成项：' + c.gates.filter(function (g, i) { return gm[i] !== 'done'; }).slice(0, 3).map(function (g) { return g.name; }).join(' / ') : '已全部确认') + '</em></div></div>';
+    var sc = scenarioForCase(c);
+    if (sc && window.DEMO_BOWTIE) {
+      html += '<section class="iac-card iac-risk-section"><div class="iac-card-head"><h3>原因 / 独立保护层 / 后果</h3><span class="iac-sub">演示风险值 · 仅表示趋势</span></div>' + window.DEMO_BOWTIE(sc) + '</section>';
+    }
     html += '<div class="iac-grid-2 iac-case-grid"><section class="iac-card"><div class="iac-card-head"><h3>处置门禁</h3><span class="iac-sub">未完成不允许闭环</span></div><div class="iac-gates">' + c.gates.map(function (g, i) {
       var st = gm[i] || g.status;
       var label = st === 'done' ? '已确认' : st === 'active' ? '进行中' : '待确认';

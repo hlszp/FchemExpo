@@ -132,3 +132,136 @@ window.DEMO_SCENARIOS = [
     ]
   }
 ];
+
+(function (S) {
+  var R = {
+    R101_OVERHEAT: {
+      causes: ['冷却/搅拌能力下降', '进料配比或升温速率偏差', 'TIC-1203 回路黏滞、响应慢'],
+      consequences: [
+        { text: '反应失控 / 飞温', prob: '↑ 8×', detail: '超压、冲料' },
+        { text: '设备超压 / 物料泄漏', prob: '↑ 5×', detail: '泄放负荷上升' },
+        { text: '人员伤害 / 环境影响', prob: '↑ 3×', detail: '现场处置暴露' }
+      ],
+      protection: [
+        { name: 'BPCS 温度控制', status: 'degraded', pfd: '1.2e-2', note: '回路振荡、黏滞' },
+        { name: '操作员响应', status: 'degraded', pfd: '5.0e-2', note: '报警洪水中确认延迟' },
+        { name: 'SIS 联锁', status: 'unconfirmed', pfd: '待确认', note: '联锁状态未验证' },
+        { name: '紧急泄放', status: 'normal', pfd: '1.0e-3', note: '安全阀/泄放设施' },
+        { name: '应急响应', status: 'normal', pfd: '—', note: '撤离/消防' }
+      ],
+      riskProfile: { before: '1.2e-4', current: '8.0e-3', target: '< 1e-4', increase: '约 8×', mode: '安全失效概率' }
+    },
+    A01_COOLING: {
+      causes: ['冷却水泵/调节阀故障', '夹套流量不足', '公用工程压力波动'],
+      consequences: [
+        { text: '反应热累积 / 飞温', prob: '↑ 6×', detail: '冷却能力不足' },
+        { text: '局部热点 / 物料分解', prob: '↑ 4×', detail: '搅拌不均' },
+        { text: '紧急停车 / 物料损失', prob: '↑ 3×', detail: '批次中断' }
+      ],
+      protection: [
+        { name: 'BPCS 冷却控制', status: 'degraded', pfd: '2.0e-2', note: '阀位/流量不匹配' },
+        { name: '操作员响应', status: 'degraded', pfd: '4.0e-2', note: '切备用确认慢' },
+        { name: 'SIS 联锁', status: 'unconfirmed', pfd: '待确认', note: '联锁状态未验证' },
+        { name: '备用冷却', status: 'unconfirmed', pfd: '待确认', note: '未确认可投用' },
+        { name: '应急响应', status: 'normal', pfd: '—', note: '降负荷/停车' }
+      ],
+      riskProfile: { before: '2.0e-4', current: '6.0e-3', target: '< 2e-4', increase: '约 6×', mode: '安全失效概率' }
+    },
+    DISTILLATION: {
+      causes: ['塔釜/再沸器堵塞', '真空或回流异常', '采出阀/仪表假值'],
+      consequences: [
+        { text: '干蒸 / 塔釜超温', prob: '↑ 4×', detail: '继续加热风险' },
+        { text: '物料分解 / 结焦', prob: '↑ 3×', detail: '质量与设备' },
+        { text: '设备损坏 / 停产', prob: '↑ 2×', detail: '清理周期长' }
+      ],
+      protection: [
+        { name: 'BPCS 温度控制', status: 'normal', pfd: '1.0e-2', note: '可维持控制' },
+        { name: '操作员响应', status: 'degraded', pfd: '3.0e-2', note: '可能继续加热' },
+        { name: '真空/回流联锁', status: 'unconfirmed', pfd: '待确认', note: '逻辑未验证' },
+        { name: '泄压/隔离', status: 'normal', pfd: '1.0e-3', note: '按物料特性' },
+        { name: '质量放行', status: 'normal', pfd: '—', note: 'eBR/检验' }
+      ],
+      riskProfile: { before: '3.0e-4', current: '2.4e-3', target: '< 3e-4', increase: '约 4×', mode: '安全失效概率' }
+    },
+    RTO_CHLORINE: {
+      causes: ['风机/阀门故障', '吸收液/洗涤失效', '含氯物料负荷波动'],
+      consequences: [
+        { text: '有毒气体外逸', prob: '↑ 9×', detail: '人员/周边影响' },
+        { text: '环保超标 / 停产', prob: '↑ 5×', detail: '排放风险' },
+        { text: '人员暴露 / 撤离', prob: '↑ 4×', detail: '现场与周边' }
+      ],
+      protection: [
+        { name: 'BPCS 风量控制', status: 'degraded', pfd: '2.0e-2', note: '风机电流下降' },
+        { name: '操作员响应', status: 'degraded', pfd: '3.0e-2', note: '先调风量而非停料' },
+        { name: '备用系统', status: 'unconfirmed', pfd: '待确认', note: '未确认投用' },
+        { name: '气体检测/联锁', status: 'normal', pfd: '1.0e-3', note: 'AIC-3302 报警' },
+        { name: '应急响应', status: 'normal', pfd: '—', note: '撤离/隔离' }
+      ],
+      riskProfile: { before: '1.0e-4', current: '9.0e-3', target: '< 1e-4', increase: '约 9×', mode: '安全失效概率' }
+    },
+    CATALYST_HX: {
+      causes: ['催化剂活性衰减', '换热器结垢', '原料/工况漂移'],
+      consequences: [
+        { text: '批次质量波动', prob: '↑ 2.5×', detail: '选择性/杂质' },
+        { text: '收率 / 产能下降', prob: '↑ 2×', detail: '经济影响' },
+        { text: '能耗 / 清洗窗口缩短', prob: '↑ 1.8×', detail: '维护成本' }
+      ],
+      protection: [
+        { name: '软测量模型', status: 'degraded', pfd: 'R² 0.91', note: '需持续校准' },
+        { name: '操作员经验', status: 'normal', pfd: '—', note: '人工判断' },
+        { name: '质量检验', status: 'normal', pfd: '—', note: '批次放行' },
+        { name: '维护计划', status: 'degraded', pfd: '12 天窗口', note: '清洗/更换' },
+        { name: '回测/复盘', status: 'unconfirmed', pfd: '待执行', note: '建议验证' }
+      ],
+      riskProfile: { before: '基线', current: '↑ 2.5×', target: '≤ 基线', increase: '约 2.5×', mode: '质量/经济风险' }
+    }
+  };
+  S.forEach(function (s) { if (R[s.id]) { Object.assign(s, R[s.id]); } });
+
+  function e(v) { return String(v == null ? '' : v).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+  function lines(text, len) {
+    var t = String(text || ''), out = [];
+    for (var i = 0; i < t.length && out.length < 2; i += len) { out.push(t.slice(i, i + len)); }
+    return out;
+  }
+  function box(x, y, w, h, title, sub, cls) {
+    var ls = lines(title, 13);
+    var s = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="7" fill="' + (cls === 'cause' ? '#FFFBEB' : '#FEF2F2') + '" stroke="' + (cls === 'cause' ? '#FDE3B0' : '#FECACA') + '"/>';
+    s += ls.map(function (l, i) { return '<text x="' + (x + 10) + '" y="' + (y + 21 + i * 15) + '" font-size="11" fill="#334155" font-weight="600">' + e(l) + '</text>'; }).join('');
+    if (sub) { s += '<text x="' + (x + 10) + '" y="' + (y + h - 10) + '" font-size="9" fill="#94A3B8">' + e(sub) + '</text>'; }
+    return s;
+  }
+  function bowtie(s) {
+    var causes = s.causes || [], cons = s.consequences || [], prot = s.protection || [], risk = s.riskProfile || {};
+    var svg = '<svg viewBox="0 0 960 250" role="img" aria-label="' + e(s.title) + ' 原因后果与保护层示意图">';
+    svg += '<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#94A3B8"/></marker></defs>';
+    svg += '<text x="10" y="14" font-size="9" fill="#B45309" font-weight="700">可能原因 / 触发</text>';
+    svg += '<text x="350" y="14" font-size="9" fill="#B91C1C" font-weight="700">异常工况</text>';
+    svg += '<text x="700" y="14" font-size="9" fill="#B91C1C" font-weight="700">可能后果 / 风险升级</text>';
+    causes.slice(0, 3).forEach(function (c, i) { svg += box(10, 28 + i * 66, 245, 56, c, '', 'cause'); });
+    cons.slice(0, 3).forEach(function (c, i) {
+      var txt = typeof c === 'string' ? c : c.text;
+      var prob = typeof c === 'object' ? c.prob : '';
+      svg += box(700, 28 + i * 66, 245, 56, txt, prob, 'cons');
+    });
+    svg += '<line x1="260" y1="125" x2="343" y2="125" stroke="#94A3B8" stroke-width="1.4" marker-end="url(#arr)"/>';
+    svg += '<line x1="610" y1="125" x2="693" y2="125" stroke="#94A3B8" stroke-width="1.4" marker-end="url(#arr)"/>';
+    svg += '<rect x="350" y="82" width="260" height="88" rx="10" fill="#0B1B2E" stroke="#DC2626"/>';
+    svg += lines(s.title, 13).map(function (l, i) { return '<text x="480" y="' + (112 + i * 18) + '" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">' + e(l) + '</text>'; }).join('');
+    svg += '<text x="480" y="151" text-anchor="middle" font-size="9" fill="#FCA5A5">' + e(risk.current || '') + ' · ' + e(risk.mode || '风险') + '</text>';
+    svg += '</svg>';
+    var chips = prot.map(function (p) {
+      var cls = p.status === 'degraded' ? 'degraded' : p.status === 'unconfirmed' ? 'unconfirmed' : 'normal';
+      var label = p.status === 'degraded' ? '降级' : p.status === 'unconfirmed' ? '待确认' : '正常';
+      return '<span class="ipl ' + cls + '"><b>' + e(p.name) + '</b><em>' + label + '</em><small>PFD ' + e(p.pfd) + ' · ' + e(p.note) + '</small></span>';
+    }).join('');
+    return '<div class="bowtie">' +
+      '<div class="bowtie-legend"><span class="lg-cause">原因</span><span class="lg-event">异常工况</span><span class="lg-con">后果</span><span class="lg-note">演示风险值，仅表示趋势</span></div>' +
+      '<div class="bowtie-svg">' + svg + '</div>' +
+      '<div class="ipl-row"><div class="ipl-label"><b>独立保护层</b><span>当前有效性</span></div><div class="ipl-chips">' + chips + '</div></div>' +
+      '<div class="risk-delta"><div><span>初始 ' + e(risk.mode || '风险') + '</span><b>' + e(risk.before) + '</b></div><div class="rd-arrow">→</div><div><span>当前风险</span><b class="bad">' + e(risk.current) + '</b></div><div class="rd-arrow">↑</div><div><span>风险上升</span><b class="bad">' + e(risk.increase) + '</b></div><div class="rd-arrow">→</div><div><span>目标</span><b class="ok">' + e(risk.target) + '</b></div></div>' +
+      '</div>';
+  }
+  window.DEMO_BOWTIE = bowtie;
+})(window.DEMO_SCENARIOS);
+

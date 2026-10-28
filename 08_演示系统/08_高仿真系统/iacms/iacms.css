@@ -134,3 +134,25 @@
 .iac-doc-preview{display:block;max-width:320px;margin-top:2px;font-size:7.5px;line-height:1.5;color:#64748B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .iac-doc-preview.warn{color:#B45309}
 .iac-data-note{font-size:8.5px;line-height:1.6;color:#64748B;background:#F8FAFC;border:1px solid #EEF2F7;border-radius:7px;padding:6px 8px;margin:-3px 0 9px}.iac-data-note b{color:#1466E8;margin-right:5px;font-size:8px}
+
+/* risk bowtie */
+.bowtie{background:#fff;border:1px solid #E5EBF3;border-radius:10px;padding:9px;margin:8px 0}
+.bowtie-legend{display:flex;gap:9px;align-items:center;font-size:8px;color:#64748B;margin-bottom:4px;flex-wrap:wrap}
+.bowtie-legend span{display:inline-flex;align-items:center;gap:3px}
+.bowtie-legend span:before{content:"";width:7px;height:7px;border-radius:2px;display:inline-block;background:#CBD5E1}
+.bowtie-legend .lg-cause:before{background:#FDE3B0}.bowtie-legend .lg-event:before{background:#DC2626}.bowtie-legend .lg-con:before{background:#FECACA}
+.bowtie-legend .lg-note{margin-left:auto;color:#94A3B8}.bowtie-legend .lg-note:before{display:none}
+.bowtie-svg{overflow-x:auto}.bowtie-svg svg{display:block;width:100%;min-width:640px;height:auto}
+.ipl-row{display:flex;gap:8px;align-items:flex-start;border-top:1px solid #F1F5F9;padding-top:7px;margin-top:5px}
+.ipl-label{width:78px;flex:none}.ipl-label b{display:block;font-size:8.5px}.ipl-label span{display:block;font-size:7px;color:#94A3B8}
+.ipl-chips{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.ipl{border:1px solid #E2E8F0;border-radius:5px;padding:3px 5px;background:#F8FAFC;font-size:7.5px;min-width:100px}
+.ipl b{display:block;font-size:7.5px;color:#334155}.ipl em{font-style:normal;font-size:7px;color:#0B9A78}.ipl small{display:block;color:#94A3B8;font-size:6.5px;white-space:nowrap}
+.ipl.degraded{border-color:#FDE3B0;background:#FFFBF3}.ipl.degraded em{color:#B45309}
+.ipl.unconfirmed{border-color:#FECACA;background:#FFF5F5}.ipl.unconfirmed em{color:#B91C1C}
+.risk-delta{display:flex;gap:6px;align-items:center;background:#F8FAFC;border:1px solid #EEF2F7;border-radius:7px;padding:6px 8px;margin-top:6px;flex-wrap:wrap}
+.risk-delta div:not(.rd-arrow){display:grid;gap:1px}.risk-delta span{font-size:6.5px;color:#94A3B8}.risk-delta b{font-size:11px;color:#334155}.risk-delta b.bad{color:#B91C1C}.risk-delta b.ok{color:#0B9A78}.risk-delta .rd-arrow{font-size:10px;color:#94A3B8}
+@media(max-width:700px){.bowtie-svg svg{min-width:620px}.ipl-label{display:none}.risk-delta b{font-size:9px}}
+
+.iac-risk-section{margin:0 0 12px}.iac-risk-section .bowtie{margin:0;border:0;padding:0}
+.iac-risk-section .bowtie-legend .lg-note{display:none}

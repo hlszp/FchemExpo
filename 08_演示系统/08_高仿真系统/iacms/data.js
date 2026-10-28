@@ -30,7 +30,7 @@ window.IACMS_DEMO = {
     { id: 'RC-10', name: '开停车 / 带料开车异常', risk: '中', source: '准则 2 / 附录1-5', triggers: ['开车前未评估', '带料', '置换不合格'], actions: ['退料', '重新评估', '置换合格后开车'], gates: 7, docs: 3, cases: 0, note: '带料开车前必须完成风险评估和应急措施。' }
   ],
   cases: [
-    { id: 'AC-20261028-001', title: 'R101 反应釜超温', category: 'RC-01', risk: '高', status: '处置中', phase: '退守', batch: 'LX-BIT-2610136A1', unit: 'A01 · R101', source: 'iAAS / iPAE / iCLPM', owner: '张平', time: '05:02', gates: '6 / 9', agent: '诊断 Agent 进行中' },
+    { id: 'AC-20261028-001', scenarioId: 'R101_OVERHEAT', title: 'R101 反应釜超温', category: 'RC-01', risk: '高', status: '处置中', phase: '退守', batch: 'LX-BIT-2610136A1', unit: 'A01 · R101', source: 'iAAS / iPAE / iCLPM', owner: '张平', time: '05:02', gates: '6 / 9', agent: '诊断 Agent 进行中' },
     { id: 'AC-20261028-002', title: 'RTO 尾气含氯偏高', category: 'RC-05', risk: '高', status: '识别中', phase: '识别', batch: 'LX-BIT-2610138A1', unit: 'A01 · RTO', source: 'iAAS', owner: '李工', time: '05:18', gates: '2 / 8', agent: '监测 Agent 已确认' },
     { id: 'AC-20261027-018', title: 'A01 冷却水压力低', category: 'RC-02', risk: '中', status: '已闭环', phase: '复盘', batch: 'LX-BIT-2610135B1', unit: 'A01 · 公用工程', source: 'iAAS / iCLPM', owner: '王工', time: '昨日 21:40', gates: '7 / 7', agent: '复盘 Agent 已完成' }
   ],
@@ -43,7 +43,7 @@ window.IACMS_DEMO = {
     { id: 'review', name: '复盘 Agent', role: '处置后原因分析、SOP/预案更新', status: 'pending', msg: '待任务关闭后生成复盘报告，回写知识库与培训案例。', confidence: 0.78, input: '任务链 / eBR / 偏差记录', evidence: '复盘模板；待任务关闭' }
   ],
   caseDetail: {
-    id: 'AC-20261028-001', title: 'R101 反应釜超温', category: 'RC-01', risk: '高', status: '处置中', phase: '退守',
+    id: 'AC-20261028-001', scenarioId: 'R101_OVERHEAT', title: 'R101 反应釜超温', category: 'RC-01', risk: '高', status: '处置中', phase: '退守',
     batch: 'LX-BIT-2610136A1', unit: 'A01 · R101', loop: 'A01-TIC-1203', owner: '张平', commander: '李工', time: '05:02', elapsed: '26 min', sla: '2 h',
     trigger: 'TIC-1203 ≥ 118℃ 连续 3 次；升温速率 3.8℃/min；压力 0.46 MPa 上涨',
     brake: { mode: 'AI 指导 + 人工授权', sis: 'SIS/联锁独立执行', suggested: '停进料 · 停加热 · 紧急冷却' },

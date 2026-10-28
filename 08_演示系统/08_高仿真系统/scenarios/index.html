@@ -25,15 +25,35 @@
 .sc{background:#fff;border:1px solid #E5EBF3;border-radius:12px;padding:14px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:250px;border-top:3px solid var(--c)}
 .sc-top{display:flex;justify-content:space-between;align-items:center;gap:6px}.sc-no{font-size:9px;color:#94A3B8;letter-spacing:.08em;font-weight:800}.sc-risk{font-size:8px;border-radius:5px;padding:2px 6px;font-weight:700}.sc-risk.high{background:#FEF2F2;color:#B91C1C}.sc-risk.mid{background:#FFF7E6;color:#B45309}
 .sc h3{font-size:15px;margin:7px 0 2px}.sc .sub{font-size:9.5px;color:#64748B;margin:0 0 6px}.sc .pain{font-size:9px;color:#475569;line-height:1.65;background:#F8FAFC;border-left:2px solid var(--c);padding:6px 7px;margin:0 0 7px;border-radius:0 5px 5px 0}.sc .fine{font-size:8.5px;color:#94A3B8;line-height:1.6;margin:0 0 7px}
-.sys{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:7px}.sys span{font-size:7.5px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:4px;padding:2px 4px}.meta{display:flex;gap:9px;flex-wrap:wrap;font-size:8px;color:#94A3B8;margin-bottom:7px}.meta b{color:#475569;font-weight:600}
+.sys{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:7px}.sc-riskline{font-size:8px;color:#64748B;margin:-2px 0 7px;background:#F8FAFC;border-radius:4px;padding:3px 5px}.sc-riskline b{color:#0F172A}.sys span{font-size:7.5px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:4px;padding:2px 4px}.meta{display:flex;gap:9px;flex-wrap:wrap;font-size:8px;color:#94A3B8;margin-bottom:7px}.meta b{color:#475569;font-weight:600}
 .sc-foot{display:flex;align-items:center;gap:5px;margin-top:auto;padding-top:8px;border-top:1px solid #F1F5F9}.sc-foot .sp{flex:1}.sc-foot .btn{padding:6px 9px;font-size:9px}
 .legend{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:16px}.card{background:#fff;border:1px solid #E5EBF3;border-radius:11px;padding:13px 14px}.card h3{font-size:12px;margin:0 0 6px}.card p{font-size:9.5px;color:#64748B;line-height:1.7;margin:0}
 .roles{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.roles span{font-size:8px;color:#475569;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:999px;padding:2px 6px}
 .note{font-size:8.5px;color:#94A3B8;line-height:1.7;margin-top:8px}
 .modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(8,20,38,.55);padding:16px}.modal.show{display:flex}.modal-panel{background:#fff;border-radius:12px;width:min(620px,96vw);max-height:86vh;overflow:auto;padding:16px;box-shadow:0 30px 80px rgba(2,10,24,.35)}.modal-h{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}.modal-h h3{font-size:15px;margin:0;flex:1}.modal-h button{border:1px solid #E2E8F0;background:#fff;border-radius:6px;width:24px;height:24px;cursor:pointer;color:#64748B}.steps{display:grid;gap:5px}.step{display:flex;gap:7px;border-bottom:1px solid #F1F5F9;padding:5px 0}.step span{width:18px;height:18px;border-radius:50%;background:#EEF5FF;color:#1466E8;display:flex;align-items:center;justify-content:center;font-size:7px;flex:none}.step b{font-size:9px;display:block}.step p{font-size:8.5px;color:#64748B;line-height:1.55;margin:1px 0 0}.step em{font-style:normal;font-size:7.5px;color:#94A3B8}
-.data-note{font-size:8.5px;line-height:1.7;color:#8FA9C1;margin:8px 0 0;position:relative;z-index:1;max-width:760px}.sc-status{font-size:9px;color:#B9CCE0;margin-top:7px;min-height:14px;position:relative;z-index:1}.sc-status.ok{color:#7EE0C1}.sc-status.err{color:#FCA5A5}
+.data-note{font-size:8.5px;line-height:1.7;color:#8FA9C1;margin:8px 0 0;position:relative;z-index:1;max-width:760px}.modal-note{font-size:8px;line-height:1.6;color:#94A3B8;margin:6px 0 0}.sc-status{font-size:9px;color:#B9CCE0;margin-top:7px;min-height:14px;position:relative;z-index:1}.sc-status.ok{color:#7EE0C1}.sc-status.err{color:#FCA5A5}
 @media(max-width:900px){.grid{grid-template-columns:1fr}.legend{grid-template-columns:1fr}.hero h1{font-size:23px}.stats{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.wrap{padding:16px 12px 92px}.hero{padding:20px 16px}.hero h1{font-size:21px}.hd{padding:0 12px}.hd .sub{display:none}.sc{min-height:auto}.sc-foot .btn{flex:1}}
+
+/* risk bowtie */
+.bowtie{background:#fff;border:1px solid #E5EBF3;border-radius:10px;padding:9px;margin:8px 0}
+.bowtie-legend{display:flex;gap:9px;align-items:center;font-size:8px;color:#64748B;margin-bottom:4px;flex-wrap:wrap}
+.bowtie-legend span{display:inline-flex;align-items:center;gap:3px}
+.bowtie-legend span:before{content:"";width:7px;height:7px;border-radius:2px;display:inline-block;background:#CBD5E1}
+.bowtie-legend .lg-cause:before{background:#FDE3B0}.bowtie-legend .lg-event:before{background:#DC2626}.bowtie-legend .lg-con:before{background:#FECACA}
+.bowtie-legend .lg-note{margin-left:auto;color:#94A3B8}.bowtie-legend .lg-note:before{display:none}
+.bowtie-svg{overflow-x:auto}.bowtie-svg svg{display:block;width:100%;min-width:640px;height:auto}
+.ipl-row{display:flex;gap:8px;align-items:flex-start;border-top:1px solid #F1F5F9;padding-top:7px;margin-top:5px}
+.ipl-label{width:78px;flex:none}.ipl-label b{display:block;font-size:8.5px}.ipl-label span{display:block;font-size:7px;color:#94A3B8}
+.ipl-chips{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.ipl{border:1px solid #E2E8F0;border-radius:5px;padding:3px 5px;background:#F8FAFC;font-size:7.5px;min-width:100px}
+.ipl b{display:block;font-size:7.5px;color:#334155}.ipl em{font-style:normal;font-size:7px;color:#0B9A78}.ipl small{display:block;color:#94A3B8;font-size:6.5px;white-space:nowrap}
+.ipl.degraded{border-color:#FDE3B0;background:#FFFBF3}.ipl.degraded em{color:#B45309}
+.ipl.unconfirmed{border-color:#FECACA;background:#FFF5F5}.ipl.unconfirmed em{color:#B91C1C}
+.risk-delta{display:flex;gap:6px;align-items:center;background:#F8FAFC;border:1px solid #EEF2F7;border-radius:7px;padding:6px 8px;margin-top:6px;flex-wrap:wrap}
+.risk-delta div:not(.rd-arrow){display:grid;gap:1px}.risk-delta span{font-size:6.5px;color:#94A3B8}.risk-delta b{font-size:11px;color:#334155}.risk-delta b.bad{color:#B91C1C}.risk-delta b.ok{color:#0B9A78}.risk-delta .rd-arrow{font-size:10px;color:#94A3B8}
+@media(max-width:700px){.bowtie-svg svg{min-width:620px}.ipl-label{display:none}.risk-delta b{font-size:9px}}
+
 </style>
 </head>
 <body>
@@ -41,14 +61,14 @@
 <main class="wrap">
   <section class="hero">
     <div class="k">DIRECTOR MODE / 导演模式</div>
-    <h1>不是带客户看五个系统，<br>是带他走完 <em>五次异常工况处置</em></h1>
+    <h1>五个精细化工异常场景，<br>完整走完 <em>发现、评估、退守、处置与复盘</em></h1>
     <p>每个场景 6–8 分钟：从 iAAS 发现、iPAE/iCLPM 解释，到 iACMS 生成安全门禁任务链，iMCS eBR 留痕，inWork 闭环。AI 只做发现、建议与缺项检查，人做最终决策。</p><p class="data-note">数据口径：场景 01 为 2026-10-28 当前演示批次；iPAE 使用 2024-03–05 历史基线做对比；其他场景为演示合成数据。导演脚本不替代企业预案与法规原文。</p>
     <div class="acts"><button class="btn primary" data-start-first>从场景 01 开始 →</button><button class="btn ghost" data-fullscreen>全屏演示</button><button class="btn ghost" data-selfcheck>演示自检</button><button class="btn ghost" data-reset>重置演示状态</button><a class="btn ghost" href="/demo/app/iacms/">进入 iACMS</a></div><div class="sc-status" id="scStatus"></div>
   </section>
   <div class="stats"><div class="stat"><b>5</b><span>精细化工异常场景</span></div><div class="stat"><b>6–8</b><span>分钟 / 场景</span></div><div class="stat"><b>9</b><span>安全门禁（高风险场景）</span></div><div class="stat"><b>6</b><span>角色视角</span></div></div>
-  <div class="sec-head"><div><h2>选择一个场景，直接开始导演</h2><p>系统会跨 iAAS / iPAE / iCLPM / iACMS / iMCS / inWork 自动翻页，底部常驻当前幕。</p></div></div>
+  <div class="sec-head"><div><h2>选择一个场景，开始完整处置演示</h2><p>系统会跨 iAAS / iPAE / iCLPM / iACMS / iMCS / inWork 自动翻页，底部常驻当前幕；每个场景同时呈现原因、保护层与后果。</p></div></div>
   <div class="grid" id="scGrid"></div>
-  <div class="legend"><div class="card"><h3>导演模式怎么用</h3><p>点击“开始导演”后，系统按剧本自动打开第一个系统；底部导演条会持续显示“第几幕 / 当前系统 / 当前角色 / 下一步”。可以用“下一幕”推进，也可以随时回到场景中心或重置。</p><div class="note">演示脚本是产品叙事，不是生产操作规程；AI 建议不替代 SIS、企业预案和人工授权。</div></div><div class="card"><h3>角色视角</h3><p>每个场景按真实岗位切分，让客户看到“谁在什么时间做什么决定”。</p><div class="roles"><span>操作员</span><span>工艺工程师</span><span>控制工程师</span><span>值班长</span><span>质量工程师</span><span>生产经理</span></div></div></div>
+  <div class="legend"><div class="card"><h3>导演模式怎么用</h3><p>点击“开始导演”后，系统按剧本自动打开第一个系统；底部导演条会持续显示“第几幕 / 当前系统 / 当前角色 / 下一步”。可以用“下一幕”推进，也可以随时回到场景中心或重置。</p><div class="note">演示脚本是产品叙事，不是生产操作规程；AI 建议不替代 SIS、企业预案和人工授权。</div></div><div class="card"><h3>角色视角</h3><p>每个场景按真实岗位切分，清晰呈现“谁在什么时间做什么决定”。</p><div class="roles"><span>操作员</span><span>工艺工程师</span><span>控制工程师</span><span>值班长</span><span>质量工程师</span><span>生产经理</span></div></div></div>
 </main>
 <div class="modal" id="modal"><div class="modal-panel"><div class="modal-h"><h3 id="mTitle"></h3><button id="mClose">×</button></div><div id="mBody"></div></div></div>
 <script src="../_shared/scenarios.js"></script>
@@ -58,7 +78,7 @@
   var grid = document.getElementById('scGrid');
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   grid.innerHTML = scs.map(function(s){
-    return '<article class="sc" style="--c:'+s.color+'"><div class="sc-top"><span class="sc-no">SCENE '+esc(s.no)+'</span><span class="sc-risk '+(s.risk==='高'?'high':'mid')+'">'+esc(s.risk)+'风险</span></div><h3>'+esc(s.title)+'</h3><p class="sub">'+esc(s.subtitle)+'</p><p class="pain">'+esc(s.pain)+'</p><p class="fine">'+esc(s.fineChemical)+'</p><div class="sys">'+s.systems.map(function(x){return '<span>'+esc(x)+'</span>';}).join('')+'</div><div class="meta"><span>批号 <b>'+esc(s.batch)+'</b></span><span>装置 <b>'+esc(s.unit)+'</b></span><span><b>'+s.steps.length+'</b> 幕 · '+esc(s.duration)+'</span></div><div class="sc-foot"><button class="btn" data-view="'+esc(s.id)+'">查看步骤</button><span class="sp"></span><button class="btn primary" data-start="'+esc(s.id)+'">开始导演 →</button></div></article>';
+    return '<article class="sc" style="--c:'+s.color+'"><div class="sc-top"><span class="sc-no">SCENE '+esc(s.no)+'</span><span class="sc-risk '+(s.risk==='高'?'high':'mid')+'">'+esc(s.risk)+'风险</span></div><h3>'+esc(s.title)+'</h3><p class="sub">'+esc(s.subtitle)+'</p><p class="pain">'+esc(s.pain)+'</p><p class="fine">'+esc(s.fineChemical)+'</p><div class="sys">'+s.systems.map(function(x){return '<span>'+esc(x)+'</span>';}).join('')+'</div><div class="meta"><span>批号 <b>'+esc(s.batch)+'</b></span><span>装置 <b>'+esc(s.unit)+'</b></span><span><b>'+s.steps.length+'</b> 幕 · '+esc(s.duration)+'</span></div><div class="sc-riskline">可能原因 <b>'+(s.causes?s.causes.length:0)+'</b> · 独立保护层 <b>'+(s.protection?s.protection.length:0)+'</b> · 后果 <b>'+(s.consequences?s.consequences.length:0)+'</b></div><div class="sc-foot"><button class="btn" data-view="'+esc(s.id)+'">查看步骤</button><button class="btn" data-riskview="'+esc(s.id)+'">风险剖面</button><span class="sp"></span><button class="btn primary" data-start="'+esc(s.id)+'">开始导演 →</button></div></article>';
   }).join('');
   function start(id){ if(window.DirectorMode){ window.DirectorMode.start(id,0); } }
   document.querySelectorAll('[data-start]').forEach(function(b){b.onclick=function(){start(b.getAttribute('data-start'));};});
@@ -72,7 +92,8 @@
   var modal=document.getElementById('modal'), mTitle=document.getElementById('mTitle'), mBody=document.getElementById('mBody');
   function close(){modal.classList.remove('show');}
   document.getElementById('mClose').onclick=close; modal.onclick=function(e){if(e.target===modal)close();};
-  document.querySelectorAll('[data-view]').forEach(function(b){b.onclick=function(){var s=null;for(var i=0;i<scs.length;i++){if(scs[i].id===b.getAttribute('data-view'))s=scs[i];}if(!s)return;mTitle.textContent=s.title+' · 导演脚本';mBody.innerHTML='<div class="steps">'+s.steps.map(function(st,i){return '<div class="step"><span>'+(i+1)+'</span><div><b>'+esc(st.title)+'</b><p>'+esc(st.text)+'</p><em>'+esc(st.system)+' · '+esc(st.role)+'</em></div></div>';}).join('')+'</div>';modal.classList.add('show');};});
+  document.querySelectorAll('[data-view]').forEach(function(b){b.onclick=function(){var s=null;for(var i=0;i<scs.length;i++){if(scs[i].id===b.getAttribute('data-view'))s=scs[i];}if(!s)return;mTitle.textContent=s.title+' · 处置步骤';mBody.innerHTML='<div class="steps">'+s.steps.map(function(st,i){return '<div class="step"><span>'+(i+1)+'</span><div><b>'+esc(st.title)+'</b><p>'+esc(st.text)+'</p><em>'+esc(st.system)+' · '+esc(st.role)+'</em></div></div>';}).join('')+'</div>';modal.classList.add('show');};});
+  document.querySelectorAll('[data-riskview]').forEach(function(b){b.onclick=function(){var s=null;for(var i=0;i<scs.length;i++){if(scs[i].id===b.getAttribute('data-riskview'))s=scs[i];}if(!s)return;mTitle.textContent=s.title+' · 原因 / 保护层 / 后果';mBody.innerHTML=(window.DEMO_BOWTIE?window.DEMO_BOWTIE(s):'<p class="iac-dim">风险图未加载</p>')+'<p class="modal-note">图示风险值为演示数据，仅表示趋势；实际 LOPA/HAZOP 结论以企业报告为准。</p>';modal.classList.add('show');};});
 })();
 </script>
 <script src="../_shared/director.js"></script>
