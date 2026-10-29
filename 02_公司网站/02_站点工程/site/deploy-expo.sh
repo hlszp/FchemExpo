@@ -7,7 +7,17 @@ cd "$(dirname "$0")"
 HOST=101.200.186.149
 PORT=22334
 USER=root
-PASS='ZLinfot@123'
+# ⚠️ 密码不硬编码 —— 本仓库在 GitHub 上是公开的，硬编码密码曾因此泄露。
+# 从 .secrets/deploy.env 读取（已 gitignore），内容一行：DEPLOY_PASS=服务器root密码
+if [ -f .secrets/deploy.env ]; then
+  # shellcheck disable=SC1091
+  . ./.secrets/deploy.env
+fi
+PASS="${DEPLOY_PASS:-${ZLINFOT_DEPLOY_PASS:-}}"
+if [ -z "$PASS" ]; then
+  echo "缺少部署密码。创建 .secrets/deploy.env（内容为 DEPLOY_PASS=...），或 export ZLINFOT_DEPLOY_PASS=..."
+  exit 1
+fi
 SSH="sshpass -p $PASS ssh -p $PORT -o StrictHostKeyChecking=no -o ConnectTimeout=15"
 SCP="sshpass -p $PASS scp -P $PORT -o StrictHostKeyChecking=no"
 REMOTE_WEB=/opt/zlinfot-web/current

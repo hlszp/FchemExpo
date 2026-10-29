@@ -1,0 +1,18 @@
+# ── 凭证与本地状态：本仓库在 GitHub 上是【公开】的，以下永不进库 ──
+.workbuddy/
+.secrets/
+**/secrets/
+AGENTS.md
+README.md
+
+# 环境变量与密钥文件
+*.env
+.env
+.env.*
+
+# 演示系统采集浏览器档案（含登录态 cookie）
+00_参考资料/02_软件功能调研/.workbuddy/browser-profile/
+
+# macOS
+.DS_Store
+._*
